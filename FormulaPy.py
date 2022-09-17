@@ -15,12 +15,29 @@ def driver_standings():
 
     positions = get_positions(table)
     names = get_names(table)
-    teams = get_teams(table)
+    teams = get_driver_teams(table)
     nationalities = get_nationalities(table)
     points = get_points(table)
 
     wdc_df = pd.DataFrame(list(zip(positions, names, teams, nationalities, points)), columns=["POS","Driver","Team","Nationality","Points"])
     return wdc_df
+
+def team_standings():
+    page = requests.get("https://www.formula1.com/en/results.html/2022/team.html")
+
+    soup = BeautifulSoup(page.content, 'html.parser')
+    name_info = soup.find_all("table", {"class": "resultsarchive-table"})
+
+    table = []
+    table = name_info[0].findChildren("tr")
+
+    positions = get_positions(table)
+    teams = get_teams(table)
+    points = get_points(table)
+
+    wcc_df = pd.DataFrame(list(zip(positions, teams, points)), columns=["POS","Team","Points"])
+
+    return wcc_df
 
 
 def get_names(table):
@@ -35,11 +52,22 @@ def get_names(table):
 
     return names_list
 
-def get_teams(table):
+def get_driver_teams(table):
     teams_list = []
     for item in table:
         if isinstance(item, bs4.Tag):
             team_name = item.find("a", {"class": "grey semi-bold uppercase ArchiveLink"})
+
+        if team_name is not None:
+            teams_list.append(team_name.decode_contents())
+
+    return teams_list
+
+def get_teams(table):
+    teams_list = []
+    for item in table:
+        if isinstance(item, bs4.Tag):
+            team_name = item.find("a", {"class": "dark bold uppercase ArchiveLink"})
 
         if team_name is not None:
             teams_list.append(team_name.decode_contents())
@@ -80,3 +108,4 @@ def get_nationalities(table):
     return nationality_list
 
 print(driver_standings())
+print(team_standings())
