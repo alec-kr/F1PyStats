@@ -6,6 +6,7 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
+# Returns the driver standings for a specific year
 def driver_standings(year:int):
     page = requests.get("https://www.formula1.com/en/results.html/{}/drivers.html".format(year))
 
@@ -24,6 +25,7 @@ def driver_standings(year:int):
     wdc_df = pd.DataFrame(list(zip(positions, names, teams, nationalities, points)), columns=["POS","Driver","Constructor","Nationality","Points"])
     return wdc_df
 
+# Returns the constructor standings for a specific year
 def constructor_standings(year:int):
     page = requests.get("https://www.formula1.com/en/results.html/{}/team.html".format(year))
 
@@ -41,6 +43,7 @@ def constructor_standings(year:int):
 
     return wcc_df
 
+# Returns all race results for a specific year
 def race_results(year:int):
     page = requests.get("https://www.formula1.com/en/results.html/{}/races.html".format(year))
 
