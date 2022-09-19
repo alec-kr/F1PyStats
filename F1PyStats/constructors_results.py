@@ -1,5 +1,6 @@
 from bs4 import Tag
 
+# Return the constructor names from the table
 def get_constructors(table):
     teams_list = []
     for item in table:
