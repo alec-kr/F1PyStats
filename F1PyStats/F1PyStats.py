@@ -1,13 +1,26 @@
-from .drivers_results import get_driver_teams, get_names, get_nationalities, get_points, get_positions
+from .drivers_results import (get_driver_teams,
+                              get_names,
+                              get_nationalities,
+                              get_points,
+                              get_positions)
+
 from .constructors_results import get_constructors
-from .race_results import get_grands_prix, get_race_dates, get_race_laps, get_race_time, get_winning_constructors
+from .race_results import (get_grands_prix,
+                           get_race_dates,
+                           get_race_laps,
+                           get_race_time,
+                           get_winning_constructors)
 
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
-def driver_standings(year:int):
-    page = requests.get("https://www.formula1.com/en/results.html/{}/drivers.html".format(year))
+
+def driver_standings(year: int):
+    link = "https://www.formula1.com/en/results.html/{}/drivers.html".\
+            format(year)
+
+    page = requests.get(link)
 
     soup = BeautifulSoup(page.content, 'html.parser')
     name_info = soup.find_all("table", {"class": "resultsarchive-table"})
@@ -21,11 +34,22 @@ def driver_standings(year:int):
     nationalities = get_nationalities(table)
     points = get_points(table)
 
-    wdc_df = pd.DataFrame(list(zip(positions, names, teams, nationalities, points)), columns=["POS","Driver","Constructor","Nationality","Points"])
+    wdc_df = pd.DataFrame(list(
+                            zip(positions,
+                                names,
+                                teams,
+                                nationalities,
+                                points)),
+                          columns=["POS", "Driver",
+                                   "Constructor", "Nationality",
+                                   "Points"])
     return wdc_df
 
-def constructor_standings(year:int):
-    page = requests.get("https://www.formula1.com/en/results.html/{}/team.html".format(year))
+
+def constructor_standings(year: int):
+    link = "https://www.formula1.com/en/results.html/{}/team.html".\
+            format(year)
+    page = requests.get(link)
 
     soup = BeautifulSoup(page.content, 'html.parser')
     name_info = soup.find_all("table", {"class": "resultsarchive-table"})
@@ -37,12 +61,17 @@ def constructor_standings(year:int):
     teams = get_constructors(table)
     points = get_points(table)
 
-    wcc_df = pd.DataFrame(list(zip(positions, teams, points)), columns=["POS","Constructor","Points"])
+    wcc_df = pd.DataFrame(list(
+                        zip(positions, teams, points)),
+                        columns=["POS", "Constructor", "Points"])
 
     return wcc_df
 
-def race_results(year:int):
-    page = requests.get("https://www.formula1.com/en/results.html/{}/races.html".format(year))
+
+def race_results(year: int):
+    link = "https://www.formula1.com/en/results.html/{}/races.html".\
+            format(year)
+    page = requests.get(link)
 
     soup = BeautifulSoup(page.content, 'html.parser')
     name_info = soup.find_all("table", {"class": "resultsarchive-table"})
@@ -57,6 +86,12 @@ def race_results(year:int):
     race_time = get_race_time(table)
     race_laps = get_race_laps(table)
 
-    wcc_df = pd.DataFrame(list(zip(grand_prix, race_date, winner, winning_constructor, race_laps, race_time)), columns=["Grand Prix","Date", "Winner", "Team","Laps","Time"])
+    wcc_df = pd.DataFrame(list(
+                        zip(grand_prix, race_date, winner,
+                            winning_constructor, race_laps,
+                            race_time)),
+                          columns=["Grand Prix", "Date",
+                                   "Winner", "Team",
+                                   "Laps", "Time"])
 
     return wcc_df

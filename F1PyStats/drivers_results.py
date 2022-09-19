@@ -1,5 +1,6 @@
 from bs4 import Tag
 
+# Return the driver positions
 def get_positions(table):
     positions_list = []
     for item in table:
@@ -11,6 +12,7 @@ def get_positions(table):
     
     return positions_list
 
+# Return the driver names
 def get_names(table):
     names_list = []
     for item in table:
@@ -23,6 +25,7 @@ def get_names(table):
 
     return names_list
 
+# Return the drivers' corresponding teams
 def get_driver_teams(table):
     teams_list = []
     for item in table:
@@ -34,6 +37,7 @@ def get_driver_teams(table):
 
     return teams_list
 
+# Returns a list of the drivers' nationalities
 def get_nationalities(table):
     nationality_list = []
     for item in table:
@@ -45,6 +49,7 @@ def get_nationalities(table):
     
     return nationality_list
 
+# Return the points obtained by each driver
 def get_points(table):
     points_list = []
     for item in table:
