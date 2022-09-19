@@ -1,21 +1,15 @@
 from bs4 import Tag
 
-def get_winning_constructors(table):
-    teams_list = []
-    for item in table:
-        if isinstance(item, Tag):
-            team_name = item.find("td", {"class": "semi-bold uppercase"})
-
-            if team_name is not None:
-                teams_list.append(team_name.decode_contents())
-
-    return teams_list
-
-def get_grands_prix(table):
+def get_grands_prix(table, page):
     gps = []
     for item in table:
+        gp_name = ""
         if isinstance(item, Tag):
-            gp_name = item.find("a", {"class": "dark bold ArchiveLink"})
+            if page == "race_results":
+                gp_name = item.find("a", {"class": "dark bold ArchiveLink"})
+            
+            elif page == "fastest_lap":
+                gp_name = item.find("td", {"class": "width30 dark"})
 
             if gp_name is not None:
                 gp_name = gp_name.decode_contents()
@@ -45,11 +39,16 @@ def get_race_laps(table):
     
     return race_laps
 
-def get_race_time(table):
+def get_race_time(table, page):
     race_times = []
     for item in table:
+        time = ""
         if isinstance(item, Tag) and item is not None:
-            time = item.find("td", {"class": "dark bold hide-for-tablet"})
+            if page == "race_results":
+                time = item.find("td", {"class": "dark bold hide-for-tablet"})
+            
+            elif page == "fastest_lap":
+                time = item.find("td", {"class": "dark bold"})
 
             if time is not None:
                 race_times.append(time.decode_contents())

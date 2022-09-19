@@ -25,18 +25,6 @@ def get_names(table):
 
     return names_list
 
-# Return the drivers' corresponding teams
-def get_driver_teams(table):
-    teams_list = []
-    for item in table:
-        if isinstance(item, Tag):
-            team_name = item.find("a", {"class": "grey semi-bold uppercase ArchiveLink"})
-
-            if team_name is not None:
-                teams_list.append(team_name.decode_contents())
-
-    return teams_list
-
 # Returns a list of the drivers' nationalities
 def get_nationalities(table):
     nationality_list = []
