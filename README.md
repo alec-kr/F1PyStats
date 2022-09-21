@@ -9,7 +9,7 @@ This package scrapes data from the official [Formula 1 website](https://formula1
 $ git clone https://github.com/alec-kr/F1PyStats.git
 
 // Install dependencies
-$ pip install bs4 pandas
+$ pip install bs4 pandas requests
 
 // Install the package
 $ pip install path/to/F1PyStats/
