@@ -39,8 +39,6 @@ def driver_standings(year: int):
     json_data = page.json()
     standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["DriverStandings"]
 
-    # get_driver_positions, get_constructor_positions etc.
-    # loop over each set of data and add to an array in the other file
     positions = get_driver_positions(standings)
     names = get_driver_names(standings)
     teams = get_driver_teams(standings)
