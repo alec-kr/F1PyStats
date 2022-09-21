@@ -1,7 +1,7 @@
 # F1PyStats
 F1PyStats is an open-source Python3 package that provides Formula 1 data to developers.
 
-This package scrapes data from the official [Formula 1 website](https://formula1.com/), and returns data in a pandas DataFrame format.
+This package obtains F1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
 
 # Installation
 ```
@@ -9,7 +9,7 @@ This package scrapes data from the official [Formula 1 website](https://formula1
 $ git clone https://github.com/alec-kr/F1PyStats.git
 
 // Install dependencies
-$ pip install bs4 pandas requests
+$ pip install pandas requests
 
 // Install the package
 $ pip install path/to/F1PyStats/
@@ -26,8 +26,8 @@ The package currently contains four functions
 |-----------------------------	|---------------------------------------------------------------------	|-------------------	|
 | fp.driver_standings(year)      	| Returns the driver standings for a particular year                  	| Pandas DataFrame  	|
 | fp.constructor_standings(year) 	| Returns the constructor standings for a specified year              	| Pandas DataFrame  	|
-| fp.race_results(year)          	| Returns the race results for a specified year                       	| Pandas DataFrame  	|
-| fp.fastest_lap(year)           	| Returns the fastest lap times for each race, during a specific year 	| Pandas DataFrame  	|
+| fp.race_winners(year)          	| Returns the race winners for a specified year                       	| Pandas DataFrame  	|
+| fp.race_table(year)           	| Returns the race schedule for a specific year 	                      | Pandas DataFrame  	|
 
 # Contributions
 - Have a feature you would like to add? Feel free to create a PR :smile:.
