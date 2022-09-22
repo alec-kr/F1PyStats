@@ -4,14 +4,7 @@ def get_grands_prix(race_info):
 
 # Return the race winner names
 def get_race_winners(race_info):
-    winners_list = []
-
-    for i in race_info:
-        f_name = i["Results"][0]["Driver"]["givenName"]
-        l_name = i["Results"][0]["Driver"]["familyName"]
-        winners_list.append(" ".join([f_name, l_name]))
-    
-    return winners_list
+    return [" ".join(i["Results"][0]["Driver"]["givenName"], i["Results"][0]["Driver"]["familyName"] for i in race_info]
 
 # Return the winning constructor
 def get_winning_constructors(race_info):
