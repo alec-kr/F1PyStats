@@ -1,3 +1,8 @@
+'''This module is responsible for handling the user-level function calls'''
+
+import requests
+import pandas as pd
+
 from .driver_results import (
     get_driver_positions,
     get_driver_names,
@@ -35,11 +40,9 @@ from .race_schedule import (
     get_race_countries,
 )
 
-import requests
-import pandas as pd
-
 
 def driver_standings(year: int):
+    '''Returns the driver standings for a specified year'''
     link = f"https://ergast.com/api/f1/{year}/driverStandings.json"
 
     page = requests.get(link)
@@ -64,6 +67,7 @@ def driver_standings(year: int):
 
 
 def constructor_standings(year: int):
+    '''Returns the constructor standings for a specified year'''
     link = f"https://ergast.com/api/f1/{year}/constructorStandings.json"
     page = requests.get(link)
 
@@ -87,6 +91,7 @@ def constructor_standings(year: int):
 
 
 def race_winners(year: int):
+    '''Returns the race winners in a specified year'''
     link = f"https://ergast.com/api/f1/{year}/results/1.json"
     page = requests.get(link)
 
@@ -121,6 +126,7 @@ def race_winners(year: int):
 
 
 def race_table(year: int):
+    '''Returns the race schedule for a specified year'''
     link = f"https://ergast.com/api/f1/{year}.json"
 
     page = requests.get(link)
