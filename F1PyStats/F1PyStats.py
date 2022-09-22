@@ -32,8 +32,7 @@ import pandas as pd
 
 
 def driver_standings(year: int):
-    link = "https://ergast.com/api/f1/{}/driverStandings.json".\
-            format(year)
+    link = f"https://ergast.com/api/f1/{year}/driverStandings.json"
 
     page = requests.get(link)
     json_data = page.json()
@@ -60,8 +59,7 @@ def driver_standings(year: int):
 
 
 def constructor_standings(year: int):
-    link = "https://ergast.com/api/f1/{}/constructorStandings.json".\
-            format(year)
+    link = f"https://ergast.com/api/f1/{year}/constructorStandings.json"
     page = requests.get(link)
     
     json_data = page.json()
@@ -81,8 +79,7 @@ def constructor_standings(year: int):
 
 
 def race_winners(year: int):
-    link = "https://ergast.com/api/f1/{}/results/1.json".\
-            format(year)
+    link = f"https://ergast.com/api/f1/{year}/results/1.json"
     page = requests.get(link)
     
     json_data = page.json()
@@ -110,8 +107,7 @@ def race_winners(year: int):
 
 
 def race_table(year: int):
-    link = "https://ergast.com/api/f1/{}.json".\
-            format(year)
+    link = f"https://ergast.com/api/f1/{year}.json"
 
     page = requests.get(link)
     
