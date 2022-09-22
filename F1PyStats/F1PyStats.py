@@ -1,118 +1,138 @@
-from .drivers_results import (get_names,
-                              get_nationalities,
-                              get_points,
-                              get_positions)
+from .driver_results import (get_driver_positions,
+                                get_driver_names,
+                                get_driver_points,
+                                get_driver_teams,
+                                get_driver_wins,
+                                get_driver_nationality)
 
-from .constructors_results import get_constructors
-from .race_results import (get_grands_prix,
-                           get_race_dates,
-                           get_race_laps,
-                           get_race_time)
+from .constructor_results import (get_constructor_names,
+                                    get_constructor_nationality,
+                                    get_constructor_points,
+                                    get_constructor_positions,
+                                    get_constructor_wins)
+
+from .race_winners import (get_grands_prix,
+                            get_race_dates,
+                            get_race_winners,
+                            get_winning_constructors,
+                            get_race_laps,
+                            get_winner_start_positions,
+                            get_race_times)
+
+from .race_schedule import (get_race_round,
+                            get_race_names,
+                            get_race_circuits,
+                            get_race_schedule_dates,
+                            get_race_schedule_times,
+                            get_race_locality,
+                            get_race_countries)
 
 import requests
 import pandas as pd
-from bs4 import BeautifulSoup
 
 
 def driver_standings(year: int):
-    link = "https://www.formula1.com/en/results.html/{}/drivers.html".\
+    link = "https://ergast.com/api/f1/{}/driverStandings.json".\
             format(year)
 
     page = requests.get(link)
+    json_data = page.json()
+    standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["DriverStandings"]
 
-    soup = BeautifulSoup(page.content, 'html.parser')
-    name_info = soup.find_all("table", {"class": "resultsarchive-table"})
-
-    table = []
-    table = name_info[0].findChildren("tr")
-
-    positions = get_positions(table)
-    names = get_names(table)
-    teams = get_constructors(table, "drivers_results")
-    nationalities = get_nationalities(table)
-    points = get_points(table)
+    positions = get_driver_positions(standings)
+    names = get_driver_names(standings)
+    teams = get_driver_teams(standings)
+    nationalities = get_driver_nationality(standings)
+    points = get_driver_points(standings)
+    wins = get_driver_wins(standings)
 
     wdc_df = pd.DataFrame(list(
                             zip(positions,
                                 names,
-                                teams,
                                 nationalities,
-                                points)),
+                                teams,
+                                points,
+                                wins)),
                           columns=["POS", "Driver",
-                                   "Constructor", "Nationality",
-                                   "Points"])
+                                   "Nationality", "Constructor",
+                                   "Points", "Wins"])
     return wdc_df
 
 
 def constructor_standings(year: int):
-    link = "https://www.formula1.com/en/results.html/{}/team.html".\
+    link = "https://ergast.com/api/f1/{}/constructorStandings.json".\
             format(year)
     page = requests.get(link)
+    
+    json_data = page.json()
+    standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["ConstructorStandings"]
 
-    soup = BeautifulSoup(page.content, 'html.parser')
-    name_info = soup.find_all("table", {"class": "resultsarchive-table"})
-
-    table = []
-    table = name_info[0].findChildren("tr")
-
-    positions = get_positions(table)
-    teams = get_constructors(table, "team_standings")
-    points = get_points(table)
+    positions = get_constructor_positions(standings)
+    teams = get_constructor_names(standings)
+    nationality = get_constructor_nationality(standings)
+    points = get_constructor_points(standings)
+    wins = get_constructor_wins(standings)
 
     wcc_df = pd.DataFrame(list(
-                        zip(positions, teams, points)),
-                        columns=["POS", "Constructor", "Points"])
+                        zip(positions, teams, nationality, points, wins)),
+                        columns=["POS", "Constructor", "Nationality", "Points", "Wins"])
 
     return wcc_df
 
 
-def race_results(year: int):
-    link = "https://www.formula1.com/en/results.html/{}/races.html".\
+def race_winners(year: int):
+    link = "https://ergast.com/api/f1/{}/results/1.json".\
             format(year)
     page = requests.get(link)
+    
+    json_data = page.json()
+    results = json_data["MRData"]["RaceTable"]["Races"]
 
-    soup = BeautifulSoup(page.content, 'html.parser')
-    name_info = soup.find_all("table", {"class": "resultsarchive-table"})
+    grands_prix = get_grands_prix(results)
+    race_dates = get_race_dates(results)
+    winners = get_race_winners(results)
+    winning_constructors = get_winning_constructors(results)
+    race_laps = get_race_laps(results)
+    race_times = get_race_times(results)
+    start_positions = get_winner_start_positions(results)
 
-    table = []
-    table = name_info[0].findChildren("tr")
-
-    grand_prix = get_grands_prix(table, "race_results")
-    race_date = get_race_dates(table)
-    winner = get_names(table)
-    winning_constructor = get_constructors(table, "race_results")
-    race_time = get_race_time(table, "race_results")
-    race_laps = get_race_laps(table)
 
     wcc_df = pd.DataFrame(list(
-                        zip(grand_prix, race_date, winner,
-                            winning_constructor, race_laps,
-                            race_time)),
+                        zip(grands_prix, race_dates, winners,
+                            winning_constructors, race_laps,
+                            race_times, start_positions)),
                           columns=["Grand Prix", "Date",
-                                   "Winner", "Team",
-                                   "Laps", "Time"])
+                                   "Winner", "Constructor",
+                                   "Laps", "Time",
+                                   "Grid"])
 
     return wcc_df
 
 
-def fastest_lap(year: int):
-    link = "https://www.formula1.com/en/results.html/{}/fastest-laps.html".\
+def race_table(year: int):
+    link = "https://ergast.com/api/f1/{}.json".\
             format(year)
+
     page = requests.get(link)
+    
+    json_data = page.json()
+    r_schedule = json_data["MRData"]["RaceTable"]["Races"]
 
-    soup = BeautifulSoup(page.content, 'html.parser')
-    name_info = soup.find_all("table", {"class": "resultsarchive-table"})
-
-    table = []
-    table = name_info[0].findChildren("tr")
-
-    grands_prix = get_grands_prix(table, "fastest_lap")
-    drivers = get_names(table)
-    teams = get_constructors(table, "fastest_lap")
-    race_time = get_race_time(table, "fastest_lap")
+    race_round = get_race_round(r_schedule)
+    race_name = get_race_names(r_schedule)
+    race_circuits = get_race_circuits(r_schedule)
+    race_schedule_date = get_race_schedule_dates(r_schedule)
+    race_schedule_time = get_race_schedule_times(r_schedule)
+    race_locality = get_race_locality(r_schedule)
+    race_country = get_race_countries(r_schedule)
 
     wcc_df = pd.DataFrame(list(
-                        zip(grands_prix, drivers, teams, race_time)),
-                        columns=["Grand Prix", "Driver", "Team", "Time"])
+                        zip(race_round, race_name, race_circuits,
+                            race_schedule_date, race_schedule_time,
+                            race_locality, race_country)),
+                          columns=["Round", "Race Name",
+                                   "Circuit", "Date",
+                                   "Time", "Locality",
+                                   "Country"])
 
     return wcc_df
