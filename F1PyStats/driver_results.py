@@ -4,7 +4,7 @@ def get_driver_positions(driver_info):
 
 # Return the driver names
 def get_driver_names(driver_info):
-    return [" ".join([i["Driver"]["givenName"], i["Driver"]["familyName"]]) for i in driver_info]
+    return [" ".join(i["Driver"]["givenName"], i["Driver"]["familyName"]) for i in driver_info]
 
 # Return the points obtained by each driver
 def get_driver_points(driver_info):
