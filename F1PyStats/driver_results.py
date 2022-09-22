@@ -1,53 +1,20 @@
 # Return the driver positions
 def get_driver_positions(driver_info):
-    positions_list = []
-
-    for i in range(len(driver_info)):
-        positions_list.append(driver_info[i]["position"])
-    
-    return positions_list
+    return [i["position"] for i in driver_info]
 
 # Return the driver names
 def get_driver_names(driver_info):
-    names_list = []
-
-    for i in range(len(driver_info)):
-        f_name = driver_info[i]["Driver"]["givenName"]
-        l_name = driver_info[i]["Driver"]["familyName"]
-
-        names_list.append(" ".join([f_name, l_name]))
-    
-    return names_list
+    return [" ".join([i["givenName"], i["familyName"]]) for i in driver_info["Driver"]]
 
 # Return the points obtained by each driver
 def get_driver_points(driver_info):
-    points_list = []
-
-    for i in range(len(driver_info)):
-        points_list.append(driver_info[i]["points"])
-    
-    return points_list
+    return [i["points"] for i in driver_info]
 
 def get_driver_teams(driver_info):
-    teams_list = []
-
-    for i in range(len(driver_info)):
-        teams_list.append(driver_info[i]["Constructors"][0]["name"])
-    
-    return teams_list
+    return [i["Constructors"][0]["name"] for i in driver_info]
 
 def get_driver_nationality(driver_info):
-    nationality_list = []
-
-    for i in range(len(driver_info)):
-        nationality_list.append(driver_info[i]["Driver"]["nationality"])
-    
-    return nationality_list
+    return [i["Driver"]["nationality"] for i in driver_info]
 
 def get_driver_wins(driver_info):
-    wins_list = []
-
-    for i in range(len(driver_info)):
-        wins_list.append(driver_info[i]["wins"])
-    
-    return wins_list 
+    return [i["wins"] for i in driver_info]
