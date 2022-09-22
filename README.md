@@ -1,7 +1,7 @@
 # F1PyStats
-F1PyStats is an open-source Python3 package that provides Formula 1 data to developers.
+F1PyStats is an open-source Python3 package that provides Formula 1 data/statistics to developers.
 
-This package obtains F1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
+This package obtains Formula 1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
 
 # Installation
 ```
@@ -31,4 +31,4 @@ The package currently contains four functions
 
 # Contributions
 - Have a feature you would like to add? Feel free to create a PR :smile:.
-- Spot an issue or bug? Please let me know by creating an issue.
+- Spot an issue or bug? Please let us know by creating an issue. :bug:
