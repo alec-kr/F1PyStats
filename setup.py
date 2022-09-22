@@ -2,9 +2,9 @@
 
 #!/usr/bin/env python
 
-from distutils.core import setup
+import setuptools
 
-setup(name='f1pystats',
+setuptools.setup(name='f1pystats',
       version='1.0',
       description='Python Example Package',
       author='alec-kr',
