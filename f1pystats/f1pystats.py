@@ -1,6 +1,5 @@
 '''This module is responsible for handling the user-level function calls'''
 
-from time import time
 import requests
 import pandas as pd
 
