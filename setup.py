@@ -8,4 +8,7 @@ setup(name='F1PyStats',
       author='alec-kr',
       author_email='akramdhan02@gmail.com',
       packages=['F1PyStats'],
+      install_requires=[
+          'requests', 'pandas'
+      ]
      )
