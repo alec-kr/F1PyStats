@@ -1,3 +1,5 @@
+'''This file is used during installation of the package'''
+
 #!/usr/bin/env python
 
 from distutils.core import setup
@@ -11,4 +13,4 @@ setup(name='f1pystats',
       install_requires=[
           'requests', 'pandas'
       ]
-     )
+)
