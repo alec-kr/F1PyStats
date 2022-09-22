@@ -1,5 +1,6 @@
 '''This module is responsible for handling the user-level function calls'''
 
+from time import time
 import requests
 import pandas as pd
 
@@ -45,7 +46,7 @@ def driver_standings(year: int):
     '''Returns the driver standings for a specified year'''
     link = f"https://ergast.com/api/f1/{year}/driverStandings.json"
 
-    page = requests.get(link)
+    page = requests.get(link, timeout=15)
     json_data = page.json()
     standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0][
         "DriverStandings"
@@ -69,7 +70,7 @@ def driver_standings(year: int):
 def constructor_standings(year: int):
     '''Returns the constructor standings for a specified year'''
     link = f"https://ergast.com/api/f1/{year}/constructorStandings.json"
-    page = requests.get(link)
+    page = requests.get(link, timeout=15)
 
     json_data = page.json()
     standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0][
@@ -93,7 +94,7 @@ def constructor_standings(year: int):
 def race_winners(year: int):
     '''Returns the race winners in a specified year'''
     link = f"https://ergast.com/api/f1/{year}/results/1.json"
-    page = requests.get(link)
+    page = requests.get(link, timeout=15)
 
     json_data = page.json()
     results = json_data["MRData"]["RaceTable"]["Races"]
@@ -129,7 +130,7 @@ def race_table(year: int):
     '''Returns the race schedule for a specified year'''
     link = f"https://ergast.com/api/f1/{year}.json"
 
-    page = requests.get(link)
+    page = requests.get(link, timeout=15)
 
     json_data = page.json()
     r_schedule = json_data["MRData"]["RaceTable"]["Races"]
