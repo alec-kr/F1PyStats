@@ -2,6 +2,7 @@
 
 
 class ConstructorResults:
+    '''Contains all methods used to get constructor results'''
     def __init__(self, results):
         self.results = results
 

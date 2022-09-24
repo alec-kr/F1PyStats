@@ -2,6 +2,7 @@
 
 
 class DriverResults:
+    '''Contains all methods used to get driver results'''
     def __init__(self, results):
         self.results = results
 

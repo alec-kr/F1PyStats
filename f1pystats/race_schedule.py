@@ -2,6 +2,7 @@
 
 
 class RaceSchedule:
+    '''Contains all methods used to get the race schedule'''
     def __init__(self, schedule):
         self.schedule = schedule
 

@@ -2,6 +2,7 @@
 
 
 class RaceWinners():
+    '''Contains all methods used to get the race winners'''
     def __init__(self, results):
         self.results = results
 
