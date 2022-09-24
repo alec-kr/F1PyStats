@@ -3,42 +3,13 @@
 import requests
 import pandas as pd
 
-from .driver_results import (
-    get_driver_positions,
-    get_driver_names,
-    get_driver_points,
-    get_driver_teams,
-    get_driver_wins,
-    get_driver_nationality,
-)
+from .driver_results import DriverResults
 
-from .constructor_results import (
-    get_constructor_names,
-    get_constructor_nationality,
-    get_constructor_points,
-    get_constructor_positions,
-    get_constructor_wins,
-)
+from .constructor_results import ConstructorResults
 
-from .race_winners import (
-    get_grands_prix,
-    get_race_dates,
-    get_race_winners,
-    get_winning_constructors,
-    get_race_laps,
-    get_winner_start_positions,
-    get_race_times,
-)
+from .race_winners import RaceWinners
 
-from .race_schedule import (
-    get_race_round,
-    get_race_names,
-    get_race_circuits,
-    get_race_schedule_dates,
-    get_race_schedule_times,
-    get_race_locality,
-    get_race_countries,
-)
+from .race_schedule import RaceSchedule
 
 
 def driver_standings(year: int):
@@ -47,16 +18,19 @@ def driver_standings(year: int):
 
     page = requests.get(link, timeout=15)
     json_data = page.json()
-    standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0][
+    standings_json = json_data["MRData"]["StandingsTable"][
+        "StandingsLists"][0][
         "DriverStandings"
     ]
 
-    positions = get_driver_positions(standings)
-    names = get_driver_names(standings)
-    teams = get_driver_teams(standings)
-    nationalities = get_driver_nationality(standings)
-    points = get_driver_points(standings)
-    wins = get_driver_wins(standings)
+    d_res = DriverResults(standings_json)
+
+    positions = d_res.get_driver_positions()
+    names = d_res.get_driver_names()
+    teams = d_res.get_driver_teams()
+    nationalities = d_res.get_driver_nationality()
+    points = d_res.get_driver_points()
+    wins = d_res.get_driver_wins()
 
     wdc_df = pd.DataFrame(
         list(zip(positions, names, nationalities, teams, points, wins)),
@@ -72,15 +46,18 @@ def constructor_standings(year: int):
     page = requests.get(link, timeout=15)
 
     json_data = page.json()
-    standings = json_data["MRData"]["StandingsTable"]["StandingsLists"][0][
+    standings_json = json_data["MRData"]["StandingsTable"][
+        "StandingsLists"][0][
         "ConstructorStandings"
     ]
 
-    positions = get_constructor_positions(standings)
-    teams = get_constructor_names(standings)
-    nationality = get_constructor_nationality(standings)
-    points = get_constructor_points(standings)
-    wins = get_constructor_wins(standings)
+    c_res = ConstructorResults(standings_json)
+
+    positions = c_res.get_constructor_positions()
+    teams = c_res.get_constructor_names()
+    nationality = c_res.get_constructor_nationality()
+    points = c_res.get_constructor_points()
+    wins = c_res.get_constructor_wins()
 
     wcc_df = pd.DataFrame(
         list(zip(positions, teams, nationality, points, wins)),
@@ -96,15 +73,17 @@ def race_winners(year: int):
     page = requests.get(link, timeout=15)
 
     json_data = page.json()
-    results = json_data["MRData"]["RaceTable"]["Races"]
+    results_json = json_data["MRData"]["RaceTable"]["Races"]
 
-    grands_prix = get_grands_prix(results)
-    race_dates = get_race_dates(results)
-    winners = get_race_winners(results)
-    winning_constructors = get_winning_constructors(results)
-    race_laps = get_race_laps(results)
-    race_times = get_race_times(results)
-    start_positions = get_winner_start_positions(results)
+    r_winners = RaceWinners(results_json)
+
+    grands_prix = r_winners.get_grands_prix()
+    race_dates = r_winners.get_race_dates()
+    winners = r_winners.get_race_winners()
+    winning_constructors = r_winners.get_winning_constructors()
+    race_laps = r_winners.get_race_laps()
+    race_times = r_winners.get_race_times()
+    start_positions = r_winners.get_winner_start_positions()
 
     wcc_df = pd.DataFrame(
         list(
@@ -132,15 +111,17 @@ def race_table(year: int):
     page = requests.get(link, timeout=15)
 
     json_data = page.json()
-    r_schedule = json_data["MRData"]["RaceTable"]["Races"]
+    schedule_json = json_data["MRData"]["RaceTable"]["Races"]
 
-    race_round = get_race_round(r_schedule)
-    race_name = get_race_names(r_schedule)
-    race_circuits = get_race_circuits(r_schedule)
-    race_schedule_date = get_race_schedule_dates(r_schedule)
-    race_schedule_time = get_race_schedule_times(r_schedule)
-    race_locality = get_race_locality(r_schedule)
-    race_country = get_race_countries(r_schedule)
+    r_sched = RaceSchedule(schedule_json)
+
+    race_round = r_sched.get_race_round()
+    race_name = r_sched.get_race_names()
+    race_circuits = r_sched.get_race_circuits()
+    race_schedule_date = r_sched.get_race_schedule_dates()
+    race_schedule_time = r_sched.get_race_schedule_times()
+    race_locality = r_sched.get_race_locality()
+    race_country = r_sched.get_race_countries()
 
     wcc_df = pd.DataFrame(
         list(
