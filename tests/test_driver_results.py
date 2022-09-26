@@ -1,10 +1,8 @@
 import json
-import sys
-sys.path.insert(0, '.') 
 from f1pystats.driver_results import DriverResults
 
 class TestDriverResults:
-    f = open("./f1pystats/tests/top_3_2008.json")
+    f = open("tests/top_3_2008.json")
     data = json.load(f)
     f.close()
 
