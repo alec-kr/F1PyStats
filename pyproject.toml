@@ -20,6 +20,7 @@ nox = "^2022.8.7"
 mypy = "^0.971"
 black = "^22.8.0"
 flake8 = "^5.0.4"
+pytest-mock = "^3.8.2"
 
 [build-system]
 requires = ["poetry-core"]
