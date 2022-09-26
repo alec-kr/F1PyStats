@@ -9,7 +9,6 @@ class TestDriverResults:
 
     data = ""
     with open("tests/top_3_2008.json", encoding='utf-8') as f:
-        f = open("tests/top_3_2008.json")
         data = json.load(f)
         f.close()
 
