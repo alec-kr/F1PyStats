@@ -1,18 +1,25 @@
 # F1PyStats
 F1PyStats is an open-source Python3 package that provides Formula 1 data/statistics to developers.
-
 This package obtains Formula 1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
 
+
 # Installation
+## Prerequisite
+The package uses `Poetry` as the primary dependency management tool. To install `Poetry` follow their 
+official documentation at [link](https://python-poetry.org/docs/)
 ```
 // Clone the repo
 $ git clone https://github.com/alec-kr/F1PyStats.git
 
-// Install dependencies
-$ pip install pandas requests
+// Install dependecies using poetry
+$ cd ../F1PyStats
+$ poetry install --only main
 
-// Install the package
-$ pip install path/to/F1PyStats/
+// Build the package if you would to use it in other projects (https://python-poetry.org/docs/cli/#build)
+poetry build
+
+// Install built package (https://python-poetry.org/docs/cli/#add)
+poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
 ```
 
 # Usage
