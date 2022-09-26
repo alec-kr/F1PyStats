@@ -1,0 +1,74 @@
+[
+    {
+      "position": "1",
+      "positionText": "1",
+      "points": "98",
+      "wins": "5",
+      "Driver": {
+        "driverId": "hamilton",
+        "permanentNumber": "44",
+        "code": "HAM",
+        "url": "http://en.wikipedia.org/wiki/Lewis_Hamilton",
+        "givenName": "Lewis",
+        "familyName": "Hamilton",
+        "dateOfBirth": "1985-01-07",
+        "nationality": "British"
+      },
+      "Constructors": [
+        {
+          "constructorId": "mclaren",
+          "url": "http://en.wikipedia.org/wiki/McLaren",
+          "name": "McLaren",
+          "nationality": "British"
+        }
+      ]
+    },
+    {
+      "position": "2",
+      "positionText": "2",
+      "points": "97",
+      "wins": "6",
+      "Driver": {
+        "driverId": "massa",
+        "permanentNumber": "19",
+        "code": "MAS",
+        "url": "http://en.wikipedia.org/wiki/Felipe_Massa",
+        "givenName": "Felipe",
+        "familyName": "Massa",
+        "dateOfBirth": "1981-04-25",
+        "nationality": "Brazilian"
+      },
+      "Constructors": [
+        {
+          "constructorId": "ferrari",
+          "url": "http://en.wikipedia.org/wiki/Scuderia_Ferrari",
+          "name": "Ferrari",
+          "nationality": "Italian"
+        }
+      ]
+    },
+    {
+      "position": "3",
+      "positionText": "3",
+      "points": "75",
+      "wins": "2",
+      "Driver": {
+        "driverId": "raikkonen",
+        "permanentNumber": "7",
+        "code": "RAI",
+        "url": "http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen",
+        "givenName": "Kimi",
+        "familyName": "Räikkönen",
+        "dateOfBirth": "1979-10-17",
+        "nationality": "Finnish"
+      },
+      "Constructors": [
+        {
+          "constructorId": "ferrari",
+          "url": "http://en.wikipedia.org/wiki/Scuderia_Ferrari",
+          "name": "Ferrari",
+          "nationality": "Italian"
+        }
+      ]
+    }
+  ]
