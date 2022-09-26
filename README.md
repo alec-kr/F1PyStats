@@ -12,7 +12,7 @@ official documentation at [link](https://python-poetry.org/docs/)
 $ git clone https://github.com/alec-kr/F1PyStats.git
 
 // Install dependecies using poetry
-$ cd /<path where the repository was cloned>/F1PyStats
+$ cd ../F1PyStats
 $ poetry install --only main
 
 // Build the package if you would to use it in other projects (https://python-poetry.org/docs/cli/#build)
