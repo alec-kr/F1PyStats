@@ -15,11 +15,11 @@ $ git clone https://github.com/alec-kr/F1PyStats.git
 $ cd /<path where the repository was cloned>/F1PyStats
 $ poetry install --only main
 
-// Install dependencies
-$ pip install pandas requests
+// Build the package if you would to use it in other projects (https://python-poetry.org/docs/cli/#build)
+poetry build
 
-// Install the package
-$ pip install path/to/F1PyStats/
+// Install built package (https://python-poetry.org/docs/cli/#add)
+poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
 ```
 
 # Usage
