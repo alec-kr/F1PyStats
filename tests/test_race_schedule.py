@@ -8,7 +8,7 @@ class TestRaceSchedule:
     '''Contains functions for testing the methods in RaceSchedule'''
 
     data = ""
-    with open("tests/first_3_races_2008.json", encoding='utf-8') as f:
+    with open("tests/test_data/first_3_races_2008.json", encoding='utf-8') as f:
         data = json.load(f)
         f.close()
 
