@@ -151,21 +151,21 @@ def race_table(year: int):
     return wcc_df
 
 
-def lap_times(year: int, round: int, lap_number: int):
+def lap_times(year: int, race_round: int, lap_number: int):
     '''Returns the lap times for a specified year, race round and lap number'''
-    link = f"https://ergast.com/api/f1/{year}/{round}/laps/{lap_number}.json"
+    link = f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json"
 
     page = requests.get(link, timeout=15)
 
     json_data = page.json()
     schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"]
-    
+
     l_times = LapTimes(schedule_json)
-    
+
     driver_names = l_times.get_driver_names()
     driver_positions = l_times.get_driver_positions()
     driver_timings = l_times.get_lap_time()
-    
+
     wcc_df = pd.DataFrame(
         list(
             zip(
@@ -179,4 +179,3 @@ def lap_times(year: int, round: int, lap_number: int):
     )
 
     return wcc_df
-
