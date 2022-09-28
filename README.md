@@ -35,7 +35,7 @@ The package currently contains four functions
 | fp.constructor_standings(year) 	| Returns the constructor standings for a specified year              	| Pandas DataFrame  	|
 | fp.race_winners(year)          	| Returns the race winners for a specified year                       	| Pandas DataFrame  	|
 | fp.race_table(year)           	| Returns the race schedule for a specific year 	                      | Pandas DataFrame  	|
-| fp.lap_times(year, race_round, lap_number)           	| Returns the race schedule for a specific year 	                      | Pandas DataFrame  	|
+| fp.lap_times(year, race_round, lap_number)           	| Returns the lap times for a specific lap in a particular race 	                      | Pandas DataFrame  	|
 
 # Contributions
 - Have a feature you would like to add? Feel free to create a PR :smile:.
