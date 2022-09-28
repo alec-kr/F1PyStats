@@ -100,7 +100,7 @@ def race_winners(year: int):
             )
         ),
         columns=["Grand Prix", "Date", "Winner",
-                 "Constructor", "Laps", "Time", "Grid"],
+                 "Constructor", "Laps", "Race Time", "Grid"],
     )
 
     return wcc_df
