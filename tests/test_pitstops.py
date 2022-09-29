@@ -34,7 +34,7 @@ class TestPitStops:
 
     def test_lap_numbers(self):
         '''Test the lap numbers returned by get_lap_numbers'''
-        lap_nums = self.p_stops.get_lap_numbers
+        lap_nums = self.p_stops.get_lap_numbers()
         assert lap_nums == [
             "1",
             "1",
@@ -52,7 +52,7 @@ class TestPitStops:
 
     def test_durations(self):
         '''Test the pitstop durations returned by get_durations()'''
-        positions = self.c_res.get_constructor_nationality()
+        positions = self.p_stops.get_durations()
         assert positions == [
             "32.997",
             "33.027",
