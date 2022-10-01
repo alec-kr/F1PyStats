@@ -1,5 +1,7 @@
 # Contributing to F1PyStats
 
+😄🎉 Thank you for your interest in contributing to this repository 😄🎉 
+
 If you would like to contribute to this repository, please discuss the changes you would like to make by creating an issue.
 
 ## Steps to Contribute
@@ -30,7 +32,6 @@ After creating the branch, please ensure you switch to the branch by running:
 ``` 
 git checkout ＜new-branch-name＞
 ```
-
 
 ### Installation
 You can follow the instructions in the [README](https://github.com/alec-kr/F1PyStats/blob/main/README.md#prerequisite) to install the package.
