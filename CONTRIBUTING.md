@@ -4,9 +4,19 @@
 
 If you would like to contribute to this repository, please discuss the changes you would like to make by creating an issue.
 
+### Table Of Contents
+[Steps to Contribute](#steps-to-contribute)
+  * [Forking the Repository](#forking-the-repository)
+  * [Clone the Fork](#clone-the-fork)
+  * [Create a Branch](#create-a-branch)
+  * [Installation](#installation)
+  * [Submitting a Pull Request](#submitting-a-pull-request)
+
 ## Steps to Contribute
 
 The steps below will guide you through making your first contribution.
+
+NOTE: *We have a code of conduct, please follow it when interacting with the project.*
 
 ### Forking the Repository
 After you have created your issue, you can go ahead and fork the project by clicking the fork icon at the top right of the repository's home page.
@@ -42,3 +52,6 @@ You can follow the instructions in the [README](https://github.com/alec-kr/F1PyS
 3. After submitting your pull request, please ensure that all [status checks](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) are passing.
 
 *While the prerequisites above must be satisfied before having your pull request reviewed, the reviewer(s) may ask you to conduct additional changes before your pull request is ultimately accepted.*
+
+## Additional Notes
+1. Please ensure you follow our code of conduct at all times when interacting with the repository.
