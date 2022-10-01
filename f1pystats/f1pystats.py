@@ -3,6 +3,8 @@
 import requests
 import pandas as pd
 
+from f1pystats.pit_stops import PitStops
+
 from .driver_results import DriverResults
 
 from .constructor_results import ConstructorResults
@@ -179,3 +181,39 @@ def lap_times(year: int, race_round: int, lap_number: int):
     )
 
     return wcc_df
+
+
+def pit_stops(year: int, race_round: int, stop_number: int = 0):
+    '''Returns the pit stops for a specific race in a season'''
+    if int == 0:
+        link = f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json"
+    else:
+        link = f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
+
+    page = requests.get(link, timeout=15)
+
+    json_data = page.json()
+    stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
+
+    p_stops = PitStops(stops_json)
+
+    driver_names = p_stops.get_driver_names()
+    stop_number = p_stops.get_stop_numbers()
+    lap_number = p_stops.get_lap_numbers()
+    race_time = p_stops.get_times()
+    stop_duration = p_stops.get_durations()
+
+    stops_df = pd.DataFrame(
+        list(
+            zip(
+                driver_names,
+                stop_number,
+                lap_number,
+                race_time,
+                stop_duration
+            )
+        ),
+        columns=["Driver", "Stop", "Lap", "Time", "Duration"]
+    )
+
+    return stops_df

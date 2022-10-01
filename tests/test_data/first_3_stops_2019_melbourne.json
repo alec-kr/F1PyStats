@@ -1,0 +1,23 @@
+[
+    {
+      "driverId": "kubica",
+      "lap": "1",
+      "stop": "1",
+      "time": "16:15:28",
+      "duration": "32.997"
+    },
+    {
+      "driverId": "ricciardo",
+      "lap": "1",
+      "stop": "1",
+      "time": "16:15:30",
+      "duration": "33.027"
+    },
+    {
+      "driverId": "raikkonen",
+      "lap": "12",
+      "stop": "1",
+      "time": "16:31:50",
+      "duration": "23.299"
+    }
+]
