@@ -8,6 +8,7 @@ If you would like to contribute to this repository, please discuss the changes y
 [Steps to Contribute](#steps-to-contribute)
   * [Forking the Repository](#forking-the-repository)
   * [Clone the Fork](#clone-the-fork)
+  * [Configure a Remote for the Fork](#configure-a-remote-for-the-fork)
   * [Create a Branch](#create-a-branch)
   * [Installation](#installation)
   * [Submitting a Pull Request](#submitting-a-pull-request)
@@ -30,6 +31,16 @@ To clone the package to your local system, run the following ```git``` command:
 
 ```// Clone the repo
 $ git clone https://github.com/alec-kr/F1PyStats.git 
+```
+
+### Configure a Remote for the Fork
+Add the project repository as the "upstream" remote using: 
+```
+// Go into the cloned project
+$ cd <local-repo-directory>
+
+// Configure the remote for the fork
+$ git remote add upstream https://github.com/alec-kr/F1PyStats.git 
 ```
 
 ### Create a branch
