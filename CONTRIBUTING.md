@@ -2,7 +2,7 @@
 
 😄🎉 Thank you for your interest in contributing to this repository 😄🎉 
 
-If you would like to contribute to this repository, please discuss the changes you would like to make by creating an issue.
+If you would like to contribute to this repository, please discuss the changes you would like to make by [creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue).
 
 ### Table Of Contents
 [Steps to Contribute](#steps-to-contribute)
