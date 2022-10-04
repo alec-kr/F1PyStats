@@ -20,4 +20,4 @@ jobs:
         pip install pylint requests pandas
     - name: Analysing the code with pylint
       run: |
-        pylint --rcfile=.pylintrc $(git ls-files '*.py')
+        pylint $(git ls-files '*.py') --ignore=noxfile.py --ignore=docs
