@@ -3,12 +3,18 @@
 import requests
 import pandas as pd
 
-from f1pystats.constructor_results import ConstructorResults
-from f1pystats.driver_results import DriverResults
-from f1pystats.lap_times import LapTimes
-from f1pystats.pit_stops import PitStops
-from f1pystats.race_schedule import RaceSchedule
-from f1pystats.race_winners import RaceWinners
+from .pit_stops import PitStops
+
+from .driver_results import DriverResults
+
+from .constructor_results import ConstructorResults
+
+from .race_winners import RaceWinners
+
+from .race_schedule import RaceSchedule
+
+from .lap_times import LapTimes
+from .finishing_status import FinishingStatus
 
 
 def driver_standings(year: int):
