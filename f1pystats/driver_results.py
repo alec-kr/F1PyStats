@@ -13,7 +13,9 @@ class DriverResults:
 
     def get_driver_names(self):
         """Returns the driver names"""
-        return [" ".join([i["Driver"]["givenName"], i["Driver"]["familyName"]]) for i in self.results]
+        return [
+            " ".join([i["Driver"]["givenName"], i["Driver"]["familyName"]]) for i in self.results
+        ]
 
     def get_driver_points(self):
         """Returns the points obtained by each driver"""

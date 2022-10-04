@@ -17,7 +17,11 @@ class TestRaceWinners:
     def test_grands_prix(self):
         """Test the grands prix returned by get_grands_prix"""
         grands_prix = self.r_win.get_grands_prix()
-        assert grands_prix == ["Australian Grand Prix", "Malaysian Grand Prix", "Bahrain Grand Prix"]
+        assert grands_prix == [
+            "Australian Grand Prix",
+            "Malaysian Grand Prix",
+            "Bahrain Grand Prix",
+        ]
 
     def test_race_winners(self):
         """Test the winner names returned by get_race_winners"""

@@ -14,7 +14,9 @@ class RaceWinners:
     def get_race_winners(self):
         """Returns a list of the race winner names"""
         return [
-            " ".join([i["Results"][0]["Driver"]["givenName"], i["Results"][0]["Driver"]["familyName"]])
+            " ".join(
+                [i["Results"][0]["Driver"]["givenName"], i["Results"][0]["Driver"]["familyName"]]
+            )
             for i in self.results
         ]
 

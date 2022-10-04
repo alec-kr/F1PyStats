@@ -37,8 +37,12 @@ def driver_standings(year: int):
 
 def constructor_standings(year: int):
     """Returns the constructor standings for a specified year"""
-    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/constructorStandings.json")
-    standings_json = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["ConstructorStandings"]
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/constructorStandings.json"
+    )
+    standings_json = json_data["MRData"]["StandingsTable"]["StandingsLists"][0][
+        "ConstructorStandings"
+    ]
     c_res = ConstructorResults(standings_json)
     positions = c_res.get_constructor_positions()
     teams = c_res.get_constructor_names()
@@ -116,7 +120,9 @@ def race_table(year: int):
 
 def lap_times(year: int, race_round: int, lap_number: int):
     """Returns the lap times for a specified year, race round and lap number"""
-    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json")
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json"
+    )
     schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"]
     l_times = LapTimes(schedule_json)
     driver_names = l_times.get_driver_names()
@@ -140,7 +146,9 @@ def lap_times(year: int, race_round: int, lap_number: int):
 def pit_stops(year: int, race_round: int, stop_number: int = 0):
     """Returns the pit stops for a specific race in a season"""
     if int == 0:
-        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json")
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json"
+        )
     else:
         json_data = _get_json_content_from_url(
             f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
