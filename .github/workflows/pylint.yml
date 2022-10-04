@@ -20,4 +20,4 @@ jobs:
         pip install pylint requests pandas
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --ignore=noxfile.py --ignore=docs/*
+        pylint $(git ls-files '*.py') --ignore=noxfile.py --ignore=docs/*.py
