@@ -219,26 +219,27 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
 
     return stops_df
 
-def finishing_status(year:int, round:int =0):
+def finishing_status(year:int, race_round:int =0):
     '''Returns the finishing status for a year with a optional parameter of round'''
-    if round == 0:
+    if race_round == 0:
         link = f"https://ergast.com/api/f1/{year}/status.json"
     else:
-        link = f"https://ergast.com/api/f1/{year}/{round}/status.json"
+        link = f"https://ergast.com/api/f1/{year}/{race_round}/status.json"
     page = requests.get(link, timeout=15)
     json_data=page.json()
     f_status=FinishingStatus(json_data['MRData']['StatusTable']['Status'])
     status_id=f_status.get_status_id()
-    statusInfo=f_status.get_status()
-    statusCount=f_status.get_status_count()
+    status_info=f_status.get_status()
+    status_count=f_status.get_status_count()
     status_df=pd.DataFrame(
         list(
             zip(
                 status_id,
-                statusInfo,
-                statusCount
+                status_info,
+                status_count
             )
         ),
         columns=['StatusId','Status','Count']
     )
+
     return status_df

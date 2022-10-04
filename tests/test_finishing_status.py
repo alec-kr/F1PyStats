@@ -5,7 +5,7 @@ from f1pystats.finishing_status import FinishingStatus
 
 class TestFinishingStatus:
     '''Contains functions for testing the methods in FinishingStatus'''
-    
+
     data = ""
     with open("tests/test_data/top_3_status_2010.json",encoding='utf-8') as f:
         data=json.load(f)
@@ -37,3 +37,4 @@ class TestFinishingStatus:
             "17",
             "25"
         ]
+        
