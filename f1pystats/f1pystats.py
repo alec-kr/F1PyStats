@@ -3,7 +3,7 @@
 import requests
 import pandas as pd
 
-from f1pystats.pit_stops import PitStops
+from .pit_stops import PitStops
 
 from .driver_results import DriverResults
 
@@ -14,6 +14,7 @@ from .race_winners import RaceWinners
 from .race_schedule import RaceSchedule
 
 from .lap_times import LapTimes
+from .finishing_status import FinishingStatus
 
 
 def driver_standings(year: int):
@@ -218,7 +219,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
 
     return stops_df
 
-def finishing_status(year:int, round=0):
+def finishing_status(year:int, round:int =0):
     '''Returns the finishing status for a year with a optional parameter of round'''
     if round == 0:
         link = f"https://ergast.com/api/f1/{year}/status.json"
@@ -226,16 +227,16 @@ def finishing_status(year:int, round=0):
         link = f"https://ergast.com/api/f1/{year}/{round}/status.json"
     page = requests.get(link, timeout=15)
     json_data=page.json()
-    status=json_data['MRData']['StatusTable']['Status']
-    status_id= [i['statusId'] for i in status]
-    statusInfo=[i['status'] for i in status]
-    count=[i['count'] for i in status]
+    f_status=FinishingStatus(json_data['MRData']['StatusTable']['Status'])
+    status_id=f_status.get_status_id()
+    statusInfo=f_status.get_status()
+    statusCount=f_status.get_status_count()
     status_df=pd.DataFrame(
         list(
             zip(
                 status_id,
                 statusInfo,
-                count
+                statusCount
             )
         ),
         columns=['StatusId','Status','Count']
