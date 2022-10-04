@@ -162,3 +162,21 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
 def _get_json_content_from_url(url, *args, timeout=15, **kwargs):
     """Returns JSON content from requestsm URL"""
     return requests.get(url, *args, timeout=15, **kwargs).json()
+
+
+def finishing_status(year: int, race_round: int = 0):
+    """Returns the finishing status for a year with a optional parameter of round"""
+    if race_round == 0:
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/status.json")
+    else:
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{race_round}/status.json"
+        )
+    f_status = FinishingStatus(json_data["MRData"]["StatusTable"]["Status"])
+    status_id = f_status.get_status_id()
+    status_info = f_status.get_status()
+    status_count = f_status.get_status_count()
+
+    return pd.DataFrame(
+        zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
+    )
