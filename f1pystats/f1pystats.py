@@ -31,7 +31,7 @@ def get_drivers(year: int, round_num: int =None):
     json_data = page.json()
     driver_info_json = json_data["MRData"]["DriverTable"]["Drivers"]
     dr_info = DriverInfo(driver_info_json)
-    
+
     dr_name = dr_info.get_drivers_names()
     dr_dob = dr_info.get_drivers_dob()
     dr_nationality = dr_info.get_drivers_nationality()
@@ -39,13 +39,12 @@ def get_drivers(year: int, round_num: int =None):
         dr_perm_number = dr_info.get_drivers_number()
     else:
         dr_perm_number = [None]*len(dr_name)
-    
-    dr_df = pd.DataFrame(
-        list(zip(dr_name, dr_perm_number, dr_nationality, dr_dob)), 
+
+    dr_df = pd.DataFrame(list(zip(dr_name, dr_perm_number, dr_nationality, dr_dob)),
         columns=['Drivers', 'Permanent Number', 'Nationality', 'Date of Birth']
-        )
+    )
     return dr_df
-    
+
 
 
 def driver_standings(year: int):
