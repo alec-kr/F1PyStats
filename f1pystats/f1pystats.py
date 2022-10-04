@@ -1,34 +1,21 @@
-'''This module is responsible for handling the user-level function calls'''
+"""This module is responsible for handling the user-level function calls"""
 
 import requests
 import pandas as pd
 
+from f1pystats.constructor_results import ConstructorResults
+from f1pystats.driver_results import DriverResults
+from f1pystats.lap_times import LapTimes
 from f1pystats.pit_stops import PitStops
-
-from .driver_results import DriverResults
-
-from .constructor_results import ConstructorResults
-
-from .race_winners import RaceWinners
-
-from .race_schedule import RaceSchedule
-
-from .lap_times import LapTimes
+from f1pystats.race_schedule import RaceSchedule
+from f1pystats.race_winners import RaceWinners
 
 
 def driver_standings(year: int):
-    '''Returns the driver standings for a specified year'''
-    link = f"https://ergast.com/api/f1/{year}/driverStandings.json"
-
-    page = requests.get(link, timeout=15)
-    json_data = page.json()
-    standings_json = json_data["MRData"]["StandingsTable"][
-        "StandingsLists"][0][
-        "DriverStandings"
-    ]
-
+    """Returns the driver standings for a specified year"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/driverStandings.json")
+    standings_json = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["DriverStandings"]
     d_res = DriverResults(standings_json)
-
     positions = d_res.get_driver_positions()
     names = d_res.get_driver_names()
     teams = d_res.get_driver_teams()
@@ -36,51 +23,34 @@ def driver_standings(year: int):
     points = d_res.get_driver_points()
     wins = d_res.get_driver_wins()
 
-    wdc_df = pd.DataFrame(
-        list(zip(positions, names, nationalities, teams, points, wins)),
-        columns=["POS", "Driver", "Nationality",
-                 "Constructor", "Points", "Wins"],
+    return pd.DataFrame(
+        zip(positions, names, nationalities, teams, points, wins),
+        columns=["POS", "Driver", "Nationality", "Constructor", "Points", "Wins"],
     )
-    return wdc_df
 
 
 def constructor_standings(year: int):
-    '''Returns the constructor standings for a specified year'''
-    link = f"https://ergast.com/api/f1/{year}/constructorStandings.json"
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
-    standings_json = json_data["MRData"]["StandingsTable"][
-        "StandingsLists"][0][
-        "ConstructorStandings"
-    ]
-
+    """Returns the constructor standings for a specified year"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/constructorStandings.json")
+    standings_json = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["ConstructorStandings"]
     c_res = ConstructorResults(standings_json)
-
     positions = c_res.get_constructor_positions()
     teams = c_res.get_constructor_names()
     nationality = c_res.get_constructor_nationality()
     points = c_res.get_constructor_points()
     wins = c_res.get_constructor_wins()
 
-    wcc_df = pd.DataFrame(
-        list(zip(positions, teams, nationality, points, wins)),
+    return pd.DataFrame(
+        zip(positions, teams, nationality, points, wins),
         columns=["POS", "Constructor", "Nationality", "Points", "Wins"],
     )
 
-    return wcc_df
-
 
 def race_winners(year: int):
-    '''Returns the race winners in a specified year'''
-    link = f"https://ergast.com/api/f1/{year}/results/1.json"
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
+    """Returns the race winners in a specified year"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/results/1.json")
     results_json = json_data["MRData"]["RaceTable"]["Races"]
-
     r_winners = RaceWinners(results_json)
-
     grands_prix = r_winners.get_grands_prix()
     race_dates = r_winners.get_race_dates()
     winners = r_winners.get_race_winners()
@@ -89,36 +59,25 @@ def race_winners(year: int):
     race_times = r_winners.get_race_times()
     start_positions = r_winners.get_winner_start_positions()
 
-    wcc_df = pd.DataFrame(
-        list(
-            zip(
-                grands_prix,
-                race_dates,
-                winners,
-                winning_constructors,
-                race_laps,
-                race_times,
-                start_positions,
-            )
+    return pd.DataFrame(
+        zip(
+            grands_prix,
+            race_dates,
+            winners,
+            winning_constructors,
+            race_laps,
+            race_times,
+            start_positions,
         ),
-        columns=["Grand Prix", "Date", "Winner",
-                 "Constructor", "Laps", "Race Time", "Grid"],
+        columns=["Grand Prix", "Date", "Winner", "Constructor", "Laps", "Race Time", "Grid"],
     )
-
-    return wcc_df
 
 
 def race_table(year: int):
-    '''Returns the race schedule for a specified year'''
-    link = f"https://ergast.com/api/f1/{year}.json"
-
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
+    """Returns the race schedule for a specified year"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}.json")
     schedule_json = json_data["MRData"]["RaceTable"]["Races"]
-
     r_sched = RaceSchedule(schedule_json)
-
     race_round = r_sched.get_race_round()
     race_name = r_sched.get_race_names()
     race_circuits = r_sched.get_race_circuits()
@@ -127,17 +86,15 @@ def race_table(year: int):
     race_locality = r_sched.get_race_locality()
     race_country = r_sched.get_race_countries()
 
-    wcc_df = pd.DataFrame(
-        list(
-            zip(
-                race_round,
-                race_name,
-                race_circuits,
-                race_schedule_date,
-                race_schedule_time,
-                race_locality,
-                race_country,
-            )
+    return pd.DataFrame(
+        zip(
+            race_round,
+            race_name,
+            race_circuits,
+            race_schedule_date,
+            race_schedule_time,
+            race_locality,
+            race_country,
         ),
         columns=[
             "Round",
@@ -150,70 +107,52 @@ def race_table(year: int):
         ],
     )
 
-    return wcc_df
-
 
 def lap_times(year: int, race_round: int, lap_number: int):
-    '''Returns the lap times for a specified year, race round and lap number'''
-    link = f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json"
-
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
+    """Returns the lap times for a specified year, race round and lap number"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json")
     schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"]
-
     l_times = LapTimes(schedule_json)
-
     driver_names = l_times.get_driver_names()
     driver_positions = l_times.get_driver_positions()
     driver_timings = l_times.get_lap_time()
 
-    wcc_df = pd.DataFrame(
-        list(
-            zip(
+    return pd.DataFrame(
+        zip(
             driver_positions,
             driver_names,
             driver_timings,
-            )
         ),
-        columns=["POS", "Driver", "Lap Time",
+        columns=[
+            "POS",
+            "Driver",
+            "Lap Time",
         ],
     )
 
-    return wcc_df
-
 
 def pit_stops(year: int, race_round: int, stop_number: int = 0):
-    '''Returns the pit stops for a specific race in a season'''
+    """Returns the pit stops for a specific race in a season"""
     if int == 0:
-        link = f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json"
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json")
     else:
-        link = f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
-
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
+        )
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
-
     p_stops = PitStops(stops_json)
-
     driver_names = p_stops.get_driver_names()
     stop_number = p_stops.get_stop_numbers()
     lap_number = p_stops.get_lap_numbers()
     race_time = p_stops.get_times()
     stop_duration = p_stops.get_durations()
 
-    stops_df = pd.DataFrame(
-        list(
-            zip(
-                driver_names,
-                stop_number,
-                lap_number,
-                race_time,
-                stop_duration
-            )
-        ),
-        columns=["Driver", "Stop", "Lap", "Time", "Duration"]
+    return pd.DataFrame(
+        zip(driver_names, stop_number, lap_number, race_time, stop_duration),
+        columns=["Driver", "Stop", "Lap", "Time", "Duration"],
     )
 
-    return stops_df
+
+def _get_json_content_from_url(url, *args, timeout=15, **kwargs):
+    """Returns JSON content from requestsm URL"""
+    return requests.get(url, *args, timeout=15, **kwargs).json()
