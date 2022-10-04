@@ -169,7 +169,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
 
 def _get_json_content_from_url(url, *args, timeout=15, **kwargs):
     """Returns JSON content from requestsm URL"""
-    return requests.get(url, *args, timeout=15, **kwargs).json()
+    return requests.get(url, *args, timeout=timeout, **kwargs).json()
 
 
 def finishing_status(year: int, race_round: int = 0):
