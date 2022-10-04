@@ -29,7 +29,7 @@ def get_drivers(year: int, round_num: int =None):
     page = requests.get(link, timeout=15)
 
     json_data = page.json()
-    driver_info_json = json_data
+    driver_info_json = json_data["MRData"]["DriverTable"]["Drivers"]
     dr_info = DriverInfo(driver_info_json)
 
     dr_name = dr_info.get_drivers_names()
