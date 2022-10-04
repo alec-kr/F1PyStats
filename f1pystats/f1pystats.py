@@ -167,11 +167,6 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
     )
 
 
-def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
-    """Returns JSON content from requestsm URL"""
-    return requests.get(url, *args, timeout=timeout, **kwargs).json()
-
-
 def finishing_status(year: int, race_round: int = 0):
     """Returns the finishing status for a year with a optional parameter of round"""
     if race_round == 0:
@@ -188,3 +183,8 @@ def finishing_status(year: int, race_round: int = 0):
     return pd.DataFrame(
         zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
     )
+
+
+def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
+    """Returns JSON content from requestsm URL"""
+    return requests.get(url, *args, timeout=timeout, **kwargs).json()
