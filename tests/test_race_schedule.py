@@ -35,7 +35,7 @@ class TestRaceSchedule:
         assert race_circuits == [
             "Albert Park Grand Prix Circuit",
             "Sepang International Circuit",
-            "Bahrain International Circuit",
+            "Bahrain International Circuit"
         ]
 
     def test_race_times(self):
