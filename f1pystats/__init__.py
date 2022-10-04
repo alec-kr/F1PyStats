@@ -5,4 +5,6 @@ from .f1pystats import (driver_standings,
                         race_winners,
                         race_table,
                         lap_times,
-                        pit_stops)
+                        pit_stops,
+                        get_drivers
+                        )
