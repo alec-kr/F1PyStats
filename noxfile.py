@@ -5,6 +5,7 @@ locations = "f1pystats", "tests", "noxfile.py", "docs/conf.py"
 
 @session(python=['3.8'])
 def lint(session) -> None:
+    """Runs linting for the package."""
     args = session.posargs or locations
     session.install("flake8",
                     "flake8-black",
@@ -18,17 +19,20 @@ def lint(session) -> None:
 
 @session(python=["3.8"])
 def mypy(session) -> None:
+    """Runs type checking the package."""
     args = session.posargs or locations
     session.run("mypy", *args)
 
 
 @session(python='3.8')
 def tests(session) -> None:
+    """Run all tests."""
     pass
 
 
 @session(python='3.8')
 def code_coverage(session) -> None:
+    """Run package coverage."""
     pass
 
 
