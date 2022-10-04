@@ -1,2 +1,1 @@
-[MAIN]
-ignore=noxfile.py docs
+ignore=noxfile.py
