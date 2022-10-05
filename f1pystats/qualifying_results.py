@@ -8,7 +8,7 @@ class QualifyingResults:
         return [i["position"] for i in self.results]
     def get_names(self):
         """Returns a list of driver names"""
-        return [" ".join([i["Driver"]["givenName"], 
+        return [" ".join([i["Driver"]["givenName"],
             i["Driver"]["familyName"]]) for i in self.results]
     def get_driver_numbers(self):
         """Returns a list of driver numbers"""
