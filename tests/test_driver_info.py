@@ -28,8 +28,5 @@ class TestDriverInfo:
         assert self.driver.get_drivers_nationality() == ['French', 'Brazilian', 'Brazilian']
 
     def test_drivers_number(self):
-        """Test for the get_drivers_number method of DriverInfo
-        WARNING: this method can return key error if used without
-        proper caution cause some data can't have the permanent error.
-        """
+        """Test for the get_drivers_number method of DriverInfo"""
         assert self.driver.get_drivers_number() == ['23', '34', '45']
