@@ -1,4 +1,7 @@
+
 """__init.py__ for f1pystats"""
+__version__ = '0.1.0'
+
 
 from .f1pystats import (driver_standings,
                         constructor_standings,
@@ -7,4 +10,5 @@ from .f1pystats import (driver_standings,
                         lap_times,
                         pit_stops,
                         finishing_status,
-                        qualifying_results)
+                        qualifying_results,
+                        get_drivers)

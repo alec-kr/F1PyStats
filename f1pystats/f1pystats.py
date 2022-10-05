@@ -17,6 +17,33 @@ from .lap_times import LapTimes
 from .finishing_status import FinishingStatus
 from .qualifying_results import QualifyingResults
 
+from .driver_info import DriverInfo
+
+
+def get_drivers(year: int, round_num: int = None):
+    """Returns a list of drivers for a specified year"""
+    if round_num is None:
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/drivers.json")
+    else:
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json"
+        )
+
+    dr_info = DriverInfo(json_data["MRData"]["DriverTable"]["Drivers"])
+
+    dr_name = dr_info.get_drivers_names()
+    dr_dob = dr_info.get_drivers_dob()
+    dr_nationality = dr_info.get_drivers_nationality()
+    if year >= 2014:
+        dr_perm_number = dr_info.get_drivers_number()
+    else:
+        dr_perm_number = [None] * len(dr_name)
+
+    return pd.DataFrame(
+        zip(dr_name, dr_perm_number, dr_nationality, dr_dob),
+        columns=["Drivers", "Permanent Number", "Nationality", "Date of Birth"],
+    )
+
 
 def driver_standings(year: int):
     """Returns the driver standings for a specified year"""

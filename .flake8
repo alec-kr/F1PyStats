@@ -1,0 +1,7 @@
+[flake8]
+select = ANN,B,B9,BLK,C,D,DAR,E,F,I,S,W
+ignore = E203,E501,W503
+max-line-length = 88
+import-order-style = google
+per-file-ignores = noxfile.py:ANN
+docstring-convention = google

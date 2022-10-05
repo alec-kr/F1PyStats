@@ -1,0 +1,30 @@
+[
+    {
+        "driverId": "alesi",
+        "url": "http:\/\/en.wikipedia.org\/wiki\/Jean_Alesi",
+        "permanentNumber": "23",
+        "givenName": "Jean",
+        "familyName": "Alesi",
+        "dateOfBirth": "1964-06-11",
+        "nationality": "French"
+    },
+    {
+        "driverId": "barrichello",
+        "code": "BAR",
+        "url": "http:\/\/en.wikipedia.org\/wiki\/Rubens_Barrichello",
+        "permanentNumber": "34",
+        "givenName": "Rubens",
+        "familyName": "Barrichello",
+        "dateOfBirth": "1972-05-23",
+        "nationality": "Brazilian"
+    },
+    {
+        "driverId": "burti",
+        "url": "http:\/\/en.wikipedia.org\/wiki\/Luciano_Burti",
+        "permanentNumber": "45",
+        "givenName": "Luciano",
+        "familyName": "Burti",
+        "dateOfBirth": "1975-03-05",
+        "nationality": "Brazilian"
+    }
+]
