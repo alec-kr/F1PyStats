@@ -11,7 +11,7 @@ class TestQualifyingResults:
     def test_get_positions(self):
         """Test the driver positions returned from get_positions"""
         positions=self.r_obj.get_positions()
-        assert positions == ['1', '2', '3'] 
+        assert positions == ['1', '2' ,'3']
     def test_get_names(self):
         """Test the driver names returned from get_names"""
         driver_names=self.r_obj.get_names()
@@ -28,5 +28,5 @@ class TestQualifyingResults:
         """Test the 3 qualifying positions returned from get_qualifying_times"""
         three_times=self.r_obj.get_qualifying_times()
         assert three_times == [('1:18.881', '1:18.606', '1:17.868'),
-                               ('1:18.580', '1:18.611', '1:18.154'), 
-                               ('1:18.834', '1:18.340', '1:18.240')] 
+                               ('1:18.580', '1:18.611', '1:18.154'),
+                               ('1:18.834', '1:18.340', '1:18.240')]
