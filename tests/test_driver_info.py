@@ -15,7 +15,9 @@ class TestDriverInfo:
     
     def test_drivers_names(self):
         """Test for the get_drivers_names methods of DriverInfo"""
-        assert self.driver.get_drivers_names() == ['Jean Alesi', 'Rubens Barrichello', 'Luciano Burti']
+        assert self.driver.get_drivers_names() == ['Jean Alesi',
+            'Rubens Barrichello',
+            'Luciano Burti']
     
     def test_drivers_dob(self):
         """Test for the get_drivers_dob method of DriverInfo"""
@@ -27,8 +29,8 @@ class TestDriverInfo:
     
     def test_drivers_number(self):
         """Test for the get_drivers_number method of DriverInfo
-        WARNING: this method can return key error if used without proper caution cause some data can't 
-        have the permanent error.
+        WARNING: this method can return key error if used without
+        proper caution cause some data can't have the permanent error.
         """
         assert self.driver.get_drivers_number() == ['23', '34', '45']
     
