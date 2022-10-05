@@ -7,7 +7,7 @@ class TestDriverInfo:
     """Class containaing the functions for testing the DriverInfo class methods"""
     
     data = ""
-    with open("tests/test_data/dummy_drivers_ifno.json", encoding='utf-8') as f:
+    with open("tests/test_data/first_3_drivers_info_2000.json", encoding='utf-8') as f:
         data = json.load(f)
         f.close()
         
