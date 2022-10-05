@@ -6,4 +6,5 @@ from .f1pystats import (driver_standings,
                         race_table,
                         lap_times,
                         pit_stops,
-                        finishing_status)
+                        finishing_status
+                       qualifying_results)
