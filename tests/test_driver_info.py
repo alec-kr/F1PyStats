@@ -14,19 +14,19 @@ class TestDriverInfo:
     driver = DriverInfo(data)
     
     def test_drivers_names(self):
-        """Test for the get_driver_names methods of DriverInfo"""
+        """Test for the get_drivers_names methods of DriverInfo"""
         assert self.driver.get_drivers_names() == ['Jean Alesi', 'Rubens Barrichello', 'Luciano Burti']
     
     def test_drivers_dob(self):
-        """Test for the get_driver_dob method of DriverInfo"""
+        """Test for the get_drivers_dob method of DriverInfo"""
         assert self.driver.get_drivers_dob() == ['1964-06-11', '1972-05-23', '1975-03-05']
     
     def test_drivers_nationality(self):
-        """Test for the get_driver_nationality method of DriverInfo"""
+        """Test for the get_drivers_nationality method of DriverInfo"""
         assert self.driver.get_drivers_nationality() == ['French', 'Brazilian', 'Brazilian']
     
     def test_drivers_number(self):
-        """Test for the get_driver_number method of DriverInfo
+        """Test for the get_drivers_number method of DriverInfo
         WARNING: this method can return key error if used without proper caution cause some data can't 
         have the permanent error.
         """
