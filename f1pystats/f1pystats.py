@@ -24,7 +24,9 @@ def get_drivers(year: int, round_num: int = None):
     if round_num is None:
         json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/drivers.json")
     else:
-        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json")
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json"
+        )
 
     dr_info = DriverInfo(json_data["MRData"]["DriverTable"]["Drivers"])
 
