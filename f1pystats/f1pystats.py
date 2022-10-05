@@ -19,18 +19,16 @@ from .finishing_status import FinishingStatus
 from .driver_info import DriverInfo
 
 
-def get_drivers(year: int, round_num: int =None):
+def get_drivers(year: int, round_num: int = None):
     """Returns a list of drivers for a specified year"""
     if round_num is None:
-        link = f"https://ergast.com/api/f1/{year}/drivers.json"
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/drivers.json")
     else:
-        link = f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json"
+        json_data = _get_json_content_from_url(
+            f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json"
+        )
 
-    page = requests.get(link, timeout=15)
-
-    json_data = page.json()
-    driver_info_json = json_data["MRData"]["DriverTable"]["Drivers"]
-    dr_info = DriverInfo(driver_info_json)
+    dr_info = DriverInfo(json_data["MRData"]["DriverTable"]["Drivers"])
 
     dr_name = dr_info.get_drivers_names()
     dr_dob = dr_info.get_drivers_dob()
@@ -38,10 +36,11 @@ def get_drivers(year: int, round_num: int =None):
     if year >= 2014:
         dr_perm_number = dr_info.get_drivers_number()
     else:
-        dr_perm_number = [None]*len(dr_name)
+        dr_perm_number = [None] * len(dr_name)
 
-    return pd.DataFrame(list(zip(dr_name, dr_perm_number, dr_nationality, dr_dob)),
-        columns=['Drivers', 'Permanent Number', 'Nationality', 'Date of Birth']
+    return pd.DataFrame(
+        zip(dr_name, dr_perm_number, dr_nationality, dr_dob),
+        columns=["Drivers", "Permanent Number", "Nationality", "Date of Birth"],
     )
 
 
