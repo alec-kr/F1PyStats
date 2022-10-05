@@ -30,7 +30,6 @@ class TestDriverInfo:
     def test_drivers_number(self):
         """Test for the get_drivers_number method of DriverInfo
         WARNING: this method can return key error if used without
-        proper caution cause some data can't
-        have the permanent number.
+        proper caution cause some data can't have the permanent error.
         """
         assert self.driver.get_drivers_number() == ['23', '34', '45']
