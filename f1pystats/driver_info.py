@@ -1,5 +1,6 @@
 """Contains all the functions used by get_driver()"""
 
+
 class DriverInfo:
     """This is the class which stores all the functions for get_driver"""
     def __init__(self, info):
