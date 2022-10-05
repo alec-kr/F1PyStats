@@ -20,7 +20,7 @@ from .driver_info import DriverInfo
 
 
 def get_drivers(year: int, round_num: int =None):
-    '''Returns a list of drivers for a specified year'''
+    """Returns a list of drivers for a specified year"""
     if round_num is None:
         link = f"https://ergast.com/api/f1/{year}/drivers.json"
     else:
@@ -40,11 +40,9 @@ def get_drivers(year: int, round_num: int =None):
     else:
         dr_perm_number = [None]*len(dr_name)
 
-    dr_df = pd.DataFrame(list(zip(dr_name, dr_perm_number, dr_nationality, dr_dob)),
+    return pd.DataFrame(list(zip(dr_name, dr_perm_number, dr_nationality, dr_dob)),
         columns=['Drivers', 'Permanent Number', 'Nationality', 'Date of Birth']
     )
-    return dr_df
-
 
 
 def driver_standings(year: int):
