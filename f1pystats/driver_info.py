@@ -6,11 +6,11 @@ class DriverInfo:
         self.info = info
 
     def get_drivers_names(self):
-        '''Returns the driver's name list'''
+        """Returns the driver's name list"""
         return [" ".join([i["givenName"], i["familyName"]]) for i in self.info]
 
     def get_drivers_dob(self):
-        '''Returns the driver's date of birth list'''
+        """Returns the driver's date of birth list"""
         return [i["dateOfBirth"] for i in self.info]
 
     def get_drivers_nationality(self):
@@ -20,4 +20,3 @@ class DriverInfo:
     def get_drivers_number(self):
         """Returns the list of driver's number"""
         return [i["permanentNumber"] for i in self.info]
-    
