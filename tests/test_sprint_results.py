@@ -38,7 +38,7 @@ class TestSprintResults:
             "Ferrari",
             "Ferrari"
         ]
-    
+
     def test_get_driver_status(self):
         """Test the driver status returned by get_driver_status"""
         status = self.s_result.get_driver_status()

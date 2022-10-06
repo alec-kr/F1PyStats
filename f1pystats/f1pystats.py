@@ -213,7 +213,9 @@ def finishing_status(year: int, race_round: int = 0):
 
 def sprint_results(year: int, race_round: int):
     """Returns the sprint qualifying results for a year and round"""
-    json_data=_get_json_content_from_url(f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json")
+    json_data=_get_json_content_from_url(
+        f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
+    )
     if len(json_data["MRData"]["RaceTable"]["Races"])==0 :
         return "No Sprint Race found for this Grand Prix"
     s_results=SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
