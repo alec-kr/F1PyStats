@@ -28,7 +28,7 @@ poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
 import F1PyStats as fp
 ```
 
-The package currently contains eight functions
+The package currently contains nine functions
 | Function                    	| Description                                                         	| Returned Datatype 	|
 |-----------------------------	|---------------------------------------------------------------------	|-------------------	|
 | fp.driver_standings(year)      	| Returns the driver standings for a particular year                  	| Pandas DataFrame  	|
@@ -39,7 +39,7 @@ The package currently contains eight functions
 | fp.pit_stops(year, round, stop_number)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
 | fp.finishing_status(year,race_round)  | Returns the finishing status of races in a year (or a particular race if specified)     | Pandas DataFrame  |
 |fp.get_drivers(year, race_round) | Returns information on drivers in a given year (or a particular race if specified) | Pandas DataFrame |
-|fp.qualifying_results(year, race_round) | Returns qualifying details of the driver based on race year and round (or a particular race if specified) | Pandas DataFrame |
+|fp.qualifying_results(year, race_round) | Returns the qualifying results of a particular race | Pandas DataFrame |
 
 
 # Contributions
