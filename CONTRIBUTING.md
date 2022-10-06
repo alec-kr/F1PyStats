@@ -65,4 +65,4 @@ You can follow the instructions in the [README](https://github.com/alec-kr/F1PyS
 *While the prerequisites above must be satisfied before having your pull request reviewed, the reviewer(s) may ask you to conduct additional changes before your pull request is ultimately accepted.*
 
 ## Additional Notes
-1. Please ensure you follow our code of conduct at all times when interacting with the repository.
+1. Please ensure you follow our [code of conduct](https://github.com/alec-kr/F1PyStats/blob/main/CODE_OF_CONDUCT.md) at all times when interacting with the repository.

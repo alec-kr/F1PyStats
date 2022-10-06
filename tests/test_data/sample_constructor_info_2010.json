@@ -1,0 +1,26 @@
+[
+  {
+    "constructorId": "ferrari",
+    "url": "http:\/\/en.wikipedia.org\/wiki\/Scuderia_Ferrari",
+    "name": "Ferrari",
+    "nationality": "Italian"
+  },
+  {
+    "constructorId": "force_india",
+    "url": "http:\/\/en.wikipedia.org\/wiki\/Racing_Point_Force_India",
+    "name": "Force India",
+    "nationality": "Indian"
+  },
+  {
+    "constructorId": "hrt",
+    "url": "http:\/\/en.wikipedia.org\/wiki\/Hispania_Racing",
+    "name": "HRT",
+    "nationality": "Spanish"
+  },
+  {
+    "constructorId": "lotus_racing",
+    "url": "http:\/\/en.wikipedia.org\/wiki\/Lotus_Racing",
+    "name": "Lotus",
+    "nationality": "Malaysian"
+  }
+]

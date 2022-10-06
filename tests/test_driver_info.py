@@ -7,7 +7,8 @@ class TestDriverInfo:
     """Class containaing the functions for testing the DriverInfo class methods"""
 
     data = ""
-    with open("tests/test_data/module_data/first_3_drivers_info_2000.json", encoding="utf-8") as f:
+
+    with open("tests/test_data/sample_drivers_info_2000.json", encoding="utf-8") as f:
         data = json.load(f)
         f.close()
 
@@ -17,16 +18,23 @@ class TestDriverInfo:
         """Test for the get_drivers_names methods of DriverInfo"""
         assert self.driver.get_drivers_names() == ['Jean Alesi',
                                                    'Rubens Barrichello',
-                                                   'Luciano Burti']
+                                                   'Luciano Burti',
+                                                   'David Coulthard']
 
     def test_drivers_dob(self):
         """Test for the get_drivers_dob method of DriverInfo"""
-        assert self.driver.get_drivers_dob() == ['1964-06-11', '1972-05-23', '1975-03-05']
+        assert self.driver.get_drivers_dob() == ['1964-06-11',
+                                                 '1972-05-23',
+                                                 '1975-03-05',
+                                                 '1971-03-27']
 
     def test_drivers_nationality(self):
         """Test for the get_drivers_nationality method of DriverInfo"""
-        assert self.driver.get_drivers_nationality() == ['French', 'Brazilian', 'Brazilian']
+        assert self.driver.get_drivers_nationality() == ['French',
+                                                         'Brazilian',
+                                                         'Brazilian',
+                                                         'British']
 
     def test_drivers_number(self):
         """Test for the get_drivers_number method of DriverInfo"""
-        assert self.driver.get_drivers_number() == ['23', '34', '45']
+        assert self.driver.get_drivers_number() == ['23', '34', '45', None]
