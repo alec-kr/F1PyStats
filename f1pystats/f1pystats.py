@@ -217,7 +217,7 @@ def sprint_results(year: int, race_round: int):
         f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
     )
     if len(json_data["MRData"]["RaceTable"]["Races"])==0 :
-        raise Exception("ERR: No Sprint Race found for this Grand Prix")
+        raise ValueError("No Sprint Race found for this Grand Prix")
     s_results=SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
     driver_pos=s_results.get_driver_pos()
     driver_name=s_results.get_driver_name()
