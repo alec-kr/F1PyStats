@@ -246,7 +246,6 @@ def sprint_results(year: int, race_round: int):
 
 def get_constructors(year: int = None):
     """Returns a list of constructors for a specified year"""
-
     if year is None:
         url = "https://ergast.com/api/f1/constructors.json?limit=230"
     else:
