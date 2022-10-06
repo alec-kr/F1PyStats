@@ -26,5 +26,5 @@ class DriverInfo:
                 driver_nums.append(i["permanentNumber"])
             else:
                 driver_nums.append(None)
-        
+
         return driver_nums
