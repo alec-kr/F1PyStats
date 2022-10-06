@@ -33,10 +33,7 @@ def get_drivers(year: int, round_num: int = None):
     dr_name = dr_info.get_drivers_names()
     dr_dob = dr_info.get_drivers_dob()
     dr_nationality = dr_info.get_drivers_nationality()
-    if year >= 2014:
-        dr_perm_number = dr_info.get_drivers_number()
-    else:
-        dr_perm_number = [None] * len(dr_name)
+    dr_perm_number = dr_info.get_drivers_number()
 
     return pd.DataFrame(
         zip(dr_name, dr_perm_number, dr_nationality, dr_dob),
