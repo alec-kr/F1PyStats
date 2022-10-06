@@ -1,7 +1,7 @@
 """This module is responsible for testing functions in the f1pystats package"""
 
-import f1pystats.f1pystats as fp
 import json
+import f1pystats.f1pystats as fp
 
 class TestPackage:
     """These class methods are used to test the functions in f1pystats"""
@@ -9,14 +9,14 @@ class TestPackage:
     def __get_vals(self, json_data):
         """Convert the API's JSON values into a nested list"""
         return json_data.values.tolist()
-    
+
     def __get_data(self, file_name):
         """Read and store the data in the test data files"""
         data = ""
-        with open("tests/test_data/api_data/{}".format(file_name), encoding="utf-8") as f:
-            data = json.load(f)
-            f.close()
-        
+        with open("tests/test_data/api_data/{}".format(file_name), encoding="utf-8") as data_file:
+            data = json.load(data_file)
+            data_file.close()
+
         return data
 
     def test_constructor_standings(self):
@@ -50,7 +50,8 @@ class TestPackage:
         assert self.__get_vals(p_stops) == self.__get_data("pit_stops_2012_1.json")
 
     def test_pit_stops_number(self):
-        """Tests an interval of pit stops in a race, returned from pit_stops(year, race, stop_number)"""
+        """Tests an interval of pit stops in a race, 
+        returned from pit_stops(year, race, stop_number)"""
         p_stops = fp.pit_stops(2012, 1, 3).head(3)
         assert self.__get_vals(p_stops) == self.__get_data("pit_stops_2012_1_3.json")
 
