@@ -26,5 +26,15 @@
         "familyName": "Burti",
         "dateOfBirth": "1975-03-05",
         "nationality": "Brazilian"
+    },
+    {
+        "_comment1": "case: permanentNumber ommitted",
+        "driverId": "coulthard",
+        "code": "COU",
+        "url": "http:\/\/en.wikipedia.org\/wiki\/David_Coulthard",
+        "givenName": "David",
+        "familyName": "Coulthard",
+        "dateOfBirth": "1971-03-27",
+        "nationality": "British"
     }
 ]
