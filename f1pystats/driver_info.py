@@ -20,4 +20,11 @@ class DriverInfo:
 
     def get_drivers_number(self):
         """Returns the list of driver's number"""
-        return [i["permanentNumber"] for i in self.info]
+        driver_nums = []
+        for i in self.info:
+            if "permanentNumber" in i:
+                driver_nums.append(i["permanentNumber"])
+            else:
+                driver_nums.append(None)
+
+        return driver_nums
