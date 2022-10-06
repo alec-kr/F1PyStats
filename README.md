@@ -32,7 +32,7 @@ poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
 import F1PyStats as fp
 ```
 
-The package currently contains nine functions
+The package currently contains ten functions
 | Function                    	| Description                                                         	| Returned Datatype 	|
 |-----------------------------	|---------------------------------------------------------------------	|-------------------	|
 | fp.driver_standings(year)      	| Returns the driver standings for a particular year                  	| Pandas DataFrame  	|
