@@ -8,7 +8,7 @@ class TestRaceWinners:
     """Contains functions for testing the methods in RaceWinners"""
 
     data = ""
-    with open("tests/test_data/first_3_winners_2008.json", encoding="utf-8") as f:
+    with open("tests/test_data/module_data/first_3_winners_2008.json", encoding="utf-8") as f:
         data = json.load(f)
         f.close()
 

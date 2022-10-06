@@ -8,7 +8,7 @@ class TestLapTimes:
     """Contains functions for testing the methods in LapTimes"""
 
     data = ""
-    with open("tests/test_data/sample_lap_times_2008.json", encoding="utf-8") as f:
+    with open("tests/test_data/module_data/sample_lap_times_2008.json", encoding="utf-8") as f:
         data = json.load(f)
         f.close()
 
