@@ -18,4 +18,12 @@ class QualifyingResults:
         return [i["Constructor"]["name"] for i in self.results]
     def get_qualifying_times(self):
         """Returns a list of tuple of Q1,Q2,Q3 timings"""
-        return [(i["Q1"],i["Q2"],i["Q3"]) for i in self.results]
+        result=[]
+        for i in self.results:
+            if "Q3" in i:
+                result.append((i["Q1"],i["Q2"],i["Q3"]))
+            elif "Q2" not in i:
+                result.append((i["Q1"]))
+            else:
+                result.append((i["Q1"],i["Q2"]))
+        return result
