@@ -22,11 +22,17 @@ class TestDriverInfo:
 
     def test_drivers_dob(self):
         """Test for the get_drivers_dob method of DriverInfo"""
-        assert self.driver.get_drivers_dob() == ['1964-06-11', '1972-05-23', '1975-03-05', '1971-03-27']
+        assert self.driver.get_drivers_dob() == ['1964-06-11',
+                                                 '1972-05-23',
+                                                 '1975-03-05',
+                                                 '1971-03-27']
 
     def test_drivers_nationality(self):
         """Test for the get_drivers_nationality method of DriverInfo"""
-        assert self.driver.get_drivers_nationality() == ['French', 'Brazilian', 'Brazilian', 'British']
+        assert self.driver.get_drivers_nationality() == ['French',
+                                                         'Brazilian',
+                                                         'Brazilian',
+                                                         'British']
 
     def test_drivers_number(self):
         """Test for the get_drivers_number method of DriverInfo"""
