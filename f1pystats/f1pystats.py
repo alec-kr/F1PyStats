@@ -210,9 +210,15 @@ def finishing_status(year: int, race_round: int = 0):
         zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
     )
 
-def get_constructors(year: int):
+def get_constructors(year: int = None):
     """Returns a list of constructors for a specified year"""
-    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/constructors.json")
+
+    if year is None:
+        url = "http://ergast.com/api/f1/constructors.json"
+    else:
+        url = f"http://ergast.com/api/f1/{year}/constructors.json"
+
+    json_data = _get_json_content_from_url(url)
 
     constructors_info = ConstructorInfo(json_data["MRData"]["ConstructorTable"]["Constructors"])
 
