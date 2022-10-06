@@ -21,6 +21,8 @@ from .finishing_status import FinishingStatus
 
 from .driver_info import DriverInfo
 
+from .constructor_info import ConstructorInfo
+
 
 def get_drivers(year: int, round_num: int = None):
     """Returns a list of drivers for a specified year"""
@@ -237,6 +239,26 @@ def sprint_results(year: int, race_round: int):
             "Position", "Name", "Driver Number", "Constructor",
         "Laps", "Grid","Status", "Time", "Points"
         ]
+    )
+
+def get_constructors(year: int = None):
+    """Returns a list of constructors for a specified year"""
+
+    if year is None:
+        url = "https://ergast.com/api/f1/constructors.json?limit=230"
+    else:
+        url = f"http://ergast.com/api/f1/{year}/constructors.json"
+
+    json_data = _get_json_content_from_url(url)
+
+    constructors_info = ConstructorInfo(json_data["MRData"]["ConstructorTable"]["Constructors"])
+
+    constructors_names = constructors_info.get_constructors_names()
+    constructors_nationalities = constructors_info.get_constructors_nationality()
+
+    return pd.DataFrame(
+        zip(constructors_names, constructors_nationalities),
+        columns=["Constructor", "Nationality"],
     )
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
