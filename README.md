@@ -43,6 +43,7 @@ The package currently contains eight functions
 | fp.pit_stops(year, round, stop_number)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
 | fp.finishing_status(year,race_round)  | Returns the finishing status of races in a year (or a particular race if specified)     | Pandas DataFrame  |
 |fp.get_drivers(year, race_round) | Returns information on drivers in a given year (or a particular race if specified) | Pandas DataFrame |
+|fp.sprint_results(year,race_round) | Returns the sprint qualifying results for a specific year and round | Pandas DataFrame|
 
 
 # Contributions
