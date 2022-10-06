@@ -217,15 +217,26 @@ def sprint_results(year: int, race_round: int):
         f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
     )
     if len(json_data["MRData"]["RaceTable"]["Races"])==0 :
-        return "No Sprint Race found for this Grand Prix"
+        raise Exception("ERR: No Sprint Race found for this Grand Prix")
     s_results=SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
     driver_pos=s_results.get_driver_pos()
     driver_name=s_results.get_driver_name()
     driver_team=s_results.get_driver_team()
     driver_status=s_results.get_driver_status()
+    driver_number=s_results.get_driver_number()
+    driver_laps=s_results.get_laps()
+    driver_grid=s_results.get_driver_grid()
+    driver_time=s_results.get_driver_time()
+    driver_points=s_results.get_driver_points()
     return pd.DataFrame(
-        zip(driver_pos,driver_name,driver_team,driver_status),
-        columns=["Position", "Name", "Constructor", "Status"]
+        zip(
+            driver_pos,driver_name, driver_number,driver_team,
+        driver_laps, driver_grid,driver_status, driver_time, driver_points
+        ),
+        columns=[
+            "Position", "Name", "Driver Number", "Constructor",
+        "Laps", "Grid","Status", "Time", "Points"
+        ]
     )
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
