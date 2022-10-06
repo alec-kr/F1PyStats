@@ -13,7 +13,7 @@ class TestPackage:
     def __get_data(self, file_name):
         """Read and store the data in the test data files"""
         data = ""
-        with open("tests/test_data/api_data/{}".format(file_name), encoding="utf-8") as data_file:
+        with open(f"tests/test_data/api_data/{file_name}", encoding="utf-8") as data_file:
             data = json.load(data_file)
             data_file.close()
 
@@ -50,7 +50,7 @@ class TestPackage:
         assert self.__get_vals(p_stops) == self.__get_data("pit_stops_2012_1.json")
 
     def test_pit_stops_number(self):
-        """Tests an interval of pit stops in a race, 
+        """Tests an interval of pit stops in a race,
         returned from pit_stops(year, race, stop_number)"""
         p_stops = fp.pit_stops(2012, 1, 3).head(3)
         assert self.__get_vals(p_stops) == self.__get_data("pit_stops_2012_1_3.json")
