@@ -18,6 +18,8 @@ from .finishing_status import FinishingStatus
 
 from .driver_info import DriverInfo
 
+from .constructor_info import ConstructorInfo
+
 
 def get_drivers(year: int, round_num: int = None):
     """Returns a list of drivers for a specified year"""
@@ -208,6 +210,19 @@ def finishing_status(year: int, race_round: int = 0):
         zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
     )
 
+def get_constructors(year: int):
+    """Returns a list of constructors for a specified year"""
+    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/constructors.json")
+
+    constructors_info = ConstructorInfo(json_data["MRData"]["ConstructorTable"]["Constructors"])
+
+    constructors_names = constructors_info.get_constructors_names()
+    constructors_nationalities = constructors_info.get_constructors_nationality()
+
+    return pd.DataFrame(
+        zip(constructors_names, constructors_nationalities),
+        columns=["Constructor", "Nationality"],
+    )
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""

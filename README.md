@@ -43,7 +43,7 @@ The package currently contains eight functions
 | fp.pit_stops(year, round, stop_number)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
 | fp.finishing_status(year,race_round)  | Returns the finishing status of races in a year (or a particular race if specified)     | Pandas DataFrame  |
 |fp.get_drivers(year, race_round) | Returns information on drivers in a given year (or a particular race if specified) | Pandas DataFrame |
-
+|fp.get_constructors(year) | Returns information on constructors in a given year | Pandas DataFrame |
 
 # Contributions
 NOTE: Please ensure you follow our [contributing guidelines](https://github.com/alec-kr/F1PyStats/blob/main/CONTRIBUTING.md) when contributing in any way to this repository.
