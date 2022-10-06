@@ -3,6 +3,8 @@
 import requests
 import pandas as pd
 
+from .sprint_results import SprintResults
+
 from .pit_stops import PitStops
 
 from .driver_results import DriverResults
@@ -14,6 +16,7 @@ from .race_winners import RaceWinners
 from .race_schedule import RaceSchedule
 
 from .lap_times import LapTimes
+
 from .finishing_status import FinishingStatus
 
 from .driver_info import DriverInfo
@@ -208,6 +211,33 @@ def finishing_status(year: int, race_round: int = 0):
         zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
     )
 
+def sprint_results(year: int, race_round: int):
+    """Returns the sprint qualifying results for a year and round"""
+    json_data=_get_json_content_from_url(
+        f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
+    )
+    if len(json_data["MRData"]["RaceTable"]["Races"])==0 :
+        raise ValueError("No Sprint Race found for this Grand Prix")
+    s_results=SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
+    driver_pos=s_results.get_driver_pos()
+    driver_name=s_results.get_driver_name()
+    driver_team=s_results.get_driver_team()
+    driver_status=s_results.get_driver_status()
+    driver_number=s_results.get_driver_number()
+    driver_laps=s_results.get_laps()
+    driver_grid=s_results.get_driver_grid()
+    driver_time=s_results.get_driver_time()
+    driver_points=s_results.get_driver_points()
+    return pd.DataFrame(
+        zip(
+            driver_pos,driver_name, driver_number,driver_team,
+        driver_laps, driver_grid,driver_status, driver_time, driver_points
+        ),
+        columns=[
+            "Position", "Name", "Driver Number", "Constructor",
+        "Laps", "Grid","Status", "Time", "Points"
+        ]
+    )
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""
