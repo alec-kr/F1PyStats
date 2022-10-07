@@ -82,9 +82,10 @@ class TestPackage:
         assert self.__get_vals(results) == self.__get_data("sprint_2021_10.json")
 
     def test_bad_sprint_value(self):
+        """Tests the sprint_results() function if bad values are given"""
         with pytest.raises(ValueError):
-            results = fp.sprint_results(2021, 9)
-        
+            fp.sprint_results(2021, 9)
+
     def test_get_constructors_year(self):
         """Tests the results returned from get_constructors(year)"""
         yr_constructors = fp.get_constructors(2008)
