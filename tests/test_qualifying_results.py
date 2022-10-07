@@ -24,9 +24,15 @@ class TestQualifyingResults:
         """Test the constructor names returned from get_constructors"""
         constructor_names=self.r_obj.get_constructors()
         assert constructor_names == ['Ferrari', 'Red Bull', 'Red Bull']
-    def test_get_qualifying_times(self):
-        """Test the 3 qualifying positions returned from get_qualifying_times"""
-        three_times=self.r_obj.get_qualifying_times()
-        assert three_times == [('1:18.881', '1:18.606', '1:17.868'),
-                               ('1:18.580', '1:18.611', '1:18.154'),
-                               ('1:18.834', '1:18.340', '1:18.240')]
+    def test_get_q1_times(self):
+        """Test the  qualifying time Q1 returned from get_q1_times"""
+        q1_time=self.r_obj.get_q1_times()
+        assert q1_time == ['1:18.881', '1:18.580', '1:18.834']
+    def test_get_q2_times(self):
+        """Test the  qualifying time Q2 returned from get_q2_times"""
+        q2_time=self.r_obj.get_q2_times()
+        assert q2_time == ['1:18.606', '1:18.611', '1:18.340']
+    def test_get_q3_times(self):
+        """Test the  qualifying time Q3 returned from get_q2_times"""
+        q3_time=self.r_obj.get_q3_times()
+        assert q3_time == ['1:17.868', '1:18.154', '1:18.240']
