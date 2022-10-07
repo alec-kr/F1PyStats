@@ -224,21 +224,27 @@ def qualifying_results(year: int, race_round: int):
     driver_names=r_obj.get_names()
     driver_numbers=r_obj.get_driver_numbers()
     constructor_names=r_obj.get_constructors()
-    q_times=r_obj.get_qualifying_times()
+    q1_times=r_obj.get_q1_times()
+    q2_times=r_obj.get_q2_times()
+    q3_times=r_obj.get_q3_times()
     return pd.DataFrame(
         zip(
             driver_positions,
             driver_names,
             driver_numbers,
             constructor_names,
-            q_times
+            q1_times,
+            q2_times,
+            q3_times
         ),
         columns=[
             "Position",
             "DriverName",
             "DriverNumber",
             "Constructor",
-            "Q1,Q2,Q3"
+            "Q1",
+            "Q2",
+            "Q3"
         ],
     )
 
