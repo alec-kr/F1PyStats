@@ -18,6 +18,7 @@ from .race_schedule import RaceSchedule
 from .lap_times import LapTimes
 
 from .finishing_status import FinishingStatus
+from .qualifying_results import QualifyingResults
 
 from .driver_info import DriverInfo
 
@@ -261,6 +262,42 @@ def get_constructors(year: int = None):
     return pd.DataFrame(
         zip(constructors_names, constructors_nationalities),
         columns=["Constructor", "Nationality"],
+    )
+
+
+def qualifying_results(year: int, race_round: int):
+    """Returns the driver name , driver position, driver number, constructor name , the 3 Q times"""
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/qualifying.json"
+    )
+    schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["QualifyingResults"]
+    r_obj= QualifyingResults(schedule_json)
+    driver_positions=r_obj.get_positions()
+    driver_names=r_obj.get_names()
+    driver_numbers=r_obj.get_driver_numbers()
+    constructor_names=r_obj.get_constructors()
+    q1_times=r_obj.get_q1_times()
+    q2_times=r_obj.get_q2_times()
+    q3_times=r_obj.get_q3_times()
+    return pd.DataFrame(
+        zip(
+            driver_positions,
+            driver_names,
+            driver_numbers,
+            constructor_names,
+            q1_times,
+            q2_times,
+            q3_times
+        ),
+        columns=[
+            "Position",
+            "DriverName",
+            "DriverNumber",
+            "Constructor",
+            "Q1",
+            "Q2",
+            "Q3"
+        ],
     )
 
 
