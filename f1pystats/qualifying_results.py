@@ -16,14 +16,28 @@ class QualifyingResults:
     def get_constructors(self):
         """Returns the list of name of the constructors"""
         return [i["Constructor"]["name"] for i in self.results]
-    def get_qualifying_times(self):
-        """Returns a list of tuple of Q1,Q2,Q3 timings"""
-        result=[]
+    def get_q1_times(self):
+        """Returns a list of Q1 timings"""
+        r_q1=[]
+        for i in self.results:
+            if "Q1" in i:
+                r_q1.append(i["Q1"])
+        return r_q1
+    def get_q2_times(self):
+        """Returns a list of Q2 timings"""
+        r_q2=[]
+        for i in self.results:
+            if "Q2" in i:
+                r_q2.append(i["Q2"])
+            else:
+                r_q2.append('')
+        return r_q2
+    def get_q3_times(self):
+        """Returns a list of Q3 timings"""
+        r_q3=[]
         for i in self.results:
             if "Q3" in i:
-                result.append((i["Q1"],i["Q2"],i["Q3"]))
-            elif "Q2" not in i:
-                result.append((i["Q1"]))
+                r_q3.append(i["Q3"])
             else:
-                result.append((i["Q1"],i["Q2"]))
-        return result
+                r_q3.append('')
+        return r_q3
