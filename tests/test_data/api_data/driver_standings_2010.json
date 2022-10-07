@@ -1,5 +1,218 @@
 [
-    ["1", "Sebastian Vettel", "German", "Red Bull", "256", "5"],
-    ["2", "Fernando Alonso", "Spanish", "Ferrari", "252", "5"],
-    ["3", "Mark Webber", "Australian", "Red Bull", "242", "4"]
+    [
+      "1",
+      "Sebastian Vettel",
+      "German",
+      "Red Bull",
+      "256",
+      "5"
+    ],
+    [
+      "2",
+      "Fernando Alonso",
+      "Spanish",
+      "Ferrari",
+      "252",
+      "5"
+    ],
+    [
+      "3",
+      "Mark Webber",
+      "Australian",
+      "Red Bull",
+      "242",
+      "4"
+    ],
+    [
+      "4",
+      "Lewis Hamilton",
+      "British",
+      "McLaren",
+      "240",
+      "3"
+    ],
+    [
+      "5",
+      "Jenson Button",
+      "British",
+      "McLaren",
+      "214",
+      "2"
+    ],
+    [
+      "6",
+      "Felipe Massa",
+      "Brazilian",
+      "Ferrari",
+      "144",
+      "0"
+    ],
+    [
+      "7",
+      "Nico Rosberg",
+      "German",
+      "Mercedes",
+      "142",
+      "0"
+    ],
+    [
+      "8",
+      "Robert Kubica",
+      "Polish",
+      "Renault",
+      "136",
+      "0"
+    ],
+    [
+      "9",
+      "Michael Schumacher",
+      "German",
+      "Mercedes",
+      "72",
+      "0"
+    ],
+    [
+      "10",
+      "Rubens Barrichello",
+      "Brazilian",
+      "Williams",
+      "47",
+      "0"
+    ],
+    [
+      "11",
+      "Adrian Sutil",
+      "German",
+      "Force India",
+      "47",
+      "0"
+    ],
+    [
+      "12",
+      "Kamui Kobayashi",
+      "Japanese",
+      "Sauber",
+      "32",
+      "0"
+    ],
+    [
+      "13",
+      "Vitaly Petrov",
+      "Russian",
+      "Renault",
+      "27",
+      "0"
+    ],
+    [
+      "14",
+      "Nico Hülkenberg",
+      "German",
+      "Williams",
+      "22",
+      "0"
+    ],
+    [
+      "15",
+      "Vitantonio Liuzzi",
+      "Italian",
+      "Force India",
+      "21",
+      "0"
+    ],
+    [
+      "16",
+      "Sébastien Buemi",
+      "Swiss",
+      "Toro Rosso",
+      "8",
+      "0"
+    ],
+    [
+      "17",
+      "Pedro de la Rosa",
+      "Spanish",
+      "Sauber",
+      "6",
+      "0"
+    ],
+    [
+      "18",
+      "Nick Heidfeld",
+      "German",
+      "Sauber",
+      "6",
+      "0"
+    ],
+    [
+      "19",
+      "Jaime Alguersuari",
+      "Spanish",
+      "Toro Rosso",
+      "5",
+      "0"
+    ],
+    [
+      "20",
+      "Heikki Kovalainen",
+      "Finnish",
+      "Lotus",
+      "0",
+      "0"
+    ],
+    [
+      "21",
+      "Jarno Trulli",
+      "Italian",
+      "Lotus",
+      "0",
+      "0"
+    ],
+    [
+      "22",
+      "Karun Chandhok",
+      "Indian",
+      "HRT",
+      "0",
+      "0"
+    ],
+    [
+      "23",
+      "Bruno Senna",
+      "Brazilian",
+      "HRT",
+      "0",
+      "0"
+    ],
+    [
+      "24",
+      "Lucas di Grassi",
+      "Brazilian",
+      "Virgin",
+      "0",
+      "0"
+    ],
+    [
+      "25",
+      "Timo Glock",
+      "German",
+      "Virgin",
+      "0",
+      "0"
+    ],
+    [
+      "26",
+      "Sakon Yamamoto",
+      "Japanese",
+      "HRT",
+      "0",
+      "0"
+    ],
+    [
+      "27",
+      "Christian Klien",
+      "Austrian",
+      "HRT",
+      "0",
+      "0"
+    ]
 ]
