@@ -4,6 +4,7 @@ import json
 import pytest
 import f1pystats.f1pystats as fp
 
+
 class TestPackage:
     """These class methods are used to test the functions in f1pystats"""
 
