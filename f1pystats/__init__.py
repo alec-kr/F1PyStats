@@ -11,5 +11,6 @@ from .f1pystats import (driver_standings,
                         pit_stops,
                         get_drivers,
                         finishing_status,
-                        qualifying_results,
-                        sprint_results)
+                        get_constructors,
+                        sprint_results,
+                        qualifying_results)
