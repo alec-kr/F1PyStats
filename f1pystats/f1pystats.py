@@ -18,6 +18,7 @@ from .race_schedule import RaceSchedule
 from .lap_times import LapTimes
 
 from .finishing_status import FinishingStatus
+from .qualifying_results import QualifyingResults
 
 from .driver_info import DriverInfo
 
@@ -213,37 +214,39 @@ def finishing_status(year: int, race_round: int = 0):
         zip(status_id, status_info, status_count), columns=["StatusId", "Status", "Count"]
     )
 
+
 def sprint_results(year: int, race_round: int):
     """Returns the sprint qualifying results for a year and round"""
-    json_data=_get_json_content_from_url(
+    json_data = _get_json_content_from_url(
         f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
     )
-    if len(json_data["MRData"]["RaceTable"]["Races"])==0 :
+    if len(json_data["MRData"]["RaceTable"]["Races"]) == 0 :
         raise ValueError("No Sprint Race found for this Grand Prix")
-    s_results=SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
-    driver_pos=s_results.get_driver_pos()
-    driver_name=s_results.get_driver_name()
-    driver_team=s_results.get_driver_team()
-    driver_status=s_results.get_driver_status()
-    driver_number=s_results.get_driver_number()
-    driver_laps=s_results.get_laps()
-    driver_grid=s_results.get_driver_grid()
-    driver_time=s_results.get_driver_time()
-    driver_points=s_results.get_driver_points()
+    s_results = SprintResults(json_data["MRData"]["RaceTable"]["Races"][0]["SprintResults"])
+    driver_pos = s_results.get_driver_pos()
+    driver_name = s_results.get_driver_name()
+    driver_team = s_results.get_driver_team()
+    driver_status = s_results.get_driver_status()
+    driver_number = s_results.get_driver_number()
+    driver_laps = s_results.get_laps()
+    driver_grid = s_results.get_driver_grid()
+    driver_time = s_results.get_driver_time()
+    driver_points = s_results.get_driver_points()
+
     return pd.DataFrame(
         zip(
-            driver_pos,driver_name, driver_number,driver_team,
-        driver_laps, driver_grid,driver_status, driver_time, driver_points
+            driver_pos, driver_name, driver_number, driver_team, driver_laps, driver_grid,
+            driver_status, driver_time, driver_points
         ),
         columns=[
-            "Position", "Name", "Driver Number", "Constructor",
-        "Laps", "Grid","Status", "Time", "Points"
+            "Position", "Name", "Driver Number", "Constructor", "Laps", "Grid",
+            "Status", "Time", "Points"
         ]
     )
 
+
 def get_constructors(year: int = None):
     """Returns a list of constructors for a specified year"""
-
     if year is None:
         url = "https://ergast.com/api/f1/constructors.json?limit=230"
     else:
@@ -260,6 +263,43 @@ def get_constructors(year: int = None):
         zip(constructors_names, constructors_nationalities),
         columns=["Constructor", "Nationality"],
     )
+
+
+def qualifying_results(year: int, race_round: int):
+    """Returns the driver name , driver position, driver number, constructor name , the 3 Q times"""
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/qualifying.json"
+    )
+    schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["QualifyingResults"]
+    r_obj= QualifyingResults(schedule_json)
+    driver_positions=r_obj.get_positions()
+    driver_names=r_obj.get_names()
+    driver_numbers=r_obj.get_driver_numbers()
+    constructor_names=r_obj.get_constructors()
+    q1_times=r_obj.get_q1_times()
+    q2_times=r_obj.get_q2_times()
+    q3_times=r_obj.get_q3_times()
+    return pd.DataFrame(
+        zip(
+            driver_positions,
+            driver_names,
+            driver_numbers,
+            constructor_names,
+            q1_times,
+            q2_times,
+            q3_times
+        ),
+        columns=[
+            "Position",
+            "DriverName",
+            "DriverNumber",
+            "Constructor",
+            "Q1",
+            "Q2",
+            "Q3"
+        ],
+    )
+
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""
