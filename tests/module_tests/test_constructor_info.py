@@ -8,7 +8,8 @@ class TestConstructorInfo:
     """Contains functions for testing the methods in ConstructorInfo"""
 
     data = ""
-    with open("tests/test_data/sample_constructor_info_2010.json", encoding="utf-8") as f:
+    with open("tests/test_data/module_data/sample_constructor_info_2010.json",
+                encoding="utf-8") as f:
         data = json.load(f)
         f.close()
 

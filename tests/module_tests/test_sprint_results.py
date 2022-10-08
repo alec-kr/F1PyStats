@@ -8,7 +8,7 @@ class TestSprintResults:
     """Contains functions for testing the methods in SprintResults"""
 
     data = ""
-    with open("tests/test_data/top_3_sprint_2022_11.json", encoding='utf-8') as f:
+    with open("tests/test_data/module_data/top_3_sprint_2022_11.json", encoding='utf-8') as f:
         data = json.load(f)
         f.close()
 
