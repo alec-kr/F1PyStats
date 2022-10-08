@@ -96,3 +96,8 @@ class TestPackage:
         """Tests the results returned from get_constructors()"""
         all_constructors = fp.get_constructors()
         assert self.__get_vals(all_constructors) == self.__get_data("constructors.json")
+
+    def test_qualifying_results(self):
+        """Tests the results returned by qualifying_results()"""
+        q_res = fp.qualifying_results(2021, 10)
+        assert self.__get_vals(q_res) == self.__get_data("qualifying_2021_10.json")

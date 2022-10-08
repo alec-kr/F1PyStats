@@ -4,7 +4,7 @@ from f1pystats.qualifying_results import QualifyingResults
 class TestQualifyingResults:
     """Contains functions for testing the methods in QualifyingResults"""
     data=""
-    with open("tests/test_data/first_3_qualifying_results_2022.json",encoding="utf-8") as f:
+    with open("tests/test_data/module_data/first_3_qualifying_results_2022.json",encoding="utf-8") as f:
         data=json.load(f)
         f.close()
     r_obj=QualifyingResults(data)
