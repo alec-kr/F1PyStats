@@ -11,7 +11,9 @@ class TestRaceCircuits:
     def test_get_circuit_name(self):
         """Test the circuit names returned from get_circuit_name"""
         cir_names=self.c_obj.get_circuit_name()
-        assert cir_names == ['Albert Park Grand Prix Circuit', 'Bahrain International Circuit', 'Circuit de Barcelona-Catalunya']
+        assert cir_names == ['Albert Park Grand Prix Circuit',
+                             'Bahrain International Circuit',
+                             'Circuit de Barcelona-Catalunya']
     def test_get_circuit_locality(self):
         """Test the circuit locality returned from get_circuit_locality"""
         cir_locality=self.c_obj.get_circuit_locality()
