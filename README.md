@@ -1,4 +1,5 @@
 # F1PyStats
+<img src="https://raw.githubusercontent.com/alec-kr/F1PyStats/main/assets/F1PYStatsSimplified.png" align="right" alt="icon" width="303">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats)
 [![GitHub forks](https://img.shields.io/github/forks/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats/network/members)
