@@ -19,7 +19,7 @@ from .lap_times import LapTimes
 
 from .finishing_status import FinishingStatus
 from .qualifying_results import QualifyingResults
-
+from .race_circuits import RaceCircuits
 from .driver_info import DriverInfo
 
 from .constructor_info import ConstructorInfo
@@ -298,6 +298,30 @@ def qualifying_results(year: int, race_round: int):
             "Q2",
             "Q3"
         ],
+    )
+
+def get_circuits(year:int=None):
+    """Returns the circuit name, circuit locality and circuit country"""
+    if year is None:
+        json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=76")
+    else:
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/circuits.json")
+    schedule_json = json_data["MRData"]["CircuitTable"]["Circuits"]
+    rr_obj=RaceCircuits(schedule_json)
+    circuit_name=rr_obj.get_circuit_name()
+    circuit_locality=rr_obj.get_circuit_locality()
+    circuit_country=rr_obj.get_circuit_country()
+    return pd.DataFrame(
+        zip(
+            circuit_name,
+            circuit_locality,
+            circuit_country
+        ),
+        columns=[
+            "Circuit",
+            "Locality",
+            "Country"
+        ]
     )
 
 
