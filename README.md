@@ -1,6 +1,15 @@
 # F1PyStats
-F1PyStats is an open-source Python3 package that provides Formula 1 data/statistics to developers.
-This package obtains Formula 1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats)
+[![GitHub forks](https://img.shields.io/github/forks/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats/network/members)
+
+[![GitHub Hacktoberfest combined status](https://img.shields.io/github/hacktoberfest/2022/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats)
+[![GitHub](https://img.shields.io/github/license/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats/pulls)
+[![GitHub contributors](https://img.shields.io/github/contributors/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats/graphs/contributors)
+
+F1PyStats is an open-source Python3 package that provides Formula 1 data/statistics to developers. This package obtains Formula 1 data via the [Ergast Developer API](http://ergast.com/mrd/), and returns results in a pandas DataFrame format.
 
 
 # Prerequisites
