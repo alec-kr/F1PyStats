@@ -42,7 +42,7 @@ poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
 import F1PyStats as fp
 ```
 
-The package currently contains eleven functions
+The package currently contains twelve functions
 | Function                    	| Description                                                         	| Returned Datatype 	|
 |-----------------------------	|---------------------------------------------------------------------	|-------------------	|
 | fp.driver_standings(year)      	| Returns the driver standings for a particular year                  	| Pandas DataFrame  	|
@@ -56,6 +56,7 @@ The package currently contains eleven functions
 |fp.get_constructors(year) | Returns information on constructors in a given year | Pandas DataFrame |
 |fp.sprint_results(year,race_round) | Returns the sprint qualifying results for a specific race | Pandas DataFrame|
 |fp.qualifying_results(year, race_round) | Returns the qualifying results of a particular race | Pandas DataFrame |
+|fp.get_circuits(year) | Returns the circuit details of a specific race for a specific year| Pandas DataFrame |
 
 
 

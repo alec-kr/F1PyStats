@@ -1,0 +1,382 @@
+[
+    [
+      "Adelaide Street Circuit",
+      "Adelaide",
+      "Australia"
+    ],
+    [
+      "Ain Diab",
+      "Casablanca",
+      "Morocco"
+    ],
+    [
+      "Aintree",
+      "Liverpool",
+      "UK"
+    ],
+    [
+      "Albert Park Grand Prix Circuit",
+      "Melbourne",
+      "Australia"
+    ],
+    [
+      "Circuit of the Americas",
+      "Austin",
+      "USA"
+    ],
+    [
+      "Scandinavian Raceway",
+      "Anderstorp",
+      "Sweden"
+    ],
+    [
+      "AVUS",
+      "Berlin",
+      "Germany"
+    ],
+    [
+      "Bahrain International Circuit",
+      "Sakhir",
+      "Bahrain"
+    ],
+    [
+      "Baku City Circuit",
+      "Baku",
+      "Azerbaijan"
+    ],
+    [
+      "Circuito da Boavista",
+      "Oporto",
+      "Portugal"
+    ],
+    [
+      "Brands Hatch",
+      "Kent",
+      "UK"
+    ],
+    [
+      "Circuit Bremgarten",
+      "Bern",
+      "Switzerland"
+    ],
+    [
+      "Buddh International Circuit",
+      "Uttar Pradesh",
+      "India"
+    ],
+    [
+      "Circuit de Barcelona-Catalunya",
+      "Montmeló",
+      "Spain"
+    ],
+    [
+      "Charade Circuit",
+      "Clermont-Ferrand",
+      "France"
+    ],
+    [
+      "Fair Park",
+      "Dallas",
+      "USA"
+    ],
+    [
+      "Detroit Street Circuit",
+      "Detroit",
+      "USA"
+    ],
+    [
+      "Dijon-Prenois",
+      "Dijon",
+      "France"
+    ],
+    [
+      "Donington Park",
+      "Castle Donington",
+      "UK"
+    ],
+    [
+      "Rouen-Les-Essarts",
+      "Rouen",
+      "France"
+    ],
+    [
+      "Autódromo do Estoril",
+      "Estoril",
+      "Portugal"
+    ],
+    [
+      "Fuji Speedway",
+      "Oyama",
+      "Japan"
+    ],
+    [
+      "Autódromo Juan y Oscar Gálvez",
+      "Buenos Aires",
+      "Argentina"
+    ],
+    [
+      "Prince George Circuit",
+      "Eastern Cape Province",
+      "South Africa"
+    ],
+    [
+      "Hockenheimring",
+      "Hockenheim",
+      "Germany"
+    ],
+    [
+      "Hungaroring",
+      "Budapest",
+      "Hungary"
+    ],
+    [
+      "Autodromo Enzo e Dino Ferrari",
+      "Imola",
+      "Italy"
+    ],
+    [
+      "Indianapolis Motor Speedway",
+      "Indianapolis",
+      "USA"
+    ],
+    [
+      "Autódromo José Carlos Pace",
+      "São Paulo",
+      "Brazil"
+    ],
+    [
+      "Istanbul Park",
+      "Istanbul",
+      "Turkey"
+    ],
+    [
+      "Autódromo Internacional Nelson Piquet",
+      "Rio de Janeiro",
+      "Brazil"
+    ],
+    [
+      "Jarama",
+      "Madrid",
+      "Spain"
+    ],
+    [
+      "Jeddah Corniche Circuit",
+      "Jeddah",
+      "Saudi Arabia"
+    ],
+    [
+      "Circuito de Jerez",
+      "Jerez de la Frontera",
+      "Spain"
+    ],
+    [
+      "Kyalami",
+      "Midrand",
+      "South Africa"
+    ],
+    [
+      "Las Vegas Street Circuit",
+      "Nevada",
+      "USA"
+    ],
+    [
+      "Le Mans",
+      "Le Mans",
+      "France"
+    ],
+    [
+      "Long Beach",
+      "California",
+      "USA"
+    ],
+    [
+      "Losail International Circuit",
+      "Al Daayen",
+      "Qatar"
+    ],
+    [
+      "Circuit de Nevers Magny-Cours",
+      "Magny Cours",
+      "France"
+    ],
+    [
+      "Marina Bay Street Circuit",
+      "Marina Bay",
+      "Singapore"
+    ],
+    [
+      "Miami International Autodrome",
+      "Miami",
+      "USA"
+    ],
+    [
+      "Circuit de Monaco",
+      "Monte-Carlo",
+      "Monaco"
+    ],
+    [
+      "Monsanto Park Circuit",
+      "Lisbon",
+      "Portugal"
+    ],
+    [
+      "Montjuïc",
+      "Barcelona",
+      "Spain"
+    ],
+    [
+      "Autodromo Nazionale di Monza",
+      "Monza",
+      "Italy"
+    ],
+    [
+      "Mosport International Raceway",
+      "Ontario",
+      "Canada"
+    ],
+    [
+      "Autodromo Internazionale del Mugello",
+      "Mugello",
+      "Italy"
+    ],
+    [
+      "Nivelles-Baulers",
+      "Brussels",
+      "Belgium"
+    ],
+    [
+      "Nürburgring",
+      "Nürburg",
+      "Germany"
+    ],
+    [
+      "Okayama International Circuit",
+      "Okayama",
+      "Japan"
+    ],
+    [
+      "Circuit de Pedralbes",
+      "Barcelona",
+      "Spain"
+    ],
+    [
+      "Pescara Circuit",
+      "Pescara",
+      "Italy"
+    ],
+    [
+      "Phoenix street circuit",
+      "Phoenix",
+      "USA"
+    ],
+    [
+      "Autódromo Internacional do Algarve",
+      "Portimão",
+      "Portugal"
+    ],
+    [
+      "Red Bull Ring",
+      "Spielberg",
+      "Austria"
+    ],
+    [
+      "Reims-Gueux",
+      "Reims",
+      "France"
+    ],
+    [
+      "Circuit Paul Ricard",
+      "Le Castellet",
+      "France"
+    ],
+    [
+      "Riverside International Raceway",
+      "California",
+      "USA"
+    ],
+    [
+      "Autódromo Hermanos Rodríguez",
+      "Mexico City",
+      "Mexico"
+    ],
+    [
+      "Sebring International Raceway",
+      "Florida",
+      "USA"
+    ],
+    [
+      "Sepang International Circuit",
+      "Kuala Lumpur",
+      "Malaysia"
+    ],
+    [
+      "Shanghai International Circuit",
+      "Shanghai",
+      "China"
+    ],
+    [
+      "Silverstone Circuit",
+      "Silverstone",
+      "UK"
+    ],
+    [
+      "Sochi Autodrom",
+      "Sochi",
+      "Russia"
+    ],
+    [
+      "Circuit de Spa-Francorchamps",
+      "Spa",
+      "Belgium"
+    ],
+    [
+      "Suzuka Circuit",
+      "Suzuka",
+      "Japan"
+    ],
+    [
+      "Circuit Mont-Tremblant",
+      "Quebec",
+      "Canada"
+    ],
+    [
+      "Valencia Street Circuit",
+      "Valencia",
+      "Spain"
+    ],
+    [
+      "Circuit Gilles Villeneuve",
+      "Montreal",
+      "Canada"
+    ],
+    [
+      "Watkins Glen",
+      "New York State",
+      "USA"
+    ],
+    [
+      "Yas Marina Circuit",
+      "Abu Dhabi",
+      "UAE"
+    ],
+    [
+      "Korean International Circuit",
+      "Yeongam County",
+      "Korea"
+    ],
+    [
+      "Circuit Park Zandvoort",
+      "Zandvoort",
+      "Netherlands"
+    ],
+    [
+      "Zeltweg",
+      "Styria",
+      "Austria"
+    ],
+    [
+      "Zolder",
+      "Heusden-Zolder",
+      "Belgium"
+    ]
+]

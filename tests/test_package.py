@@ -101,3 +101,13 @@ class TestPackage:
         """Tests the results returned by qualifying_results()"""
         q_res = fp.qualifying_results(2021, 10)
         assert self.__get_vals(q_res) == self.__get_data("qualifying_2021_10.json")
+
+    def test_get_all_circuits(self):
+        """Tests the circuits returned by get_circuits()"""
+        circuits = fp.get_circuits()
+        assert self.__get_vals(circuits) == self.__get_data("all_circuits.json")
+
+    def test_get_circuits(self):
+        """Tests the circuits returned by get_circuits(year)"""
+        circuits = fp.get_circuits(2021)
+        assert self.__get_vals(circuits) == self.__get_data("circuits_2021.json")
