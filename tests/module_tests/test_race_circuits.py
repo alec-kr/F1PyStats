@@ -4,7 +4,7 @@ from f1pystats.race_circuits import RaceCircuits
 class TestRaceCircuits:
     """Contains functions for testing the methods in RaceCircuits"""
     data=""
-    with open("tests/test_data/first_3_race_circuits.json",encoding="utf-8") as f:
+    with open("tests/test_data/module_data/first_3_race_circuits.json",encoding="utf-8") as f:
         data=json.load(f)
         f.close()
     c_obj=RaceCircuits(data)
