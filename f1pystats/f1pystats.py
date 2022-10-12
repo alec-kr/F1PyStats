@@ -271,14 +271,14 @@ def qualifying_results(year: int, race_round: int):
         f"https://ergast.com/api/f1/{year}/{race_round}/qualifying.json"
     )
     schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["QualifyingResults"]
-    r_obj= QualifyingResults(schedule_json)
-    driver_positions=r_obj.get_positions()
-    driver_names=r_obj.get_names()
-    driver_numbers=r_obj.get_driver_numbers()
-    constructor_names=r_obj.get_constructors()
-    q1_times=r_obj.get_q1_times()
-    q2_times=r_obj.get_q2_times()
-    q3_times=r_obj.get_q3_times()
+    r_obj = QualifyingResults(schedule_json)
+    driver_positions = r_obj.get_positions()
+    driver_names = r_obj.get_names()
+    driver_numbers = r_obj.get_driver_numbers()
+    constructor_names = r_obj.get_constructors()
+    q1_times = r_obj.get_q1_times()
+    q2_times = r_obj.get_q2_times()
+    q3_times = r_obj.get_q3_times()
     return pd.DataFrame(
         zip(
             driver_positions,
@@ -300,17 +300,18 @@ def qualifying_results(year: int, race_round: int):
         ],
     )
 
-def get_circuits(year:int=None):
+
+def get_circuits(year: int = None):
     """Returns the circuit name, circuit locality and circuit country"""
     if year is None:
         json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=76")
     else:
         json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/circuits.json")
     schedule_json = json_data["MRData"]["CircuitTable"]["Circuits"]
-    rr_obj=RaceCircuits(schedule_json)
-    circuit_name=rr_obj.get_circuit_name()
-    circuit_locality=rr_obj.get_circuit_locality()
-    circuit_country=rr_obj.get_circuit_country()
+    rr_obj = RaceCircuits(schedule_json)
+    circuit_name = rr_obj.get_circuit_name()
+    circuit_locality = rr_obj.get_circuit_locality()
+    circuit_country = rr_obj.get_circuit_country()
     return pd.DataFrame(
         zip(
             circuit_name,
