@@ -277,8 +277,8 @@ def get_constructors(year: int = None):
         url = "https://ergast.com/api/f1/constructors.json?limit=230"
     elif year < 1950 or year > 2022:
         raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
-
-    url = f"http://ergast.com/api/f1/{year}/constructors.json"
+    else:
+        url = f"http://ergast.com/api/f1/{year}/constructors.json"
 
     json_data = _get_json_content_from_url(url)
 
