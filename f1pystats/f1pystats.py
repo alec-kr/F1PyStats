@@ -337,8 +337,9 @@ def get_circuits(year:int=None):
         json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=76")
     elif year < 1950 or year > 2022:
         raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
-
-    json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/circuits.json")
+    else:
+        json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/circuits.json")
+    
     schedule_json = json_data["MRData"]["CircuitTable"]["Circuits"]
     rr_obj=RaceCircuits(schedule_json)
     circuit_name=rr_obj.get_circuit_name()
