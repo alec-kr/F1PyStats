@@ -36,17 +36,17 @@ def get_drivers(year: int, round_num: int = None):
             f"https://ergast.com/api/f1/{year}/{round_num}/drivers.json"
         )
 
-        dr_info = DriverInfo(json_data["MRData"]["DriverTable"]["Drivers"])
+    dr_info = DriverInfo(json_data["MRData"]["DriverTable"]["Drivers"])
 
-        dr_name = dr_info.get_drivers_names()
-        dr_dob = dr_info.get_drivers_dob()
-        dr_nationality = dr_info.get_drivers_nationality()
-        dr_perm_number = dr_info.get_drivers_number()
+    dr_name = dr_info.get_drivers_names()
+    dr_dob = dr_info.get_drivers_dob()
+    dr_nationality = dr_info.get_drivers_nationality()
+    dr_perm_number = dr_info.get_drivers_number()
 
-        return pd.DataFrame(
-            zip(dr_name, dr_perm_number, dr_nationality, dr_dob),
-            columns=["Drivers", "Permanent Number", "Nationality", "Date of Birth"],
-        )
+    return pd.DataFrame(
+        zip(dr_name, dr_perm_number, dr_nationality, dr_dob),
+        columns=["Drivers", "Permanent Number", "Nationality", "Date of Birth"],
+    )
 
 
 def driver_standings(year: int):
