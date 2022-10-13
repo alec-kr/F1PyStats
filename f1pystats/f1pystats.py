@@ -240,9 +240,6 @@ def finishing_status(year: int, race_round: int = 0):
 
 def sprint_results(year: int, race_round: int):
     """Returns the sprint qualifying results for a year and round"""
-    if year < 1950 or year > 2022:
-        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
-
     json_data = _get_json_content_from_url(
         f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
     )
@@ -295,8 +292,8 @@ def get_constructors(year: int = None):
 
 def qualifying_results(year: int, race_round: int):
     """Returns the driver name , driver position, driver number, constructor name , the 3 Q times"""
-    if year < 1950 or year > 2022:
-        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+    if year < 2003 or year > 2022:
+        raise ValueError("Only years between 2003 and 2022 are considered as valid value for year")
 
     json_data = _get_json_content_from_url(
         f"https://ergast.com/api/f1/{year}/{race_round}/qualifying.json"

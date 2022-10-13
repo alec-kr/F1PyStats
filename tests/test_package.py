@@ -26,30 +26,60 @@ class TestPackage:
         winner = fp.constructor_standings(2008)
         assert self.__get_vals(winner) == self.__get_data("constructor_standings_2008.json")
 
+    def test_constructor_standings_bad_year(self):
+        """Tests for ValueError if bad year is given to constructor_standings()"""
+        with pytest.raises(ValueError):
+            fp.constructor_standings(1949)
+
     def test_driver_standings(self):
         """Tests the driver standings returned from driver_standings()"""
         standings = fp.driver_standings(2010)
         assert self.__get_vals(standings) == self.__get_data("driver_standings_2010.json")
+
+    def test_driver_standings_bad_year(self):
+        """Tests for ValueError if bad year is given to driver_standings()"""
+        with pytest.raises(ValueError):
+            fp.driver_standings(1949)
 
     def test_race_winners(self):
         """Tests the race winners returned from race_winners()"""
         winners = fp.race_winners(2010)
         assert self.__get_vals(winners) == self.__get_data("race_winners_2010.json")
 
+    def test_race_winners_bad_year(self):
+        """Tests for ValueError if bad year is given to race_winners()"""
+        with pytest.raises(ValueError):
+            fp.race_winners(1949)
+
     def test_race_table(self):
         """Tests the race schedule returned from race_table()"""
         r_table = fp.race_table(2010)
         assert self.__get_vals(r_table) == self.__get_data("race_table_2010.json")
+
+    def test_race_table_bad_year(self):
+        """Tests for ValueError if bad year is given to race_table()"""
+        with pytest.raises(ValueError):
+            fp.race_table(1949)
 
     def test_lap_times(self):
         """Tests the lap times returned from lap_times()"""
         l_times = fp.lap_times(2010, 1, 1)
         assert self.__get_vals(l_times) == self.__get_data("lap_times_2010_1_1.json")
 
+    def test_lap_times_bad_year(self):
+        """Tests for ValueError if bad year is given to lap_times()"""
+        with pytest.raises(ValueError):
+            fp.lap_times(1949, 1, 1)
+
     def test_pit_stops_race(self):
         """Tests the pit stops in a race returned from pit_stops(year, race)"""
         p_stops = fp.pit_stops(2012, 1)
         assert self.__get_vals(p_stops) == self.__get_data("pit_stops_2012_1.json")
+
+    def test_pit_stops_bad_year(self):
+        """Tests for ValueError if bad year is given to pit_stops()"""
+        with pytest.raises(ValueError):
+            fp.pit_stops(2011, 2)
 
     def test_pit_stops_number(self):
         """Tests an interval of pit stops in a race,
@@ -61,6 +91,11 @@ class TestPackage:
         """Tests a year's finishing status returned from finishing_status(year)"""
         f_status = fp.finishing_status(2008)
         assert self.__get_vals(f_status) == self.__get_data("finishing_status_2008.json")
+
+    def test_finishing_status_bad_year(self):
+        """Tests for ValueError if bad year is given to finishing_status()"""
+        with pytest.raises(ValueError):
+            fp.finishing_status(1949)
 
     def test_finishing_status_race(self):
         """Tests a race's finishing status returned from finishing_status(year, race_round)"""
@@ -77,6 +112,11 @@ class TestPackage:
         drivers = fp.get_drivers(2010)
         assert self.__get_vals(drivers) == self.__get_data("drivers_2010.json")
 
+    def test_get_drivers_bad_year(self):
+        """Tests for ValueError if bad year is given to get_drivers()"""
+        with pytest.raises(ValueError):
+            fp.get_drivers(1949)
+
     def test_sprint_results(self):
         """Tests the results returned from sprint_results()"""
         results = fp.sprint_results(2021, 10)
@@ -92,6 +132,11 @@ class TestPackage:
         yr_constructors = fp.get_constructors(2008)
         assert self.__get_vals(yr_constructors) == self.__get_data("constructors_2008.json")
 
+    def test_get_constructors_bad_year(self):
+        """Tests for ValueError if bad year is given to get_constructors()"""
+        with pytest.raises(ValueError):
+            fp.get_constructors(1949)
+
     def test_get_constructors(self):
         """Tests the results returned from get_constructors()"""
         all_constructors = fp.get_constructors()
@@ -102,6 +147,11 @@ class TestPackage:
         q_res = fp.qualifying_results(2021, 10)
         assert self.__get_vals(q_res) == self.__get_data("qualifying_2021_10.json")
 
+    def test_get_qualifying_results_bad_year(self):
+        """Tests for ValueError if bad year is given to qualifying_results()"""
+        with pytest.raises(ValueError):
+            fp.qualifying_results(2002, 3)
+
     def test_get_all_circuits(self):
         """Tests the circuits returned by get_circuits()"""
         circuits = fp.get_circuits()
@@ -111,3 +161,8 @@ class TestPackage:
         """Tests the circuits returned by get_circuits(year)"""
         circuits = fp.get_circuits(2021)
         assert self.__get_vals(circuits) == self.__get_data("circuits_2021.json")
+
+    def test_get_circuits_bad_year(self):
+        """Tests for ValueError if bad year is given to get_circuits()"""
+        with pytest.raises(ValueError):
+            fp.get_circuits(1949)
