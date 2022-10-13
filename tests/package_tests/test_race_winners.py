@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestRaceWinners(BaseTestClass):
     """Tests for the race_winners() function"""
     def test_race_winners(self):

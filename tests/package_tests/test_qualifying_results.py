@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestQualifyingResults(BaseTestClass):
     """Tests for the qualifying_results() function"""
     def test_qualifying_results(self):

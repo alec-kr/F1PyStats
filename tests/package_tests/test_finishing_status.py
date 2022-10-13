@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestFinishingStatus(BaseTestClass):
     """Tests for the finishing_status() function"""
     def test_finishing_status_year(self):
