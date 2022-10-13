@@ -1,8 +1,9 @@
 """This module contains tests for the pit_stops() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestPitStops(BaseTestClass):
+    """Tests for the pit_stops() function"""
     def test_pit_stops_race(self):
         """Tests the pit stops in a race returned from pit_stops(year, race)"""
         p_stops = self.fp.pit_stops(2012, 1)

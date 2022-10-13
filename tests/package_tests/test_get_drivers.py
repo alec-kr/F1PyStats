@@ -1,8 +1,9 @@
 """This module contains tests for the get_drivers() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestGetDrivers(BaseTestClass):
+    """Tests for the get_drivers() function"""
     def test_get_drivers_race(self):
         """Tests the drivers in a race returned by get_drivers(year, race_round)"""
         drivers = self.fp.get_drivers(2016, 11)

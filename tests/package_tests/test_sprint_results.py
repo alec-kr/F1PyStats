@@ -1,8 +1,9 @@
 """This module contains tests for the sprint_results() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestSprintResults(BaseTestClass):
+    """Tests for the sprint_results() function"""
     def test_sprint_results(self):
         """Tests the results returned from sprint_results()"""
         results = self.fp.sprint_results(2021, 10)

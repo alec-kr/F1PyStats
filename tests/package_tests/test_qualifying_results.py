@@ -1,8 +1,9 @@
 """This module contains tests for the qualifying_results() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestQualifyingResults(BaseTestClass):
+    """Tests for the qualifying_results() function"""
     def test_qualifying_results(self):
         """Tests the results returned by qualifying_results()"""
         q_res = self.fp.qualifying_results(2021, 10)

@@ -1,8 +1,9 @@
 """This module contains tests for the driver_standings() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestDriverStandings(BaseTestClass):
+    """Tests for the driver_standings() function"""
     def test_driver_standings(self):
         """Tests the driver standings returned from driver_standings()"""
         standings = self.fp.driver_standings(2010)

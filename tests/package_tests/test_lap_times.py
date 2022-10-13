@@ -1,8 +1,9 @@
 """This module contains tests for the lap_times() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestLapTimes(BaseTestClass):
+    """Tests for the lap_times() function"""
     def test_lap_times(self):
         """Tests the lap times returned from lap_times()"""
         l_times = self.fp.lap_times(2010, 1, 1)

@@ -1,8 +1,9 @@
 """This module contains tests for the finishing_status() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestFinishingStatus(BaseTestClass):
+    """Tests for the finishing_status() function"""
     def test_finishing_status_year(self):
         """Tests a year's finishing status returned from finishing_status(year)"""
         f_status = self.fp.finishing_status(2008)

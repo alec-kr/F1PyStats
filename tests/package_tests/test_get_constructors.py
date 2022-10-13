@@ -1,8 +1,9 @@
 """This module contains tests for the get_constructors() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestGetConstructors(BaseTestClass):
+    """Tests for the get_constructors() function"""
     def test_get_constructors_year(self):
         """Tests the results returned from get_constructors(year)"""
         yr_constructors = self.fp.get_constructors(2008)

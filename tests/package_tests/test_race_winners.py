@@ -1,8 +1,9 @@
 """This module contains tests for the race_winners() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestRaceWinners(BaseTestClass):
+    """Tests for the race_winners() function"""
     def test_race_winners(self):
         """Tests the race winners returned from race_winners()"""
         winners = self.fp.race_winners(2010)

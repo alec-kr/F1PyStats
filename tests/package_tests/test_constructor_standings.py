@@ -1,8 +1,9 @@
 """This module contains tests for the constructor_standings() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestConstructorStandings(BaseTestClass):
+    """Tests for the constructor_standings() function"""
     def test_constructor_standings(self):
         """Tests the constructor standings returned from constructor_standings()"""
         winner = self.fp.constructor_standings(2008)

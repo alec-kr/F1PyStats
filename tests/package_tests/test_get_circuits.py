@@ -1,8 +1,9 @@
 """This module contains tests for the get_circuits() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestGetCircuits(BaseTestClass):
+    """Tests for the get_circuits() function"""
     def test_get_all_circuits(self):
         """Tests the circuits returned by get_circuits()"""
         circuits = self.fp.get_circuits()

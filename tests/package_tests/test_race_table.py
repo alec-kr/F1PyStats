@@ -1,8 +1,9 @@
 """This module contains tests for the race_table() function"""
 
-from .BaseTestClass import BaseTestClass
+from .base_test_class import BaseTestClass
 
 class TestRaceTable(BaseTestClass):
+    """Tests for the race_table() function"""
     def test_race_table(self):
         """Tests the race schedule returned from race_table()"""
         r_table = self.fp.race_table(2010)
