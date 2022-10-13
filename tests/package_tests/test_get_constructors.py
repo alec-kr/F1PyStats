@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestGetConstructors(BaseTestClass):
     """Tests for the get_constructors() function"""
     def test_get_constructors_year(self):

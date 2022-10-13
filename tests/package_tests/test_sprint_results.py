@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestSprintResults(BaseTestClass):
     """Tests for the sprint_results() function"""
     def test_sprint_results(self):

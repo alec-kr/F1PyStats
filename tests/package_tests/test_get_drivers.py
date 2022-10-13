@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestGetDrivers(BaseTestClass):
     """Tests for the get_drivers() function"""
     def test_get_drivers_race(self):
