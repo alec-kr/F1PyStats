@@ -27,6 +27,8 @@ from .constructor_info import ConstructorInfo
 
 def get_drivers(year: int, round_num: int = None):
     """Returns a list of drivers for a specified year"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
     if round_num is None:
         json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/drivers.json")
     else:
@@ -49,6 +51,9 @@ def get_drivers(year: int, round_num: int = None):
 
 def driver_standings(year: int):
     """Returns the driver standings for a specified year"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/driverStandings.json")
     standings_json = json_data["MRData"]["StandingsTable"]["StandingsLists"][0]["DriverStandings"]
     d_res = DriverResults(standings_json)
@@ -67,6 +72,9 @@ def driver_standings(year: int):
 
 def constructor_standings(year: int):
     """Returns the constructor standings for a specified year"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(
         f"https://ergast.com/api/f1/{year}/constructorStandings.json"
     )
@@ -88,6 +96,9 @@ def constructor_standings(year: int):
 
 def race_winners(year: int):
     """Returns the race winners in a specified year"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/results/1.json")
     results_json = json_data["MRData"]["RaceTable"]["Races"]
     r_winners = RaceWinners(results_json)
@@ -115,6 +126,9 @@ def race_winners(year: int):
 
 def race_table(year: int):
     """Returns the race schedule for a specified year"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}.json")
     schedule_json = json_data["MRData"]["RaceTable"]["Races"]
     r_sched = RaceSchedule(schedule_json)
@@ -150,6 +164,9 @@ def race_table(year: int):
 
 def lap_times(year: int, race_round: int, lap_number: int):
     """Returns the lap times for a specified year, race round and lap number"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(
         f"https://ergast.com/api/f1/{year}/{race_round}/laps/{lap_number}.json"
     )
@@ -175,6 +192,9 @@ def lap_times(year: int, race_round: int, lap_number: int):
 
 def pit_stops(year: int, race_round: int, stop_number: int = 0):
     """Returns the pit stops for a specific race in a season"""
+    if year < 2012 or year > 2022:
+        raise ValueError("Only years between 2012 and 2022 are considered as valid value for year")
+
     if int == 0:
         json_data = _get_json_content_from_url(
             f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json"
@@ -199,6 +219,9 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
 
 def finishing_status(year: int, race_round: int = 0):
     """Returns the finishing status for a year with a optional parameter of round"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     if race_round == 0:
         json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/status.json")
     else:
@@ -217,6 +240,9 @@ def finishing_status(year: int, race_round: int = 0):
 
 def sprint_results(year: int, race_round: int):
     """Returns the sprint qualifying results for a year and round"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(
         f"http://ergast.com/api/f1/{year}/{race_round}/sprint.json"
     )
@@ -249,6 +275,8 @@ def get_constructors(year: int = None):
     """Returns a list of constructors for a specified year"""
     if year is None:
         url = "https://ergast.com/api/f1/constructors.json?limit=230"
+    elif year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
     else:
         url = f"http://ergast.com/api/f1/{year}/constructors.json"
 
@@ -267,6 +295,9 @@ def get_constructors(year: int = None):
 
 def qualifying_results(year: int, race_round: int):
     """Returns the driver name , driver position, driver number, constructor name , the 3 Q times"""
+    if year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
+
     json_data = _get_json_content_from_url(
         f"https://ergast.com/api/f1/{year}/{race_round}/qualifying.json"
     )
@@ -304,8 +335,11 @@ def get_circuits(year:int=None):
     """Returns the circuit name, circuit locality and circuit country"""
     if year is None:
         json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=76")
+    elif year < 1950 or year > 2022:
+        raise ValueError("Only years between 1950 and 2022 are considered as valid value for year")
     else:
         json_data = _get_json_content_from_url(f"https://ergast.com/api/f1/{year}/circuits.json")
+
     schedule_json = json_data["MRData"]["CircuitTable"]["Circuits"]
     rr_obj=RaceCircuits(schedule_json)
     circuit_name=rr_obj.get_circuit_name()
