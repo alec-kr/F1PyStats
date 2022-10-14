@@ -195,7 +195,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
     if year < 2012 or year > 2022:
         raise ValueError("Only years between 2012 and 2022 are considered as valid value for year")
 
-    if int == 0:
+    if stop_number == 0:
         json_data = _get_json_content_from_url(
             f"https://ergast.com/api/f1/{year}/{race_round}/pitstops.json"
         )
