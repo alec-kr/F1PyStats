@@ -1,4 +1,4 @@
-name: Pylint and flake8
+name: Pylint & Flake8
 
 on: [push, pull_request]
 
