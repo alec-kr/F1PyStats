@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestConstructorStandings(BaseTestClass):
     """Tests for the constructor_standings() function"""
     def test_constructor_standings(self):

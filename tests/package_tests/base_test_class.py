@@ -1,12 +1,13 @@
 """This is the base class for all package test modules"""
 
+
 class BaseTestClass:
     """These class methods are used to test the functions in f1pystats"""
-     # pylint: disable=import-outside-toplevel
+    # pylint: disable=import-outside-toplevel
     import json
     import pytest
     import f1pystats.f1pystats as fp
-     # pylint: enable=import-outside-toplevel
+    # pylint: enable=import-outside-toplevel
 
     def get_vals(self, json_data):
         """Convert the API's JSON values into a nested list"""

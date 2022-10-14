@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestGetCircuits(BaseTestClass):
     """Tests for the get_circuits() function"""
     def test_get_all_circuits(self):

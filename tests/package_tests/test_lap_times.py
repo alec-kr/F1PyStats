@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestLapTimes(BaseTestClass):
     """Tests for the lap_times() function"""
     def test_lap_times(self):

@@ -2,6 +2,7 @@
 
 from .base_test_class import BaseTestClass
 
+
 class TestRaceTable(BaseTestClass):
     """Tests for the race_table() function"""
     def test_race_table(self):
