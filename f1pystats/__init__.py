@@ -1,4 +1,3 @@
-
 """__init.py__ for f1pystats"""
 __version__ = '0.1.0'
 
