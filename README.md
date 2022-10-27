@@ -78,7 +78,7 @@ Spot an issue or bug? Please let us know by [creating a bug report](https://gith
 <p align="center">
   
 	
-<a href="https://github.com/SauravMukherjee44/CodeChamp-s-Website/graphs/contributors">
+<a href="https://github.com/alec-kr/F1PyStats/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=DeveloperAshish8/CodeChamp-s-Website" />
 </a>
 
