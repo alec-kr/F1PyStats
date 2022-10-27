@@ -79,7 +79,7 @@ Spot an issue or bug? Please let us know by [creating a bug report](https://gith
   
 	
 <a href="https://github.com/alec-kr/F1PyStats/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=F1PyStats/F1PyStats" />
+  <img src="https://contrib.rocks/image?repo=alec-kr/F1PyStats" />
 </a>
 
 <h3 align=center>Happy Coding 👨‍💻 </h3>
