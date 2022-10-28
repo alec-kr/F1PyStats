@@ -231,9 +231,10 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
             f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
         )
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
-    
+
     if fastest:
-      stops_json = [i for i in stops_json if i["duration"] == min([i["duration"] for i in stops_json])]
+        stops_json = [i for i in stops_json if i["duration"]
+                      == min(i["duration"] for i in stops_json)]
 
     p_stops = PitStops(stops_json)
     driver_names = p_stops.get_driver_names()
