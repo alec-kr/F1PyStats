@@ -5,3 +5,11 @@ max-line-length = 88
 import-order-style = google
 per-file-ignores = noxfile.py:ANN
 docstring-convention = google
+exclude = 
+    .git
+    .venv
+    __pycache__
+    docs/source/conf.py
+    old
+    build
+    dist
