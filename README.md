@@ -74,3 +74,10 @@ Know how to code and you'd like to add a feature? Feel free to [create a PR](htt
 ## Bug Reports
 Spot an issue or bug? Please let us know by [creating a bug report](https://github.com/alec-kr/F1PyStats/issues/new/choose) :bug:
 
+## OUR VALUABLE CONTRIBUTORS✨
+
+  <a href="https://github.com/alec-kr/F1PyStats/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=alec-kr/F1PyStats" />
+  </a>
+
+<h1 align="center">Happy Coding  👨‍💻</h1>
