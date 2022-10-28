@@ -215,7 +215,7 @@ def lap_times(year: int, race_round: int, lap_number: int):
     )
 
 
-def pit_stops(year: int, race_round: int, stop_number: int = 0):
+def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = False):
     """Returns the pit stops for a specific race in a season"""
     if year < 2012 or year > CURR_YEAR:
         raise ValueError(
@@ -231,6 +231,10 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0):
             f"https://ergast.com/api/f1/{year}/{race_round}/pitstops/{stop_number}.json"
         )
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
+    
+    if fastest:
+      stops_json = [i for i in stops_json if i["duration"] == min([i["duration"] for i in stops_json])]
+
     p_stops = PitStops(stops_json)
     driver_names = p_stops.get_driver_names()
     stop_number = p_stops.get_stop_numbers()
