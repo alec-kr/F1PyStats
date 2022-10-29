@@ -20,3 +20,9 @@ class TestPitStops(BaseTestClass):
         returned from pit_stops(year, race, stop_number)"""
         p_stops = self.fp.pit_stops(2012, 1, 3)
         assert self.get_vals(p_stops) == self.get_data("pit_stops_2012_1_3.json")
+
+    def test_pit_stops_fastest(self):
+        """Tests the fastest pit stops in a race
+        returned from pit_stops(year, race, fastest=True)"""
+        p_stops = self.fp.pit_stops(2012, 1, 3, True)
+        assert self.get_vals(p_stops) == self.get_data("pit_stops_2012_1_3_fastest.json")

@@ -51,7 +51,7 @@ The package currently contains twelve functions
 | fp.race_winners(year)          	| Returns the race winners for a specified year                       	| Pandas DataFrame  	|
 | fp.race_table(year)           	| Returns the race schedule for a specific year 	                      | Pandas DataFrame  	|
 | fp.lap_times(year, race_round, lap_number)           	| Returns the lap times for a specific lap in a particular race 	                      | Pandas DataFrame  	|
-| fp.pit_stops(year, round, stop_number)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
+| fp.pit_stops(year, round, stop_number, fastest)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
 | fp.finishing_status(year,race_round)  | Returns the finishing status of races in a year (or a particular race if specified)     | Pandas DataFrame  |
 |fp.get_drivers(year, race_round) | Returns information on drivers in a given year (or a particular race if specified) | Pandas DataFrame |
 |fp.get_constructors(year) | Returns information on constructors in a given year | Pandas DataFrame |
