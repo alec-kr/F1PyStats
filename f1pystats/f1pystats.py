@@ -427,10 +427,10 @@ def fastest_laps(year, race_round):
             driver_id = lap['Timings'][0]['driverId']
             lap_number = lap['number']
     print(
-          driver_id,
-          race_name,
-          lap_number,
-          str_fastest_time
+        driver_id,
+        race_name,
+        lap_number,
+        str_fastest_time
         )
     return pd.DataFrame(
         zip(
