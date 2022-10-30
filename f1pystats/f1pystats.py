@@ -431,7 +431,7 @@ def fastest_laps(year, race_round):
         race_name,
         lap_number,
         str_fastest_time
-        )
+         )
     return pd.DataFrame(
         zip(
             [driver_id],
