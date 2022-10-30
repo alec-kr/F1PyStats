@@ -404,7 +404,7 @@ def _get_sec(time_str):
     return int(hour) * 3600 + int(minute) * 60 + int(sec)
 
 
-def fastest_laps(year,race_round):
+def fastest_laps(year, race_round):
     """Gets the fastest lap in the particular year in a particular race round"""
     if year < 1950 or year > CURR_YEAR:
         raise ValueError(
@@ -413,23 +413,25 @@ def fastest_laps(year,race_round):
     json_data = _get_json_content_from_url(
         f"https://ergast.com/api/f1/{year}/{race_round}/laps.json"
     )
-    race_name=json_data['MRData']['RaceTable']['Races'][0]['raceName']
-    str_fastest_time=json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]["Timings"][0]['time']
-    fastest_time=_get_sec(str_fastest_time)
-    lap_number=1
-    driver_id=json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]['Timings'][0]['driverId']
+    race_name = json_data['MRData']['RaceTable']['Races'][0]['raceName']
+    str_fastest_time = json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]["Timings"][0]['time']
+    fastest_time = _get_sec(str_fastest_time)
+    lap_number = 1
+    driver_id = json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]['Timings'][0]['driverId']
     for lap in json_data['MRData']['RaceTable']['Races'][0]['Laps']:
-        str_time=lap['Timings'][0]['time']
-        time_sec=_get_sec(str_time)
-        if fastest_time<time_sec:
-            str_fastest_time=str_time
-            fastest_time=time_sec
-            driver_id=lap['Timings'][0]['driverId']
-            lap_number=lap['number']
-    print(driver_id,
+        str_time = lap['Timings'][0]['time']
+        time_sec = _get_sec(str_time)
+        if fastest_time < time_sec:
+            str_fastest_time = str_time
+            fastest_time = time_sec
+            driver_id = lap['Timings'][0]['driverId']
+            lap_number = lap['number']
+    print(
+            driver_id,
             race_name,
             lap_number,
-            str_fastest_time)
+            str_fastest_time
+        )
     return pd.DataFrame(
         zip(
             [driver_id],
@@ -444,4 +446,4 @@ def fastest_laps(year,race_round):
             "Fastest Lap Time"
         ]
     )
-    
+
