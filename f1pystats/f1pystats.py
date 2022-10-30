@@ -415,22 +415,22 @@ def fastest_laps(year,race_round):
     str_fastest_time=json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]["Timings"][0]['time']
     fastest_time=_get_sec(str_fastest_time)
     lap_number=1
-    driverId=json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]['Timings'][0]['driverId']
+    driver_id=json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]['Timings'][0]['driverId']
     for lap in json_data['MRData']['RaceTable']['Races'][0]['Laps']:
         str_time=lap['Timings'][0]['time']
         time_sec=_get_sec(str_time)
         if fastest_time<time_sec:
             str_fastest_time=str_time
             fastest_time=time_sec
-            driverId=lap['Timings'][0]['driverId']
+            driver_id=lap['Timings'][0]['driverId']
             lap_number=lap['number']
-    print(driverId,
+    print(driver_id,
             race_name,
             lap_number,
             str_fastest_time)
     return pd.DataFrame(
         zip(
-            [driverId],
+            [driver_id],
             [race_name],
             [str(lap_number)],
             [str_fastest_time]
