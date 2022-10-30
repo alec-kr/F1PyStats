@@ -19,7 +19,7 @@ F1PyStats is an open-source Python3 package that provides Formula 1 data/statist
 Before installing the package, you should ensure your Python version is at least [v3.8](https://www.python.org/downloads/release/python-380/). If your version does not meet the requirements, please [download](https://www.python.org/downloads/) a newer version to ensure the package works as expected.
 
 ## Poetry
-The package uses [Poetry](https://python-poetry.org/) as the primary dependency management tool. To install this tool, kindly follow their [official installation instructions](https://python-poetry.org/docs/).
+The package uses [Poetry](https://python-poetry.org/) ([v1.2](https://github.com/python-poetry/poetry/releases/tag/1.2.0) or higher) as the primary dependency management tool. To install this tool, kindly follow their [official installation instructions](https://python-poetry.org/docs/).
 
 # Installation
 ```
@@ -51,7 +51,7 @@ The package currently contains twelve functions
 | fp.race_winners(year)          	| Returns the race winners for a specified year                       	| Pandas DataFrame  	|
 | fp.race_table(year)           	| Returns the race schedule for a specific year 	                      | Pandas DataFrame  	|
 | fp.lap_times(year, race_round, lap_number)           	| Returns the lap times for a specific lap in a particular race 	                      | Pandas DataFrame  	|
-| fp.pit_stops(year, round, stop_number)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
+| fp.pit_stops(year, round, stop_number, fastest)           	| Returns the pit stop info for a specific race/pit stop 	                      | Pandas DataFrame  	|
 | fp.finishing_status(year,race_round)  | Returns the finishing status of races in a year (or a particular race if specified)     | Pandas DataFrame  |
 |fp.get_drivers(year, race_round) | Returns information on drivers in a given year (or a particular race if specified) | Pandas DataFrame |
 |fp.get_constructors(year) | Returns information on constructors in a given year | Pandas DataFrame |
@@ -74,7 +74,7 @@ Know how to code and you'd like to add a feature? Feel free to [create a PR](htt
 ## Bug Reports
 Spot an issue or bug? Please let us know by [creating a bug report](https://github.com/alec-kr/F1PyStats/issues/new/choose) :bug:
 
-## OUR VALUABLE CONTRIBUTORS✨
+## Our Valuable Contributors✨
 
   <a href="https://github.com/alec-kr/F1PyStats/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=alec-kr/F1PyStats" />
