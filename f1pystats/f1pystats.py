@@ -396,11 +396,13 @@ def get_circuits(year: int = None):
         ]
     )
 
+
 def _get_sec(time_str):
     """Get seconds from time."""
-    hour, min_sec = time_str.split(':')
-    minute,sec=min_sec.split('.')
+    hour , min_sec = time_str.split(':')
+    minute , sec = min_sec.split('.')
     return int(hour) * 3600 + int(minute) * 60 + int(sec)
+
 
 def fastest_laps(year,race_round):
     """Gets the fastest lap in the particular year in a particular race round"""
@@ -442,4 +444,3 @@ def fastest_laps(year,race_round):
             "Fastest Lap Time"
         ]
     )
-    
