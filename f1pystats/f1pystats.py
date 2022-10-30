@@ -446,4 +446,3 @@ def fastest_laps(year, race_round):
             "Fastest Lap Time"
         ]
     )
-
