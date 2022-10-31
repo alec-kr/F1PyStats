@@ -16,7 +16,7 @@ F1PyStats is an open-source Python3 package that provides Formula 1 data/statist
 
 # Prerequisites
 ## Python3
-Before installing the package, you should ensure your Python version is at least [v3.8](https://www.python.org/downloads/release/python-380/). If your version does not meet the requirements, please [download](https://www.python.org/downloads/) a newer version to ensure the package works as expected.
+Before installing the package, you should ensure your Python version is at least [v3.9](https://www.python.org/downloads/release/python-390/). If your version does not meet the requirements, please [download](https://www.python.org/downloads/) a newer version to ensure the package works as expected.
 
 ## Poetry
 The package uses [Poetry](https://python-poetry.org/) ([v1.2](https://github.com/python-poetry/poetry/releases/tag/1.2.0) or higher) as the primary dependency management tool. To install this tool, kindly follow their [official installation instructions](https://python-poetry.org/docs/).
