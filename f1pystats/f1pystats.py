@@ -37,7 +37,7 @@ def _get_sec(time_str):
     dplace = 0
     for char in time_str:
         if dplace == 0:
-            if '0' <= char and char <= '9':
+            if '0' <= char <= '9':
                 num *= 10
                 num += ord(char) - ord('0')
             elif char == ':':
@@ -49,7 +49,7 @@ def _get_sec(time_str):
                 num = 0
                 dplace = -1
         else:
-            if '0' <= char and char <= '9':
+            if '0' <= char <= '9':
                 num *= 10
                 num += ord(char) - ord('0')
                 dplace -= 1
