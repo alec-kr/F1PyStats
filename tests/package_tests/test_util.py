@@ -8,11 +8,11 @@ class TestUtil(BaseTestClass):
 
     def test_get_sec(self):
         """Test seconds returned from _get_sec"""
-        assert self.fp._get_sec(     "58.79") == 58.79
-        assert self.fp._get_sec(   "0:58.79") == 58.79
-        assert self.fp._get_sec("1:23:45")    == 5025
-        # Not support for an decimal point at the end.
-        #assert LapTimes._get_sec("1:23:45.")  == 5025
+        assert self.fp._get_sec(     "58.79") == 58.79   # Niki Lauda 1974 R9 Q
+        assert self.fp._get_sec(      "1"   ) == 1       # Minimum format
+        assert self.fp._get_sec("1:23:45.67") == 5025.67 # Full format
+        assert self.fp._get_sec("")           == 0       # non input        
+        assert self.fp._get_sec(".")          == 0       # naked decimal point
 
     def test_sprint_results(self):
         """Tests the results returned from sprint_results()"""
