@@ -30,6 +30,27 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return requests.get(url, *args, timeout=timeout, **kwargs).json()
 
 
+def _get_sec(time_str):
+        """Get seconds from time string"""
+        s = 0
+        num_str = ''
+        for c in time_str:
+            if '0' <= c and c <= '9':
+                num_str += c
+            elif c == ':':
+                s += int(num_str)
+                s *= 60
+                num_str = ''
+            elif c == '.':
+                s += int(num_str)
+                num_str = '.'
+        if num_str[0] == '.':
+            s += float(num_str)
+        else:
+            s += int(num_str)
+        return s
+
+
 # Requesting the season list and get the last one to initialize CURR_YEAR
 CURR_YEAR = int(
     _get_json_content_from_url(
