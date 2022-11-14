@@ -30,7 +30,7 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return requests.get(url, *args, timeout=timeout, **kwargs).json()
 
 
-def _get_sec(time_str):
+def get_sec(time_str):
     """Returns seconds from time string"""
     sec = 0
     num = 0
@@ -265,7 +265,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
 
     if fastest:
-        ftime = min((i["duration"] for i in stops_json), key=_get_sec)
+        ftime = min((i["duration"] for i in stops_json), key=get_sec)
         stops_json = [i for i in stops_json
                             if i["duration"] == ftime]
 
