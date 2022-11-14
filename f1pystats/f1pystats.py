@@ -35,23 +35,23 @@ def _get_sec(time_str):
     sec = 0
     num = 0
     dplace = 0
-    for ch in time_str:
+    for char in time_str:
         if dplace == 0:
-            if '0' <= ch and ch <= '9':
+            if '0' <= char and char <= '9':
                 num *= 10
-                num += ord(ch) - ord('0')
-            elif ch == ':':
+                num += ord(char) - ord('0')
+            elif char == ':':
                 sec += num
                 sec *= 60
                 num = 0
-            elif ch == '.':
+            elif char == '.':
                 sec += num
                 num = 0
                 dplace = -1
         else:
-            if '0' <= ch and ch <= '9':
+            if '0' <= char and char <= '9':
                 num *= 10
-                num += ord(ch) - ord('0')
+                num += ord(char) - ord('0')
                 dplace -= 1
 
     if dplace == 0:
