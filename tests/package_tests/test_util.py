@@ -12,5 +12,5 @@ class TestUtil(BaseTestClass):
         assert self.fp._get_sec(      "1"   )  == 1      # Minimum format
         want = (1 * 3600) + (23 * 60) + 45.678
         assert self.fp._get_sec("1:23:45.678") == want   # Full format
-        assert self.fp._get_sec("")            == 0      # non input        
+        assert self.fp._get_sec("")            == 0      # non input
         assert self.fp._get_sec(".")           == 0      # naked decimal point
