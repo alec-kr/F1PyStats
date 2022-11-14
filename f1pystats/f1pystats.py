@@ -263,8 +263,9 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
 
     if fastest:
-        stops_json = [i for i in stops_json if i["duration"]
-                      == min(i["duration"] for i in stops_json)]
+        ftime = min((i["duration"] for i in stops_json), key=_get_sec)
+        stops_json = [i for i in stops_json
+                            if i["duration"] == ftime]
 
     p_stops = PitStops(stops_json)
     driver_names = p_stops.get_driver_names()
