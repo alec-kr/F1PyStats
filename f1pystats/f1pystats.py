@@ -397,46 +397,25 @@ def get_circuits(year: int = None):
     )
 
 
-def _get_sec(time_str):
-    """Get seconds from time."""
-    hour , min_sec = time_str.split(':')
-    minute , sec = min_sec.split('.')
-    return int(hour) * 3600 + int(minute) * 60 + int(sec)
-
-
 def fastest_laps(year, race_round):
-    """Gets the fastest lap in the particular year in a particular race round"""
+    """Returns the fastest lap for a particular race"""
     if year < 1950 or year > CURR_YEAR:
         raise ValueError(
             f"Only years between 1950 and {CURR_YEAR} are considered as valid value for year"
         )
     json_data = _get_json_content_from_url(
-        f"https://ergast.com/api/f1/{year}/{race_round}/laps.json"
+        f"https://ergast.com/api/f1/{year}/{race_round}/laps.json?limit=999999"
     )
-    race_name = json_data['MRData']['RaceTable']['Races'][0]['raceName']
-    str_fastest_time = json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]["Timings"][0]['time']
-    fastest_time = _get_sec(str_fastest_time)
-    lap_number = 1
-    driver_id = json_data['MRData']['RaceTable']['Races'][0]['Laps'][0]['Timings'][0]['driverId']
-    for lap in json_data['MRData']['RaceTable']['Races'][0]['Laps']:
-        str_time = lap['Timings'][0]['time']
-        time_sec = _get_sec(str_time)
-        if fastest_time < time_sec:
-            str_fastest_time = str_time
-            fastest_time = time_sec
-            driver_id = lap['Timings'][0]['driverId']
-            lap_number = lap['number']
+    schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"]
+    l_times = LapTimes(schedule_json)
     return pd.DataFrame(
         zip(
-            [driver_id],
-            [race_name],
-            [str(lap_number)],
-            [str_fastest_time]
+            l_times.get_fastest_lap()
         ),
         columns=[
-            "driver Id",
-            "Race Name",
+            "POS",
+            "Driver",
             "Lap Number",
-            "Fastest Lap Time"
+            "Fastest Lap Time",
         ]
     )
