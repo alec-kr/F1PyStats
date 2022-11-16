@@ -58,7 +58,7 @@ The package currently contains twelve functions
 |fp.sprint_results(year,race_round) | Returns the sprint qualifying results for a specific race | Pandas DataFrame|
 |fp.qualifying_results(year, race_round) | Returns the qualifying results of a particular race | Pandas DataFrame |
 |fp.get_circuits(year) | Returns the circuit details of a specific race for a specific year| Pandas DataFrame |
-| fp.fastest_laps(year, race_round) | Returns the fastest lap for a particular race                     | Pandas DataFrame  	|
+| fp.fastest_laps(year, race_round) | Returns the fastest lap for a particular race | Pandas DataFrame |
 
 
 
