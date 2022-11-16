@@ -14,5 +14,5 @@ from .f1pystats import (driver_standings,  # noqa: F401
                         sprint_results,
                         qualifying_results,
                         get_circuits,
-                        fastest_laps
+                        fastest_laps,
                         )
