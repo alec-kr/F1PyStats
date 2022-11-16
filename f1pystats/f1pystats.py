@@ -30,6 +30,38 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return requests.get(url, *args, timeout=timeout, **kwargs).json()
 
 
+def get_sec(time_str):
+    """Returns seconds from time string"""
+    sec = 0
+    num = 0
+    dplace = 0
+    for char in time_str:
+        if dplace == 0:
+            if '0' <= char <= '9':
+                num *= 10
+                num += ord(char) - ord('0')
+            elif char == ':':
+                sec += num
+                sec *= 60
+                num = 0
+            elif char == '.':
+                sec += num
+                num = 0
+                dplace = -1
+        else:
+            if '0' <= char <= '9':
+                num *= 10
+                num += ord(char) - ord('0')
+                dplace -= 1
+
+    if dplace == 0:
+        sec += num
+    else:
+        sec += num * pow(10, dplace + 1)
+
+    return sec
+
+
 # Requesting the season list and get the last one to initialize CURR_YEAR
 CURR_YEAR = int(
     _get_json_content_from_url(
@@ -233,8 +265,8 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
 
     if fastest:
-        stops_json = [i for i in stops_json if i["duration"]
-                      == min(i["duration"] for i in stops_json)]
+        ftime = min((i["duration"] for i in stops_json), key=get_sec)
+        stops_json = [i for i in stops_json if i["duration"] == ftime]
 
     p_stops = PitStops(stops_json)
     driver_names = p_stops.get_driver_names()
