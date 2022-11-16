@@ -439,19 +439,19 @@ def fastest_laps(year, race_round):
         f"https://ergast.com/api/f1/{year}/{race_round}/fastest/1/results.json"
     )
     races_json = json_data["MRData"]["RaceTable"]["Races"][0]["Results"][0]
-    driverId = races_json["Driver"]["driverId"]
+    driver_id = races_json["Driver"]["driverId"]
     laps = races_json["laps"]
 
     json_data = _get_json_content_from_url(
-        f"https://ergast.com/api/f1/{year}/{race_round}/drivers/{driverId}/laps/{laps}.json"
+        f"https://ergast.com/api/f1/{year}/{race_round}/drivers/{driver_id}/laps/{laps}.json"
     )
     timings_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"][0]
     time = timings_json["time"]
 
     return pd.DataFrame(
         [[
-            driverId, laps, time
-        ]],            
+            driver_id, laps, time
+        ]],
         columns=[
             "Driver", "Laps", "Lap Time"
         ]
