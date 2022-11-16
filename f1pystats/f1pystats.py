@@ -431,23 +431,28 @@ def get_circuits(year: int = None):
 
 def fastest_laps(year, race_round):
     """Returns the fastest lap for a particular race"""
-    if year < 1950 or year > CURR_YEAR:
+    if year < 2004 or year > CURR_YEAR:
         raise ValueError(
-            f"Only years between 1950 and {CURR_YEAR} are considered as valid value for year"
+            f"Only years between 2004 and {CURR_YEAR} are considered as valid value for year"
         )
     json_data = _get_json_content_from_url(
-        f"https://ergast.com/api/f1/{year}/{race_round}/laps.json?limit=999999"
+        f"https://ergast.com/api/f1/{year}/{race_round}/fastest/1/results.json"
     )
-    schedule_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"]
-    l_times = LapTimes(schedule_json)
+    races_json = json_data["MRData"]["RaceTable"]["Races"][0]["Results"][0]
+    driverId = races_json["Driver"]["driverId"]
+    laps = races_json["laps"]
+
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/drivers/{driverId}/laps/{laps}.json"
+    )
+    timings_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"][0]
+    time = timings_json["time"]
+
     return pd.DataFrame(
-        zip(
-            l_times.get_fastest_lap()
-        ),
+        [[
+            driverId, laps, time
+        ]],            
         columns=[
-            "POS",
-            "Driver",
-            "Lap Number",
-            "Fastest Lap Time",
+            "Driver", "Laps", "Lap Time"
         ]
     )
