@@ -427,3 +427,32 @@ def get_circuits(year: int = None):
             "Country"
         ]
     )
+
+
+def fastest_laps(year, race_round):
+    """Returns the fastest lap for a particular race"""
+    if year < 2004 or year > CURR_YEAR:
+        raise ValueError(
+            f"Only years between 2004 and {CURR_YEAR} are considered as valid value for year"
+        )
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/fastest/1/results.json"
+    )
+    races_json = json_data["MRData"]["RaceTable"]["Races"][0]["Results"][0]
+    driver_id = races_json["Driver"]["driverId"]
+    laps = races_json["laps"]
+
+    json_data = _get_json_content_from_url(
+        f"https://ergast.com/api/f1/{year}/{race_round}/drivers/{driver_id}/laps/{laps}.json"
+    )
+    timings_json = json_data["MRData"]["RaceTable"]["Races"][0]["Laps"][0]["Timings"][0]
+    time = timings_json["time"]
+
+    return pd.DataFrame(
+        [[
+            driver_id, laps, time
+        ]],
+        columns=[
+            "Driver", "Laps", "Lap Time"
+        ]
+    )
