@@ -50,3 +50,6 @@ jobs:
         poetry run pytest --cov-report lcov --cov
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
+      with:
+        files: coverage.lcov
+        fail_ci_if_error: true
