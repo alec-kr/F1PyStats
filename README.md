@@ -4,7 +4,6 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats)
 [![GitHub forks](https://img.shields.io/github/forks/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats/network/members)
 
-[![GitHub Hacktoberfest combined status](https://img.shields.io/github/hacktoberfest/2022/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats)
 [![codecov](https://codecov.io/gh/alec-kr/F1PyStats/branch/main/graph/badge.svg?token=75FEMX2BHQ)](https://codecov.io/gh/alec-kr/F1PyStats)
 [![GitHub](https://img.shields.io/github/license/alec-kr/F1PyStats?color=blue)](https://github.com/alec-kr/F1PyStats/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/alec-kr/F1PyStats)](https://github.com/alec-kr/F1PyStats/issues)
