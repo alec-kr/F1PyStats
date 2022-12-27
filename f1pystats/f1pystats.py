@@ -402,7 +402,7 @@ def qualifying_results(year: int, race_round: int):
 def get_circuits(year: int = None):
     """Returns the circuit name, circuit locality and circuit country"""
     if year is None:
-        json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=76")
+        json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=100")
     elif year < 1950 or year > CURR_YEAR:
         raise ValueError(
             f"Only years between 1950 and {CURR_YEAR} are considered as valid value for year"
