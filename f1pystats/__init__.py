@@ -1,5 +1,5 @@
 """__init.py__ for f1pystats"""
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 from .f1pystats import (driver_standings,  # noqa: F401

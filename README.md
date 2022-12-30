@@ -33,7 +33,7 @@ $ poetry install --only main
 poetry build
 
 // Install built package (https://python-poetry.org/docs/cli/#add)
-poetry add ../F1Pystats/dist/f1pystats-0.1.0.whl
+poetry add ../F1Pystats/dist/f1pystats-0.1.1.whl
 ```
 
 # Usage
