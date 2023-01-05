@@ -29,7 +29,7 @@ from .constructor_info import ConstructorInfo
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""
     session = requests.Session()
-    session.mount('https://ergast.com', HTTPAdapter(max_retries=1))
+    session.mount('https://ergast.com', HTTPAdapter(max_retries=2))
     return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
