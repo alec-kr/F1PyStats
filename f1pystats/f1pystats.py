@@ -28,9 +28,9 @@ from .constructor_info import ConstructorInfo
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""
-    s = requests.Session()
-    s.mount('https://ergast.com', HTTPAdapter(max_retries=1))
-    return s.get(url, *args, timeout=timeout, **kwargs).json()
+    session = requests.Session()
+    session.mount('https://ergast.com', HTTPAdapter(max_retries=1))
+    return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
 def get_sec(time_str):
