@@ -1,6 +1,7 @@
 """This module is responsible for handling the user-level function calls"""
 
 import requests
+from requests.adapters import HTTPAdapter
 import pandas as pd
 
 from .sprint_results import SprintResults
@@ -27,7 +28,9 @@ from .constructor_info import ConstructorInfo
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     """Returns JSON content from requestsm URL"""
-    return requests.get(url, *args, timeout=timeout, **kwargs).json()
+    session = requests.Session()
+    session.mount('https://ergast.com', HTTPAdapter(max_retries=2))
+    return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
 def get_sec(time_str):
