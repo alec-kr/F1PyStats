@@ -16,4 +16,3 @@ from .f1pystats import (constructor_standings, # noqa: F401
                         race_winners,
                         sprint_results,
                         )
-
