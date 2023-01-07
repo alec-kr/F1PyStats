@@ -2,7 +2,7 @@
 __version__ = '0.1.1'
 
 
-from .f1pystats import (constructor_standings, # noqa: F401
+from .f1pystats import (constructor_standings,  # noqa: F401
                         driver_standings,
                         fastest_laps,
                         finishing_status,
