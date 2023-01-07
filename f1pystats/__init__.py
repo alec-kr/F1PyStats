@@ -2,17 +2,18 @@
 __version__ = '0.1.1'
 
 
-from .f1pystats import (driver_standings,  # noqa: F401
-                        constructor_standings,
-                        race_winners,
-                        race_table,
+from .f1pystats import (constructor_standings, # noqa: F401
+                        driver_standings,
+                        fastest_laps,
+                        finishing_status,
+                        get_circuits,
+                        get_constructors,
+                        get_drivers,
                         lap_times,
                         pit_stops,
-                        get_drivers,
-                        finishing_status,
-                        get_constructors,
-                        sprint_results,
                         qualifying_results,
-                        get_circuits,
-                        fastest_laps,
+                        race_table,
+                        race_winners,
+                        sprint_results,
                         )
+
