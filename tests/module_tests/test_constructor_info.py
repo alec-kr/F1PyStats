@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in constructor_info.py"""
 
 import json
+
 from f1pystats.constructor_info import ConstructorInfo
 
 

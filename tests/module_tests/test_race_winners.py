@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in race_winners.py"""
 
 import json
+
 from f1pystats.race_winners import RaceWinners
 
 

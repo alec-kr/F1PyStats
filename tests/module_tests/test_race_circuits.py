@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in race_circuits.py"""
 
 import json
+
 from f1pystats.race_circuits import RaceCircuits
 
 

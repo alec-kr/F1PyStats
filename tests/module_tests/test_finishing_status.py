@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in finishing_status.py"""
 
 import json
+
 from f1pystats.finishing_status import FinishingStatus
 
 

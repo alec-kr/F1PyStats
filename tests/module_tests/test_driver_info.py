@@ -1,5 +1,7 @@
 """Test module for testing methods DriverInfo class from driver_info folder """
+
 import json
+
 from f1pystats.driver_info import DriverInfo
 
 

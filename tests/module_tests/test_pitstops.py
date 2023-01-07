@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in pit_stops.py"""
 
 import json
+
 from f1pystats.pit_stops import PitStops
 
 
