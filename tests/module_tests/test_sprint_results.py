@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in sprint_results.py"""
 
 import json
+
 from f1pystats.sprint_results import SprintResults
 
 

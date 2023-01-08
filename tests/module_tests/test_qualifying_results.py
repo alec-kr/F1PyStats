@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in qualifying_results.py"""
 
 import json
+
 from f1pystats.qualifying_results import QualifyingResults
 
 

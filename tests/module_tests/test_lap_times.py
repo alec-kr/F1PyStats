@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in lap_times.py"""
 
 import json
+
 from f1pystats.lap_times import LapTimes
 
 

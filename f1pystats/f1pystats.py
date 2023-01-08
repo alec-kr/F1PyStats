@@ -1,29 +1,21 @@
 """This module is responsible for handling the user-level function calls"""
 
+import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
-import pandas as pd
-
-from .sprint_results import SprintResults
-
-from .pit_stops import PitStops
-
-from .driver_results import DriverResults
-
-from .constructor_results import ConstructorResults
-
-from .race_winners import RaceWinners
-
-from .race_schedule import RaceSchedule
-
-from .lap_times import LapTimes
-
-from .finishing_status import FinishingStatus
-from .qualifying_results import QualifyingResults
-from .race_circuits import RaceCircuits
-from .driver_info import DriverInfo
 
 from .constructor_info import ConstructorInfo
+from .constructor_results import ConstructorResults
+from .driver_info import DriverInfo
+from .driver_results import DriverResults
+from .finishing_status import FinishingStatus
+from .lap_times import LapTimes
+from .pit_stops import PitStops
+from .qualifying_results import QualifyingResults
+from .race_circuits import RaceCircuits
+from .race_schedule import RaceSchedule
+from .race_winners import RaceWinners
+from .sprint_results import SprintResults
 
 
 def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):

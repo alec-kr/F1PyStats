@@ -1,6 +1,7 @@
 """This module is responsible for testing the methods in driver_results.py"""
 
 import json
+
 from f1pystats.driver_results import DriverResults
 
 
