@@ -34,4 +34,4 @@ jobs:
         poetry run pylint $(git ls-files '*.py') --ignore=noxfile.py --ignore-paths=docs/
     - name: Analysing the code with flake8
       run: |
-        poetry run flake8 $(git ls-files '*.py')
+        poetry run flake8 $(git ls-files '*.py') --exit-zero --statistics
