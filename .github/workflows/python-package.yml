@@ -52,4 +52,5 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         files: coverage.lcov
+        token: bc95b885-80b1-4d26-8340-ea595af54db5
         fail_ci_if_error: true
