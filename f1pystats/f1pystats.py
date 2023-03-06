@@ -1,9 +1,9 @@
 """This module is responsible for handling the user-level function calls"""
 
+from typing import Optional
 import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
-from typing import Optional
 
 from .constructor_info import ConstructorInfo
 from .constructor_results import ConstructorResults
