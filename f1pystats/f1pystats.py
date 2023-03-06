@@ -1,5 +1,6 @@
 """This module is responsible for handling the user-level function calls"""
 
+from typing import Optional
 import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
@@ -65,7 +66,7 @@ CURR_YEAR = int(
 )
 
 
-def get_drivers(year: int, round_num: int = None):
+def get_drivers(year: int, round_num: Optional[int] = None):
     """Returns a list of drivers for a specified year"""
     if year < 1950 or year > CURR_YEAR:
         raise ValueError(
@@ -329,7 +330,7 @@ def sprint_results(year: int, race_round: int):
     )
 
 
-def get_constructors(year: int = None):
+def get_constructors(year: Optional[int] = None):
     """Returns a list of constructors for a specified year"""
     if year is None:
         url = "https://ergast.com/api/f1/constructors.json?limit=230"
@@ -394,7 +395,7 @@ def qualifying_results(year: int, race_round: int):
     )
 
 
-def get_circuits(year: int = None):
+def get_circuits(year: Optional[int] = None):
     """Returns the circuit name, circuit locality and circuit country"""
     if year is None:
         json_data = _get_json_content_from_url("http://ergast.com/api/f1/circuits.json?limit=100")
