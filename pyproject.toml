@@ -2,7 +2,10 @@
 name = "f1pystats"
 version = "0.1.1"
 description = "F1PyStats is an open-source Python3 package that provides Formula 1 data/statistics to developers"
-authors = ["Gaurav Kolekar <gaurav.kolekar01@gmail.com>"]
+authors = [
+    "Alec Ramdhan <akramdhan02@gmail.com>",
+    "Gaurav Kolekar <gaurav.kolekar01@gmail.com>",
+]
 license = "GPL-3.0"
 readme = "README.md"
 
