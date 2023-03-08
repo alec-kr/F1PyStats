@@ -280,13 +280,13 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
 
     p_stops = PitStops(stops_json)
     driver_names = p_stops.get_driver_names()
-    stop_number = p_stops.get_stop_numbers()
-    lap_number = p_stops.get_lap_numbers()
-    race_time = p_stops.get_times()
-    stop_duration = p_stops.get_durations()
+    stop_numbers = p_stops.get_stop_numbers()
+    lap_numbers = p_stops.get_lap_numbers()
+    race_times = p_stops.get_times()
+    stop_durations = p_stops.get_durations()
 
     return pd.DataFrame(
-        zip(driver_names, stop_number, lap_number, race_time, stop_duration),
+        zip(driver_names, stop_numbers, lap_numbers, race_times, stop_durations),
         columns=["Driver", "Stop", "Lap", "Time", "Duration"],
     )
 
