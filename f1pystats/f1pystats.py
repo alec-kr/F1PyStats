@@ -26,9 +26,9 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
-def _conv_sec(time_str: str) -> float:
+def _conv_sec(duration: str) -> float:
     """Returns seconds from time string"""
-    ite = iter(time_str)
+    ite = iter(duration)
 
     # integer part: stores sec_i
     sec_i: int = 0
