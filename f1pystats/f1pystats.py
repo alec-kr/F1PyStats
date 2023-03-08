@@ -28,34 +28,35 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
 
 def get_sec(time_str):
     """Returns seconds from time string"""
-    sec = 0
+    ite = iter(time_str)
+
+    # integer part: stores sec_i
+    sec_i: int = 0
+    num: int = 0
+    for char in ite:   
+        if '0' <= char <= '9':
+            num *= 10
+            num += ord(char) - ord('0')
+        elif char == ':':
+            sec_i += num
+            sec_i *= 60
+            num = 0
+        elif char == '.':
+            break
+    sec_i += num
+
+    # fractional part: stores sec_f
     num = 0
-    dplace = 0
-    for char in time_str:
-        if dplace == 0:
-            if '0' <= char <= '9':
-                num *= 10
-                num += ord(char) - ord('0')
-            elif char == ':':
-                sec += num
-                sec *= 60
-                num = 0
-            elif char == '.':
-                sec += num
-                num = 0
-                dplace = -1
-        else:
-            if '0' <= char <= '9':
-                num *= 10
-                num += ord(char) - ord('0')
-                dplace -= 1
+    exp: int = 0        
+    for char in ite:   
+        if '0' <= char <= '9':
+            num *= 10
+            num += ord(char) - ord('0')
+            exp -= 1
+    sec_f: float = num * pow(10, exp)
 
-    if dplace == 0:
-        sec += num
-    else:
-        sec += num * pow(10, dplace + 1)
-
-    return sec
+    # integer + fractianl
+    return sec_i + sec_f
 
 
 # Requesting the season list and get the last one to initialize CURR_YEAR
