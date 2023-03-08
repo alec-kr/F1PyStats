@@ -6,7 +6,7 @@ from .base_test_class import BaseTestClass
 class TestUtil(BaseTestClass):
     """Tests for the utility functions"""
 
-    def test_conv_sec(self):
+    def test_conv_sec(self) -> None:
         """Test seconds returned from _conv_sec"""
         assert self.fp._conv_sec("58.79") == 58.79       # N.Lauda 1974 R9 Q
         assert self.fp._conv_sec("1") == 1               # Minimum format
