@@ -26,7 +26,7 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
-def _conv_sec(duration: str) -> float:
+def conv_sec(duration: str) -> float:
     """
     Returns a converted to seconds from duaring time.
 
@@ -35,18 +35,18 @@ def _conv_sec(duration: str) -> float:
 
     Examples
     --------
-    >>> _conv_sec("58.79")       # 1974 R9 Niki Lauda Qualify TIme
+    >>> conv_sec("58.79")       # 1974 R9 Niki Lauda Qualify TIme
     58.79 
-    >>> _conv_sec("1:33:56.736") # 2003 R1 Max Verstappen Race Time
+    >>> conv_sec("1:33:56.736") # 2003 R1 Max Verstappen Race Time
     5636.736
     """
-    
+
     ite = iter(duration)
 
     # integer part: stores sec_i
     sec_i: int = 0
     num: int = 0
-    for char in ite:   
+    for char in ite:
         if '0' <= char <= '9':
             num *= 10
             num += ord(char) - ord('0')
@@ -60,8 +60,8 @@ def _conv_sec(duration: str) -> float:
 
     # fractional part: stores sec_f
     num = 0
-    exp: int = 0        
-    for char in ite:   
+    exp: int = 0
+    for char in ite:
         if '0' <= char <= '9':
             num *= 10
             num += ord(char) - ord('0')
@@ -275,7 +275,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
 
     if fastest:
-        ftime = min((i["duration"] for i in stops_json), key=_conv_sec)
+        ftime = min((i["duration"] for i in stops_json), key=conv_sec)
         stops_json = [i for i in stops_json if i["duration"] == ftime]
 
     p_stops = PitStops(stops_json)
