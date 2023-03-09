@@ -28,7 +28,7 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
 
 def conv_sec(duration: str) -> float:
     """
-    Returns a converted to seconds from duaring time.
+    Returns duration time converted to seconds.
 
     The duration time format is "hh:mm:ss.sss". hh, mm and fractional part can
     be omitted.
