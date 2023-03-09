@@ -26,36 +26,50 @@ def _get_json_content_from_url(url, *args, timeout: int = 15, **kwargs):
     return session.get(url, *args, timeout=timeout, **kwargs).json()
 
 
-def get_sec(time_str):
-    """Returns seconds from time string"""
-    sec = 0
+def conv_sec(duration: str) -> float:
+    """
+    Returns duration time converted to seconds.
+
+    The duration time format is "hh:mm:ss.sss". hh, mm and fractional part can
+    be omitted.
+
+    Examples
+    --------
+    >>> conv_sec("58.79")       # 1974 R9 Niki Lauda Qualify TIme
+    58.79 
+    >>> conv_sec("1:33:56.736") # 2003 R1 Max Verstappen Race Time
+    5636.736
+    """
+
+    ite = iter(duration)
+
+    # integer part: stores sec_i
+    sec_i: int = 0
+    num: int = 0
+    for char in ite:
+        if '0' <= char <= '9':
+            num *= 10
+            num += ord(char) - ord('0')
+        elif char == ':':
+            sec_i += num
+            sec_i *= 60
+            num = 0
+        elif char == '.':
+            break
+    sec_i += num
+
+    # fractional part: stores sec_f
     num = 0
-    dplace = 0
-    for char in time_str:
-        if dplace == 0:
-            if '0' <= char <= '9':
-                num *= 10
-                num += ord(char) - ord('0')
-            elif char == ':':
-                sec += num
-                sec *= 60
-                num = 0
-            elif char == '.':
-                sec += num
-                num = 0
-                dplace = -1
-        else:
-            if '0' <= char <= '9':
-                num *= 10
-                num += ord(char) - ord('0')
-                dplace -= 1
+    exp: int = 0
+    for char in ite:
+        if '0' <= char <= '9':
+            num *= 10
+            num += ord(char) - ord('0')
+            exp -= 1
+    sec_f: float = num * pow(10, exp)
 
-    if dplace == 0:
-        sec += num
-    else:
-        sec += num * pow(10, dplace + 1)
-
-    return sec
+    # integer + fractianl
+    return sec_i + sec_f
 
 
 # Requesting the season list and get the last one to initialize CURR_YEAR
@@ -261,7 +275,7 @@ def pit_stops(year: int, race_round: int, stop_number: int = 0, fastest: bool = 
     stops_json = json_data["MRData"]["RaceTable"]["Races"][0]["PitStops"]
 
     if fastest:
-        ftime = min((i["duration"] for i in stops_json), key=get_sec)
+        ftime = min((i["duration"] for i in stops_json), key=conv_sec)
         stops_json = [i for i in stops_json if i["duration"] == ftime]
 
     p_stops = PitStops(stops_json)
