@@ -1,7 +1,5 @@
 # Configuration file for the Sphinx documentation builder.
 #
-# $ poetry run sphinx-build -M html "source" "build"
-#
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
