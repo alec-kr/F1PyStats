@@ -61,6 +61,14 @@ The package currently contains thirteen functions
 
 
 
+# Generate API docs
+
+The following command will generate API documentation under `docs/_build`.
+
+```
+$ poetry run sphinx-build -M html docs docs/_build
+```
+
 # Contributions
 NOTE: Please ensure you follow our [contributing guidelines](https://github.com/alec-kr/F1PyStats/blob/main/CONTRIBUTING.md) when contributing in any way to this repository.
 ## Feature Requests
