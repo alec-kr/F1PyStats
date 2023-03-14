@@ -16,7 +16,7 @@ release = '0.1.1'
 
 import sys, os
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'f1pystats'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'f1pystats'))
 
 extensions = [
     "sphinx.ext.autodoc",
