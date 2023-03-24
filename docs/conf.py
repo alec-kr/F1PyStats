@@ -15,7 +15,7 @@ metadata = toml.load(os.path.join(os.path.dirname(__file__), '..', 'pyproject.to
 project = "F1PyStats"
 author = ",".join(metadata["authors"])
 copyright = f"2020, 2022, 2023, {author}"
-release = metadata["version"]
+release = "0.1.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
