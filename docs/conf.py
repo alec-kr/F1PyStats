@@ -6,10 +6,16 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 """Sphinx configuration."""
+
+import toml
+import os
+
+metadata = toml.load(os.path.join(os.path.dirname(__file__), '..', 'pyproject.toml'))["tool"]["poetry"]
+
 project = "F1PyStats"
-author = "Gaurav Kolekar"
-copyright = f"2020, {author}"
-release = '0.1.1'
+author = ",".join(metadata["authors"])
+copyright = f"2020, 2022, 2023, {author}"
+release = metadata["version"]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
