@@ -39,6 +39,7 @@ pytest-cov = "^4.0.0"
 pylint = "^2.15.10"
 furo = "^2022.12.7"
 toml = "^0.10.2"
+bump2version = "^1.0.1"
 
 [build-system]
 requires = ["poetry-core"]
