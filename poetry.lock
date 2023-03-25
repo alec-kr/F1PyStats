@@ -116,6 +116,18 @@ jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
+name = "bump2version"
+version = "1.0.1"
+description = "Version-bump your software with a single command!"
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "bump2version-1.0.1-py2.py3-none-any.whl", hash = "sha256:37f927ea17cde7ae2d7baf832f8e80ce3777624554a653006c9144f8017fe410"},
+    {file = "bump2version-1.0.1.tar.gz", hash = "sha256:762cb2bfad61f4ec8e2bdf452c7c267416f8c70dd9ecb1653fd0bbb01fa936e6"},
+]
+
+[[package]]
 name = "certifi"
 version = "2022.12.7"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -406,14 +418,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "filelock"
-version = "3.10.3"
+version = "3.10.4"
 description = "A platform independent file lock."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "filelock-3.10.3-py3-none-any.whl", hash = "sha256:99d6282f732410d44242ca02aa49835cf5473e2dd4d6734a2a785c8889dc191e"},
-    {file = "filelock-3.10.3.tar.gz", hash = "sha256:a26bfa34d26293e04886dff13fa8dd0c8c6e1a786b723c689755fe8939297410"},
+    {file = "filelock-3.10.4-py3-none-any.whl", hash = "sha256:6d332dc5c896f18ba93a21d987155e97c434a96d3fe4042ca70d0b3b46e3b470"},
+    {file = "filelock-3.10.4.tar.gz", hash = "sha256:9fc1734dbddcdcd4aaa02c160dd94db5272b92dfa859b44ec8df28e160b751f0"},
 ]
 
 [package.extras]
@@ -1553,4 +1565,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "f46078792a43417818ed02f5b5cf900831fc9381ff1aad97e7dbbf0af67dd1d5"
+content-hash = "eaf020d6b4f5f017118101509bfcd4d1732a7b4500986abd265a0aaca8669a57"
