@@ -66,7 +66,8 @@ The package currently contains thirteen functions
 The following command will generate API documentation under `docs/_build`.
 
 ```
-$ poetry run sphinx-build -M html docs docs/_build
+$ pip install nox-poetry
+$ nox -s docs
 ```
 
 # Contributions

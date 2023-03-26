@@ -36,8 +36,11 @@ def code_coverage(session) -> None:
     pass
 
 
-@session(python="3.8")
+@session
 def docs(session) -> None:
     """Build the documentation."""
-    session.install("sphinx", "sphinx-autodoc-typehints")
-    session.run("sphinx-build", "docs", "docs/_build")
+    session.install("sphinx",
+                    "sphinx-autodoc-typehints",
+                    "cloud-sptheme",
+                    "toml")
+    session.run("sphinx-build", "-M", "html", "docs", "docs/_build")
