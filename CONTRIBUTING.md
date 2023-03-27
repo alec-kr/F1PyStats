@@ -57,6 +57,12 @@ git checkout ＜new-branch-name＞
 ### Installation
 You can follow the instructions in the [README](https://github.com/alec-kr/F1PyStats/blob/main/README.md#prerequisite) to install the package.
 
+### Test
+
+```
+$ poetry run nox -s mypy 
+```
+
 ### Submitting a Pull Request
 1. Before submitting a PR, please ensure that you have updated the [README](https://github.com/alec-kr/F1PyStats/blob/main/README.md) with the necessary feature additons/changes (if necessary).
 2. To ensure your contribution is easy to review by the maintainer, kindly follow the [template](https://raw.githubusercontent.com/alec-kr/F1PyStats/main/.github/pull_request_template.md) when submitting your PR.

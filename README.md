@@ -66,8 +66,7 @@ The package currently contains thirteen functions
 The following command will generate API documentation under `docs/_build`.
 
 ```
-$ pip install nox-poetry
-$ nox -s docs
+$ poetry run nox -s docs
 ```
 
 # Contributions

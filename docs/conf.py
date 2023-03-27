@@ -9,6 +9,7 @@
 
 import toml
 import os
+from typing import List
 
 metadata = toml.load(os.path.join(os.path.dirname(__file__), '..', 'pyproject.toml'))["tool"]["poetry"]
 
@@ -27,7 +28,7 @@ extensions = [
 ]
 
 #templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = [] # type: List[str]
 
 
 

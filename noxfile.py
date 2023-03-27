@@ -17,10 +17,16 @@ def lint(session) -> None:
     session.run("flake8", *args)
 
 
-@session(python=["3.8"])
+@session
 def mypy(session) -> None:
     """Runs type checking the package."""
     args = session.posargs or locations
+    session.install("mypy",
+                    "types-requests",
+                    "numpy",
+                    "pytest",                    
+                    "nox_poetry",
+                    "types-toml")    
     session.run("mypy", *args)
 
 
