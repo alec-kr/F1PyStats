@@ -30,10 +30,13 @@ def mypy(session) -> None:
     session.run("mypy", *args)
 
 
-@session(python='3.8')
+@session(python=['3.9', '3.10', '3.11'])
 def tests(session) -> None:
     """Run all tests."""
-    pass
+    session.install("pytest",
+                    "requests",
+                    "pandas")
+    session.run("pytest")
 
 
 @session(python='3.8')
