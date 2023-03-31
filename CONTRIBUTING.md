@@ -59,8 +59,22 @@ You can follow the instructions in the [README](https://github.com/alec-kr/F1PyS
 
 ### Test
 
+By Default, Nox deletes and recreates virtualenvs every time it is run. If -R option is
+specified, reuse virtualenvs and skip re-installation of packages.
+
+Static type check:
 ```
 $ poetry run nox -s mypy 
+```
+
+Test aginst all supported Python version:
+```
+$ poetry run nox -s tests
+```
+
+You can choose to run only sessions with given Python versions:
+```
+$ poetry run nox --python 3.11 -s tests
 ```
 
 ### Submitting a Pull Request
