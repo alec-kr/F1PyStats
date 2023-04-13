@@ -50,6 +50,6 @@ def docs(session) -> None:
     """Build the documentation."""
     session.install("sphinx",
                     "sphinx-autodoc-typehints",
-                    "cloud-sptheme",
+                    "furo",
                     "toml")
     session.run("sphinx-build", "-M", "html", "docs", "docs/_build")
