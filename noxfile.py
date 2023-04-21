@@ -44,7 +44,11 @@ def tests(session: Session) -> None:
 @session(python=python_versions[-1])
 def code_coverage(session: Session) -> None:
     """Run package coverage."""
-    pass
+    session.install("pytest",
+                    "pytest-cov",
+                    "requests",
+                    "pandas")
+    session.run("pytest", "--cov", "--cov-report=lcov")
 
 
 @session(python=python_versions[-1])
