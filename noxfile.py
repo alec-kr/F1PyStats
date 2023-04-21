@@ -1,11 +1,12 @@
 """Nox sessoins."""
+from nox_poetry import Session
 from nox_poetry import session
 
 locations = "f1pystats", "tests", "noxfile.py", "docs/conf.py"
 
 
 @session(python=['3.8'])
-def lint(session) -> None:
+def lint(session: Session) -> None:
     """Runs linting for the package."""
     args = session.posargs or locations
     session.install("flake8",
@@ -19,7 +20,7 @@ def lint(session) -> None:
 
 
 @session
-def mypy(session) -> None:
+def mypy(session: Session) -> None:
     """Runs type checking the package."""
     args = session.posargs or locations
     session.install("mypy",
@@ -32,7 +33,7 @@ def mypy(session) -> None:
 
 
 @session(python=['3.9', '3.10', '3.11'])
-def tests(session) -> None:
+def tests(session: Session) -> None:
     """Run all tests."""
     session.install("pytest",
                     "requests",
@@ -41,13 +42,13 @@ def tests(session) -> None:
 
 
 @session(python='3.8')
-def code_coverage(session) -> None:
+def code_coverage(session: Session) -> None:
     """Run package coverage."""
     pass
 
 
 @session
-def docs(session) -> None:
+def docs(session: Session) -> None:
     """Build the documentation."""
     session.install("sphinx",
                     "sphinx-autodoc-typehints",
