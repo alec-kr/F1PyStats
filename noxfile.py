@@ -5,6 +5,7 @@ from nox_poetry import session
 locations = "f1pystats", "tests", "noxfile.py", "docs/conf.py"
 python_versions = ['3.9', '3.10', '3.11']
 
+
 @session(python=python_versions[-1])
 def lint(session: Session) -> None:
     """Runs linting for the package."""
