@@ -1,3 +1,4 @@
+"""Nox sessoins."""
 from nox_poetry import session
 
 locations = "f1pystats", "tests", "noxfile.py", "docs/conf.py"
@@ -24,9 +25,9 @@ def mypy(session) -> None:
     session.install("mypy",
                     "types-requests",
                     "numpy",
-                    "pytest",                    
+                    "pytest",
                     "nox_poetry",
-                    "types-toml")    
+                    "types-toml")
     session.run("mypy", *args)
 
 
