@@ -3,9 +3,9 @@ from nox_poetry import Session
 from nox_poetry import session
 
 locations = "f1pystats", "tests", "noxfile.py", "docs/conf.py"
+python_versions = ['3.9', '3.10', '3.11']
 
-
-@session(python=['3.8'])
+@session(python=python_versions[-1])
 def lint(session: Session) -> None:
     """Runs linting for the package."""
     args = session.posargs or locations
@@ -19,7 +19,7 @@ def lint(session: Session) -> None:
     session.run("flake8", *args)
 
 
-@session
+@session(python=python_versions)
 def mypy(session: Session) -> None:
     """Runs type checking the package."""
     args = session.posargs or locations
@@ -32,7 +32,7 @@ def mypy(session: Session) -> None:
     session.run("mypy", *args)
 
 
-@session(python=['3.9', '3.10', '3.11'])
+@session(python=python_versions)
 def tests(session: Session) -> None:
     """Run all tests."""
     session.install("pytest",
@@ -41,13 +41,13 @@ def tests(session: Session) -> None:
     session.run("pytest")
 
 
-@session(python='3.8')
+@session(python=python_versions[-1])
 def code_coverage(session: Session) -> None:
     """Run package coverage."""
     pass
 
 
-@session
+@session(python=python_versions[-1])
 def docs(session: Session) -> None:
     """Build the documentation."""
     session.install("sphinx",
