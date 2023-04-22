@@ -7,11 +7,14 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 """Sphinx configuration."""
 
-import toml
+
 import os
 from typing import List
 
-metadata = toml.load(os.path.join(os.path.dirname(__file__), '..', 'pyproject.toml'))["tool"]["poetry"]
+import toml
+
+pyproject_path = os.path.join(os.path.dirname(__file__), '..', 'pyproject.toml')
+metadata = toml.load(pyproject_path)["tool"]["poetry"]
 
 project = "F1PyStats"
 author = ",".join(metadata["authors"])
@@ -27,13 +30,12 @@ extensions = [
     "sphinx_autodoc_typehints",
 ]
 
-#templates_path = ['_templates']
-exclude_patterns = [] # type: List[str]
-
+# templates_path = ['_templates']
+exclude_patterns = []  # type: List[str]
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'furo'
-#html_static_path = ['_static']
+# html_static_path = ['_static']
