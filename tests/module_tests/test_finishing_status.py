@@ -11,7 +11,6 @@ class TestFinishingStatus:
     data = ""
     with open("tests/test_data/module_data/top_3_status_2010.json", encoding='utf-8') as f:
         data = json.load(f)
-        f.close()
 
     f_status = FinishingStatus(data)
 

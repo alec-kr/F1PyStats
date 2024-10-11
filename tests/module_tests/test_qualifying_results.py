@@ -12,7 +12,6 @@ class TestQualifyingResults:
     with open("tests/test_data/module_data/first_3_qualifying_results_2022.json",
               encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     r_obj = QualifyingResults(data)
 

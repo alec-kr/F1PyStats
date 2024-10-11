@@ -13,7 +13,6 @@ class TestPitStops:
               encoding="utf-8") as f:
 
         data = json.load(f)
-        f.close()
 
     p_stops = PitStops(data)
 

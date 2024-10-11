@@ -11,7 +11,6 @@ class TestConstructorResults:
     data = ""
     with open("tests/test_data/module_data/top_3_constructors_2008.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     c_res = ConstructorResults(data)
 
