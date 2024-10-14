@@ -12,7 +12,6 @@ class TestDriverInfo:
 
     with open("tests/test_data/module_data/sample_drivers_info_2000.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     driver = DriverInfo(data)
 

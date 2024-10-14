@@ -11,7 +11,6 @@ class TestRaceSchedule:
     data = ""
     with open("tests/test_data/module_data/first_3_races_2008.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     r_sched = RaceSchedule(data)
 

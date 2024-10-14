@@ -18,6 +18,5 @@ class BaseTestClass:
         data = ""
         with open(f"tests/test_data/api_data/{file_name}", encoding="utf-8") as data_file:
             data = self.json.load(data_file)
-            data_file.close()
 
         return data

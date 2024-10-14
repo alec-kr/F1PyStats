@@ -10,7 +10,6 @@ class TestRaceCircuits:
     data = ""
     with open("tests/test_data/module_data/first_3_race_circuits.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
     c_obj = RaceCircuits(data)
 
     def test_get_circuit_name(self):

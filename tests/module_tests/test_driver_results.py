@@ -11,7 +11,6 @@ class TestDriverResults:
     data = ""
     with open("tests/test_data/module_data/top_3_drivers_2008.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     d_res = DriverResults(data)
 

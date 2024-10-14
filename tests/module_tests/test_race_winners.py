@@ -11,7 +11,6 @@ class TestRaceWinners:
     data = ""
     with open("tests/test_data/module_data/first_3_winners_2008.json", encoding="utf-8") as f:
         data = json.load(f)
-        f.close()
 
     r_win = RaceWinners(data)
 
