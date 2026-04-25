@@ -1,4 +1,11 @@
 # F1PyStats
+
+## ⚠️ Project Status
+
+F1PyStats is currently not maintained due to dependency on the Ergast API.
+
+Future updates may include migration to a new data source if available.
+##
 <img src="https://raw.githubusercontent.com/alec-kr/F1PyStats/main/assets/F1PYStatsSimplified.png" align="right" alt="icon" width="303">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/alec-kr/F1PyStats?style=social)](https://github.com/alec-kr/F1PyStats)
