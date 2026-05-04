@@ -77,7 +77,7 @@ $ poetry run nox -s docs
 ```
 
 # Contributions
-NOTE: Please ensure you follow our [contributing guidelines](https://github.com/alec-kr/F1PyStats/blob/main/CONTRIBUTING.md) when contributing in any way to this repository.
+Please ensure you follow our [contributing guidelines](https://github.com/alec-kr/F1PyStats/blob/main/CONTRIBUTING.md) when contributing in any way to this repository.
 ## Feature Requests
 Perhaps you have a great idea for a feature, but you're not sure how to implement it. 
 
